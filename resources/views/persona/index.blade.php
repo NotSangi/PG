@@ -16,7 +16,7 @@
 @section('componentes')
 
 <a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true" >
-    <span>QUIÉNES SOMOS</span>
+    <span>QUIÉNES SOMOS HOLA</span>
 </a>
 <a class="nav-link collapsed" style="text-align: center" href="#nuestroEquipo" aria-expanded="true" >
     <span>NUESTRO EQUIPO</span>
