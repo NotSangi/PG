@@ -100,7 +100,7 @@
                         <div class="tt-btn">
 
                             <div class="tt">
-                                <h1 style="font-siz">
+                                <h1>
                                     <b>
                                         ¡Sonríe con Confianza!
                                     </b>
