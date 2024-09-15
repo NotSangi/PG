@@ -65,15 +65,15 @@
 
 .seccion-1 {
     padding: 0px 60px 0px 60px;
-    margin: -24px 0px 50px 0px;
+    margin: 0px 0px 50px 0px;
     display: flex;
     align-items: center;
     position: relative;
-    height: 100vh;
-    background: linear-gradient(135deg, #a0d0e0, #b4d9b4, #f5e4d7);
+    height: 650px;
+    background: linear-gradient(135deg, hwb(150 35% 0%), #6b4aff, #ff9f56);
     background-size: 300% 300%;
     animation: gradientAnimation 10s ease infinite;
-    box-shadow: 0px 0px 50px 2px rgb(82, 81, 91);
+    box-shadow: 0px 0px 50px 2px rgb(29, 125, 173);
     border-radius: 20px;
 }
 
@@ -95,18 +95,22 @@
 
 .tt {
     font-family: "Quicksand", sans-serif;
-    color: #003366;
+    color: #ffffff;
     padding: 10px 0px 0px 0px;
     margin: 80px 0px 90px 0px;
 }
 
 .textt {
     font-family: "Quicksand", sans-serif;
-    color: #003366;
+    color: #ffffff;
     padding: 0px 12px 0px 12px;
     margin: 0px 20px 80px 20px;
     font-size: 20px;
     text-align: center;
+}
+
+.tt h1{
+    box-shadow: #000;
 }
 
 .btnagn {
@@ -124,8 +128,8 @@
 }
 
 .btnagn:hover {
-    box-shadow: 0px 0px 20px 1px rgb(45, 179, 0);
-    background-color: #69df01;
+    box-shadow: 0px 0px 20px 1px rgb(7, 215, 146);
+    background-color: #0eff97;
     transform: scale(1.05);
     color: #ffffff;
     transition: 0.5s;
@@ -140,7 +144,7 @@
     align-items: center;
     position: relative;
     background-color: #b5eef4;
-    box-shadow: 0px 0px 50px 2px rgb(82, 81, 91);
+    box-shadow: 0px 0px 50px 2px rgb(33, 137, 197);
     border-radius: 20px;
 }
 

@@ -109,10 +109,12 @@
 
                             <div class="textt">
                                 <p>
+                                    
                                     ¿Listo para un cambio que te hará brillar? En Mi Nueva Sonrisa, estamos
                                     aquí para ayudarte a alcanzar la sonrisa saludable y radiante que siempre has
                                     deseado. Nuestros expertos están listos para ofrecerte cuidados dentales de primera
                                     calidad en un ambiente cómodo y amigable.
+                                    
                                 </p>
                                 <p>
                                     Tu sonrisa es nuestro compromiso. ¡Esperamos verte pronto!
