@@ -30,6 +30,19 @@ class PersonaController extends Controller
         return view("persona.index");
     }
 
+    public function formulario(){
+        if (Auth::check()) {
+            if (Auth::user()->hasRole('admin')) {
+                return Redirect::to('adminR');
+            } else if (Auth::user()->hasRole('paciente')) {
+                return Redirect::to('form');
+            } else if (Auth::user()->hasRole('doctor')) {
+                return Redirect::to('doctorR');
+            }
+        } else {
+            return view("layout.login");
+        }    
+    }
 
     public function adminView()
     {
@@ -45,6 +58,11 @@ class PersonaController extends Controller
     {
         return view("persona.doctor");
     }
+
+    public function form()
+    {
+        return view("layout.formulario");    
+    } 
 
     public function secretariaView()
     {

@@ -3,7 +3,7 @@
 @section('user')
 <li class="nav-item dropdown no-arrow">
 
-    <a class="nav-i-r" href="{{url('login')}}" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <a class="nav-i-r" href="{{url(path: 'login')}}" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
         <span class="d-none d-lg-inline text-gray-600 small" style="font-size: 15px">INICIO SESION</span>
     </a>
     <a class="nav-i-r" href="{{url('register')}}" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
