@@ -179,6 +179,18 @@
     width: 100%;
 }
 
+/*-----------------------------------Seccion 3-----------------------------------*/
+
+.seccion-3 {
+    padding: 0px 60px 0px 60px;
+    margin: 50px 0px 50px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-shadow: 0px 0px 50px 2px rgb(82, 81, 91);
+    border-radius: 20px;
+}
+
 /*FIN CCS AGREGADO POR ESTEBAN*/
 
 /*INICIO CSS AGREGADO*/
