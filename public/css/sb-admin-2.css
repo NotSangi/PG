@@ -98,7 +98,6 @@
     color: #003366;
     padding: 10px 0px 0px 0px;
     margin: 80px 0px 90px 0px;
-    
 }
 
 .textt {
@@ -132,16 +131,15 @@
     transition: 0.5s;
 }
 
-
 /*-----------------------------------Seccion 2-----------------------------------*/
 
 .seccion-2 {
-    padding: 0px 60px 0px 60px;
+    padding: 0px 60px 50px 60px;
     margin: 0px 0px 50px 0px;
     display: flex;
     align-items: center;
     position: relative;
-    background-color: #b5f4dd;
+    background-color: #b5eef4;
     box-shadow: 0px 0px 50px 2px rgb(82, 81, 91);
     border-radius: 20px;
 }
@@ -154,26 +152,30 @@
 .quienes-somos h2 {
     font-family: "Quicksand", sans-serif;
     color: #003366;
-    padding: 0px 0px 20px 0px;   
+    padding: 0px 0px 20px 0px;
+    margin: 50px 0px 10px 0px;
 }
 
-
-.quienes-somos p{
+.quienes-somos p {
     font-family: "Quicksand", sans-serif;
     color: #003366;
-    font-size: 20px;
+    font-size: 21px;
     text-align: justify;
 }
 
 .quienes-img {
-    max-width: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100px;
+    height: auto;
+    margin: 100px 0px 0px 150px;
 }
 
 .quienes-img img {
-    width: 200px;
-    height: auto;
+    width: 400px;
+    height: 350px;
 }
-
 
 /*FIN CCS AGREGADO POR ESTEBAN*/
 
@@ -4658,7 +4660,7 @@ input[type="button"].btn-block {
 
     top: 0; /* Se coloca en la parte superior de la página */
     left: 0;
-    width: 100%; /* Ocupa todo el ancho de la página */ 
+    width: 100%; /* Ocupa todo el ancho de la página */
     z-index: 1000;
 }
 

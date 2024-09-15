@@ -176,7 +176,7 @@
                                         </h2>
 
                                         <p>
-                                            En Mi Nueva Sonrisaa, nos especializamos en brindar atención
+                                            En Mi Nueva Sonrisa, nos especializamos en brindar atención
                                             odontológica de alta calidad con un enfoque personalizado. Nuestro equipo de
                                             profesionales dedicados está comprometido con su salud bucal y su bienestar,
                                             utilizando tecnología avanzada y técnicas modernas para asegurar
@@ -190,7 +190,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="quienes-img">
-                                        <img src="img/Sonrisa.jpg" alt="">
+                                        <img src="img/Diente.png" alt="">
                                     </div>
                                 </div>
                             </div>
