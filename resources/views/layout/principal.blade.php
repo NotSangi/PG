@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>CLÍNICA DE OCCIDENTE</title>
+    <title>MI NUEVA SONRISA</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -100,7 +100,7 @@
                         <div class="tt-btn">
 
                             <div class="tt">
-                                <h1>
+                                <h1 style="font-siz">
                                     <b>
                                         ¡Sonríe con Confianza!
                                     </b>
