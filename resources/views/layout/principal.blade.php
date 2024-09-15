@@ -303,6 +303,7 @@
                                 <div class="col">
                                     <img src="" alt="">
                                 </div>
+                                
                                 <div class="col">
                                     <div class="mi-vi">
                                         <div class="mision">

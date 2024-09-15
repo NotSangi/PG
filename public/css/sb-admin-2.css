@@ -191,6 +191,26 @@
     border-radius: 20px;
 }
 
+.mision {
+    padding: 0px 60px 0px 60px;
+    margin: 50px 0px 50px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 20px;
+    background-color: #b5eef4;
+}
+
+.vision {
+    padding: 0px 60px 0px 60px;
+    margin: 50px 0px 50px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 20px;
+    background-color: #b5eef4;
+}
+
 /*FIN CCS AGREGADO POR ESTEBAN*/
 
 /*INICIO CSS AGREGADO*/
