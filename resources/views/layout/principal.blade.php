@@ -18,6 +18,10 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -35,26 +39,10 @@
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            <div id="content">
+            <div class="content" id="content">
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <!--
-                    <div class="barra-superior">
-                        <link rel="stylesheet" href="Style.css">
-
-                        <nav class="navbar" style="background-color: #0045AD;">
-                            <div class="Image-Mediafire">
-                                <img src="" height="25px" alt="">
-                            </div>
-
-                            <div class="Botones-barra">
-                                <button class="upg">Agendar Cita</button>
-                                <button class="sig">Mis Citas</button>
-                            </div>
-                        </nav>
-                    </div>
-                -->
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
@@ -112,25 +100,28 @@
                         <div class="tt-btn">
 
                             <div class="tt">
-                                <h1>¡Sonríe con Confianza!</h1>
+                                <h1>
+                                    <b>
+                                        ¡Sonríe con Confianza!
+                                    </b>
+                                </h1>
                             </div>
 
                             <div class="textt">
-                                <h3>
+                                <p>
                                     ¿Listo para un cambio que te hará brillar? En Mi Nueva Sonrisa, estamos
                                     aquí para ayudarte a alcanzar la sonrisa saludable y radiante que siempre has
                                     deseado. Nuestros expertos están listos para ofrecerte cuidados dentales de primera
                                     calidad en un ambiente cómodo y amigable.
-
-                                    ¡Agenda tu cita hoy mismo y comienza tu camino hacia una sonrisa perfecta! No dejes
-                                    que los problemas dentales te frenen. Reserva ahora y da el primer paso hacia una
-                                    salud dental óptima.
-
+                                </p>
+                                <p>
                                     Tu sonrisa es nuestro compromiso. ¡Esperamos verte pronto!
-                                </h3>
+                                </p>
                             </div>
 
-                            <div class="btn-cita"><button>Agendar</button></div>
+                            <div class="btn-cita">
+                                <button class="btnagn">Agendar</button>
+                            </div>
 
                         </div>
 

@@ -53,22 +53,26 @@
 
 /*CCS AGREGADO POR ESTEBAN*/
 
+.content {
+    background-color: #bdd9ff;
+}
+
 .seccion-1 {
-   margin: 0px 70px 10px 70px;
+    margin: 0px 70px 10px 70px;
 }
 
 .agen-cita {
     padding: 0px 60px 0px 60px;
-    margin: -25px;
+    margin: -24px;
     display: flex;
-    justify-content: center;
     align-items: center;
     position: relative;
-
     height: 100vh;
     background: linear-gradient(135deg, #a0d0e0, #b4d9b4, #f5e4d7);
     background-size: 300% 300%;
     animation: gradientAnimation 10s ease infinite;
+    box-shadow: 0px 0px 50px 2px rgb(82, 81, 91);
+    border-radius: 20px;
 }
 
 @keyframes gradientAnimation {
@@ -84,27 +88,44 @@
 }
 
 .tt-btn {
-    font-family: 'Montserrat', sans-serif;
     text-align: center;
-    display: block;
 }
 
 .tt {
+    font-family: "Quicksand", sans-serif;
     color: #003366;
-    font-weight: 100;
+    padding: 10px 0px 0px 0px;
+    margin: 80px 0px 90px 0px;
 }
 
+.textt {
+    font-family: "Quicksand", sans-serif;
+    color: #003366;
+    padding: 0px 12px 0px 12px;
+    margin: 0px 20px 80px 20px;
+    font-size: 20px;
+    text-align: center;
+}
 
-.btn-agn {
-    margin: 50px 0px 10px 0px;
+.btnagn {
+    margin: 0px 0px 10px 0px;
     border-radius: 30px;
-    background-color: #66bb6a;
+    background-color: #5355ef;
     font-size: 25px;
     font-weight: bold;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    border-color: #5ed887;
+    border: none;
     padding: 10px 80px;
     color: white;
+    box-shadow: 0px 0px 20px 1px rgb(0, 19, 127);
+    font-family: "Quicksand", sans-serif;
+    transition: 0.5s;
+}
+
+.btnagn:hover {
+    box-shadow: 0px 0px 20px 1px rgb(32, 118, 3);
+    background-color: #95e74d;
+    color: #ffffff;
+    transition: 0.5s;
 }
 
 /*FIN CCS AGREGADO POR ESTEBAN*/
@@ -4580,12 +4601,18 @@ input[type="button"].btn-block {
 }
 
 .navbar {
-    position: relative;
+    position: fixed;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+    z-index: 1;
+
+    top: 0; /* Se coloca en la parte superior de la página */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho de la página */ 
+    z-index: 1000;
 }
 
 .navbar .container,
