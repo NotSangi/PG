@@ -54,7 +54,7 @@
 /*CCS AGREGADO POR ESTEBAN*/
 
 .content {
-    background-color: #bdd9ff;
+    background-color: #0646a8;
 }
 
 .cont-gen {
@@ -70,10 +70,10 @@
     align-items: center;
     position: relative;
     height: 650px;
-    background: linear-gradient(135deg, hwb(150 35% 0%), #6b4aff, #ff9f56);
+    background: linear-gradient(135deg, hwb(150 35% 0%), #6b4aff, #23d07c);
     background-size: 300% 300%;
     animation: gradientAnimation 10s ease infinite;
-    box-shadow: 0px 0px 50px 2px rgb(29, 125, 173);
+    box-shadow: 0px 0px 50px 25px rgb(66, 132, 223);
     border-radius: 20px;
 }
 
