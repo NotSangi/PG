@@ -120,7 +120,11 @@
                             </div>
 
                             <div class="btn-cita">
-                                <button class="btnagn">Agendar</button>
+                                <a href="{{url('formulario')}}">
+                                    <button class="btnagn" >
+                                        Agendar                              
+                                    </button>
+                                <a/>
                             </div>
 
                         </div>
