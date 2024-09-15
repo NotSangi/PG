@@ -93,9 +93,9 @@
 
                 <!-- Begin Page Content -->
 
-                <section class="seccion-1">
+                <section class="cont-gen">
 
-                    <section class="agen-cita">
+                    <section class="seccion-1">
 
                         <div class="tt-btn">
 
@@ -128,40 +128,78 @@
                     </section>
 
                     <!-- QUIENES SOMOS -->
-                    <div class="row" id="quienesSomos">
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h3 class="m-0 font-weight-bold text-primary">QUIÉNES SOMOS</h3>
 
+                    <section class="seccion-2">
+                        <!--
+                        <div class="row" id="quienesSomos">
+                            <div class="col-xl-8 col-lg-7">
+                                <div class="card shadow mb-4">
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h3 class="m-0 font-weight-bold text-primary">QUIÉNES SOMOS</h3>
+
+                                    </div>
+                                    <div class="card-body">
+                                        <h4>
+                                            La historia de la Salud en el Valle del Cauca y especialmente en la ciudad
+                                            de
+                                            Santiago de Cali,
+                                            lleva el nombre de Clínica de Occidente como un actor de participación
+                                            médica,
+                                            que, desde su
+                                            fundación en los años 30, oferta la mejor calidad de atención para sus
+                                            usuarios
+                                        </h4>
+                                        <h4>
+                                            En Clínica de Occidente, nos caracterizamos por nuestro compromiso con el
+                                            bienestar integral
+                                            de los pacientes y usuarios a través de la responsabilidad, el respeto
+                                            por la vida y la seguridad de las personas.
+                                        </h4>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <h4>
-                                        La historia de la Salud en el Valle del Cauca y especialmente en la ciudad
-                                        de
-                                        Santiago de Cali,
-                                        lleva el nombre de Clínica de Occidente como un actor de participación
-                                        médica,
-                                        que, desde su
-                                        fundación en los años 30, oferta la mejor calidad de atención para sus
-                                        usuarios
-                                    </h4>
-                                    <h4>
-                                        En Clínica de Occidente, nos caracterizamos por nuestro compromiso con el
-                                        bienestar integral
-                                        de los pacientes y usuarios a través de la responsabilidad, el respeto
-                                        por la vida y la seguridad de las personas.
-                                    </h4>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <img src="img/clinica.png" alt="" class="imagen-q-s">
+                            </div>
+                        </div>
+                    -->
+
+                        <div class="container px-4 text-center">
+                            <div class="row gx-5">
+                                <div class="col">
+                                    <div class="quienes-somos">
+                                        <h2>
+                                            <b>
+                                                ¿Quiénes Somos?
+                                            </b>
+                                        </h2>
+
+                                        <p>
+                                            En Mi Nueva Sonrisaa, nos especializamos en brindar atención
+                                            odontológica de alta calidad con un enfoque personalizado. Nuestro equipo de
+                                            profesionales dedicados está comprometido con su salud bucal y su bienestar,
+                                            utilizando tecnología avanzada y técnicas modernas para asegurar
+                                            tratamientos eficaces y confortables.
+
+                                            Nuestra misión es ofrecerle una experiencia dental agradable y sin estrés,
+                                            cuidando cada detalle para que su sonrisa se mantenga saludable y radiante.
+                                            ¡Gracias por elegirnos para su cuidado dental!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="quienes-img">
+                                        <img src="img/Sonrisa.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 mb-4">
-                            <img src="img/clinica.png" alt="" class="imagen-q-s">
-                        </div>
-                    </div>
 
-                    <!-- NUESTRO EQUIPO -->
+                    </section>
+
+                    <!-- NUESTRO EQUIPO
+                    
                     <div class="row" id="nuestroEquipo">
                         <div class="col-lg-4 mb-4" style="height: 365px;">
                             <img src="img/equipo.png" alt="" class="imagen-n-e">
@@ -203,53 +241,88 @@
                             </div>
                         </div>
                     </div>
+                    -->
 
-                    <!-- MISION Y VISION -->
-                    <div class="row" id="mision-vision">
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h3 class="m-0 font-weight-bold text-primary">MISIÓN Y VISIÓN</h3>
-                                    <div class="dropdown no-arrow">
+                    <section class="seccion-3">
+                        <!-- MISION Y VISION
 
+                        <div class="row" id="mision-vision">
+                            <div class="col-xl-8 col-lg-7">
+                                <div class="card shadow mb-4">
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h3 class="m-0 font-weight-bold text-primary">MISIÓN Y VISIÓN</h3>
+                                        <div class="dropdown no-arrow">
+
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="m-v">
+                                            <div class="titulo">
+                                                <h2>MISIÓN</h2>
+                                                <img src="img/bandera-alt.png" alt="">
+                                            </div>
+                                            <div class="texto-m-v">
+                                                <h5>
+                                                    Prestar servicios de mediana y alta complejidad garantizando
+                                                    prácticas seguras, y una experiencia humanizada que contribuye
+                                                    a mejorar la calidad de vida de nuestros usuarios.
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="m-v">
+                                            <div class="titulo">
+                                                <h2>VISIÓN</h2>
+                                                <img src="img/ojo.png" alt="">
+                                            </div>
+                                            <div class="texto-m-v">
+                                                <h5>
+                                                    Posicionarnos al 2024 como institución de referencia nacional e
+                                                    internacional en servicios de alta complejidad en salud, bajo
+                                                    criterios de excelencia y sostenibilidad.
+                                                </h5>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <div class="m-v">
-                                        <div class="titulo">
-                                            <h2>MISIÓN</h2>
-                                            <img src="img/bandera-alt.png" alt="">
+                            </div>
+
+                            <div class="col-lg-4 mb-4">
+                                <img src="img/medicos.png" alt="" class="imagen-q-s">
+                            </div>
+                        </div> -->
+
+                        <div class="container overflow-hidden text-center">
+                            <div class="row gx-5">
+                                <div class="col">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="col">
+                                    <div class="mi-vi">
+                                        <div class="mision">
+                                            <div class="mis-tt">
+                                                <h3>Mision</h3>
+                                            </div>
+                                            <div class="mis-txt">
+
+                                            </div>
                                         </div>
-                                        <div class="texto-m-v">
-                                            <h5>
-                                                Prestar servicios de mediana y alta complejidad garantizando
-                                                prácticas seguras, y una experiencia humanizada que contribuye
-                                                a mejorar la calidad de vida de nuestros usuarios.
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <div class="m-v">
-                                        <div class="titulo">
-                                            <h2>VISIÓN</h2>
-                                            <img src="img/ojo.png" alt="">
-                                        </div>
-                                        <div class="texto-m-v">
-                                            <h5>
-                                                Posicionarnos al 2024 como institución de referencia nacional e
-                                                internacional en servicios de alta complejidad en salud, bajo
-                                                criterios de excelencia y sostenibilidad.
-                                            </h5>
+
+                                        <div class="vision">
+                                            <div class="vis-tt">
+                                                <h3>Vision</h3>
+                                            </div>
+                                            <div class="vis-txt">
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 mb-4">
-                            <img src="img/medicos.png" alt="" class="imagen-q-s">
-                        </div>
-                    </div>
+                    </section>
+
 
                 </section>
                 <!-- /.container-fluid -->
@@ -260,7 +333,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Clínica de Occidente 2023</span>
+                        <span>Copyright &copy; Mi Nueva Sonrisa 2024</span>
                     </div>
                 </div>
             </footer>
