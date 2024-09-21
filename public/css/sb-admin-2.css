@@ -54,7 +54,7 @@
 /*CCS AGREGADO POR ESTEBAN*/
 
 .content {
-    background-color: #0646a8;
+    background-color: #E6E6FA;
 }
 
 .cont-gen {
@@ -64,16 +64,14 @@
 /*-----------------------------------Seccion 1-----------------------------------*/
 
 .seccion-1 {
-    padding: 0px 60px 0px 60px;
+    padding: 0px 60px 0px 60px;     
     margin: 0px 0px 50px 0px;
     display: flex;
     align-items: center;
     position: relative;
     height: 650px;
-    background: linear-gradient(135deg, hwb(150 35% 0%), #6b4aff, #23d07c);
-    background-size: 300% 300%;
-    animation: gradientAnimation 10s ease infinite;
-    box-shadow: 0px 0px 50px 25px rgb(95, 157, 245);
+    background-color: #BFEFFF;
+    box-shadow: 0px 0px 50px 0px rgb(109, 109, 109);
     border-radius: 20px;
 }
 
@@ -93,28 +91,25 @@
     text-align: center;
 }
 
-.tt {
+.tt h1{
     font-family: "Quicksand", sans-serif;
-    color: #ffffff;
+    color: #003366;
+    font-size: 60px;
     padding: 10px 0px 0px 0px;
-    margin: 80px 0px 90px 0px;
+    margin: 80px 0px 50px 0px;
 }
 
-.textt {
+.textt p{
     font-family: "Quicksand", sans-serif;
-    color: #ffffff;
-    padding: 0px 12px 0px 12px;
-    margin: 0px 20px 80px 20px;
-    font-size: 20px;
+    color: #003366;
+    margin: 0px 40px 70px 40px;
+    padding: 0px 40px 0px 40px;
+    font-size: 22px;
     text-align: center;
 }
 
-.tt h1{
-    box-shadow: #000;
-}
-
 .btnagn {
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 20px 0px;
     border-radius: 30px;
     background-color: #5355ef;
     font-size: 25px;
@@ -139,16 +134,16 @@
 
 .seccion-2 {
     padding: 0px 60px 0px 60px;
-    margin: 0px 0px 05px 0px;
+    margin: 0px 0px 50px 0px;
     display: flex;
     align-items: center;
     position: relative;
-    background-color: #b5eef4;
-    box-shadow: 0px 0px 50px 2px rgb(87, 179, 232);
+    background-color: #BFEFFF;
+    box-shadow: 0px 0px 50px 0px rgb(109, 109, 109);
     border-radius: 20px;
 }
 
-.quienes-somos {    
+.quienes-somos {
     padding: 10% 10px 10% 10px;
 }
 
@@ -156,7 +151,6 @@
     font-family: "Quicksand", sans-serif;
     color: #003366;
     padding: 0px 0px 20px 0px;
-    
 }
 
 .quienes-somos p {
@@ -182,35 +176,80 @@
 /*-----------------------------------Seccion 3-----------------------------------*/
 
 .seccion-3 {
-    padding: 0px 60px 0px 60px;
-    margin: 50px 0px 50px 0px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    box-shadow: 0px 0px 50px 2px rgb(82, 81, 91);
+    padding: 40px 60px 40px 60px;
+    margin: 0px 0px 50px 0px;
+    background-color: #BFEFFF;
+    box-shadow: 0px 0px 50px 0px rgb(109, 109, 109);
     border-radius: 20px;
 }
 
 .mision {
-    padding: 0px 60px 0px 60px;
-    margin: 50px 0px 50px 0px;
-    display: flex;
-    align-items: center;
-    position: relative;
+    background-color: #e7f1f7;
     border-radius: 20px;
-    background-color: #b5eef4;
+    padding: 40px 20px 40px 20px;
+    margin: 20px 0px 0px 0px;
 }
 
 .vision {
-    padding: 0px 60px 0px 60px;
-    margin: 50px 0px 50px 0px;
-    display: flex;
-    align-items: center;
-    position: relative;
+    background-color: #e7f1f7;
     border-radius: 20px;
-    background-color: #b5eef4;
+    padding: 40px 20px 40px 20px;
+    margin: 20px 0px 0px 0px;
 }
 
+.tt-misvis h3{
+    font-family: "Quicksand", sans-serif;
+    color: #003366;
+    font-size: 50px;
+    margin: 0px 0px 0px 30px;
+}
+
+.misvis-txt {
+    font-family: "Quicksand", sans-serif;
+    color: #003366;
+    margin: 0px 20px 0px 20px;
+    padding: 20px 20px 0px 15px;
+    text-align: justify;
+    font-size: 22px;
+}
+
+
+/*-----------------------------------Seccion 4-----------------------------------*/
+.seccion-4 {
+    display: flex;
+    gap: 50px;
+    margin: 0px 0px 50px 0px;
+}
+
+.col-contacdent{
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0px 0px 50px 0px rgb(109, 109, 109);
+    border-radius: 10px;
+    background-color: #BFEFFF;
+}
+
+.tt-conden {
+    font-family: "Quicksand", sans-serif;
+    color: #003366;
+    text-align: center;
+    margin: 30px;
+    font-size: 100px;
+}
+.p-conden {
+    margin: 20px 0px 20px 80px;
+}
+
+.p {
+    margin: 10px 0px 10px 0px;
+    padding: 0px 100px 10px 10px;
+    text-align: justify;
+    font-family: "Quicksand", sans-serif;
+    color: #003366;
+    font-size: 18px;
+}
 /*FIN CCS AGREGADO POR ESTEBAN*/
 
 /*INICIO CSS AGREGADO*/
@@ -10643,7 +10682,7 @@ a:focus {
 }
 
 .bg-gradient-primary {
-    background: linear-gradient(135deg, hwb(120 75% 0%), #00b9ff, #95dffb); 
+    background: linear-gradient(135deg, hwb(120 75% 0%), #00b9ff, #95dffb);
 }
 
 .bg-gradient-secondary {
