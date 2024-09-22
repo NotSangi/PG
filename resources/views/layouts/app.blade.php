@@ -19,7 +19,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/styles-general.css" rel="stylesheet">
 
     <!-- Scripts --> 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
