@@ -15,7 +15,7 @@
             echo ' <img class="img-profile rounded-circle" src="img/DOCTOR.png">';
         }
         ?>
-        
+
     </a>
                             <!-- Dropdown - User Information -->
     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -35,6 +35,20 @@
 </li>
 @endSection
 
-@section('formularioas')
-    <h1>HOLA</h1>
+@section('info')
+    <section>
+        <div>
+            <div>
+                <h2>Solicitar cita por Whatsapp</h2>
+            </div>
+            <div>
+                <p>Presiona el botón de Whatsapp para contactarnos directamente.</p>
+            </div>
+            <div>
+                <a href="">
+                        <img src="" alt="">                
+                </a>
+            </div>
+        </div>
+    </section>
 @endsection

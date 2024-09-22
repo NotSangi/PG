@@ -58,41 +58,6 @@
 <!-- QUIENES SOMOS -->
 
 <section class="seccion-2">
-    <!--
-                        <div class="row" id="quienesSomos">
-                            <div class="col-xl-8 col-lg-7">
-                                <div class="card shadow mb-4">
-                                    <div
-                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                        <h3 class="m-0 font-weight-bold text-primary">QUIÉNES SOMOS</h3>
-
-                                    </div>
-                                    <div class="card-body">
-                                        <h4>
-                                            La historia de la Salud en el Valle del Cauca y especialmente en la ciudad
-                                            de
-                                            Santiago de Cali,
-                                            lleva el nombre de Clínica de Occidente como un actor de participación
-                                            médica,
-                                            que, desde su
-                                            fundación en los años 30, oferta la mejor calidad de atención para sus
-                                            usuarios
-                                        </h4>
-                                        <h4>
-                                            En Clínica de Occidente, nos caracterizamos por nuestro compromiso con el
-                                            bienestar integral
-                                            de los pacientes y usuarios a través de la responsabilidad, el respeto
-                                            por la vida y la seguridad de las personas.
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-4">
-                                <img src="img/clinica.png" alt="" class="imagen-q-s">
-                            </div>
-                        </div>
-                    -->
-
     <div class="container px-4 text-center">
         <div class="row gx-5">
             <div class="col">

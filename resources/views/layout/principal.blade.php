@@ -96,7 +96,6 @@
                 <section class="cont-gen">
 
                     @yield('info')
-                    @yield('formularioas')
          
                 </section>
                 <!-- /.container-fluid -->
