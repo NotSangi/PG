@@ -33,11 +33,11 @@ class PersonaController extends Controller
     public function formulario(){
         if (Auth::check()) {
             if (Auth::user()->hasRole('admin')) {
-                return Redirect::to('adminR');
+                return Redirect::to('form');
             } else if (Auth::user()->hasRole('paciente')) {
                 return Redirect::to('form');
             } else if (Auth::user()->hasRole('doctor')) {
-                return Redirect::to('doctorR');
+                return Redirect::to('form');
             }
         } else {
             return view("layout.login");
@@ -61,7 +61,7 @@ class PersonaController extends Controller
 
     public function form()
     {
-        return view("layout.formulario");    
+        return view("persona.formulario");    
     } 
 
     public function secretariaView()
