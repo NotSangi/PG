@@ -44,6 +44,16 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
+                    <div class="logo">
+                        <img src="img/Logo.png" alt="">
+                    </div>
+
+                    <div class="nomlogo">
+                        <b>
+                            <p>MI NUEVA SONRISA</p>
+                        </b>
+                    </div>
+
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
@@ -92,11 +102,11 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-        
+
                 <section class="cont-gen">
 
                     @yield('info')
-         
+
                 </section>
                 <!-- /.container-fluid -->
             </div>
