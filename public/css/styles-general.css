@@ -124,8 +124,8 @@ background: linear-gradient(180deg, rgba(185,235,255,1) 0%, rgba(92,199,252,1) 1
 }
 
 .btnagn:hover {
-    box-shadow: 0px 0px 20px 1px rgb(7, 215, 146);
-    background-color: #0eff97;
+    box-shadow: 0px 0px 20px 1px rgb(3, 170, 67);
+    background-color: #08ec4d;
     transform: scale(1.05);
     color: #ffffff;
     transition: 0.5s;
@@ -379,6 +379,60 @@ background: linear-gradient(180deg, rgba(185,235,255,1) 0%, rgba(92,199,252,1) 1
 
 .texto p {
     text-shadow: 1px 1px 2px black;
+}
+
+.solicitar_cita {
+    margin: 50px 0px 50px 0px;
+    height: 400px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 50px 0px hsl(233, 33%, 51%);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cont_titulo{
+    font-size: 60px;
+    color: #003366;
+}
+
+.cont_texto{
+    font-size: 20px;
+    color: #003366;
+    font-family: "Quicksand", sans-serif;
+}
+
+.cont_whatsapp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.btn_whatsapp{
+    height: 60px;
+    width: 60px;
+    background-color: rgb(71, 218, 71);
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px 1px rgb(1, 176, 36);
+    transition: 0.5s;
+}
+
+.btn_whatsapp:hover {
+    box-shadow: 0px 0px 20px 1px rgb(0, 19, 127);
+    background-color: #5355ef;
+    transform: scale(1.05);
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+
+.btn_whatsapp img{
+    width: 100%;
 }
 
 /*FIN CSS AGREGADO*/
