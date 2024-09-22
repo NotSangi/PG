@@ -36,18 +36,20 @@
 @endSection
 
 @section('info')
-    <section>
-        <div>
-            <div>
-                <h2>Solicitar cita por Whatsapp</h2>
+    <section class="solicitar_cita">
+        <div class="cont_solicitar_cita">
+            <div class="cont_titulo">
+                <p><b>Solicitar cita por Whatsapp</b></p>
             </div>
-            <div>
+            <div class="cont_texto">
                 <p>Presiona el botón de Whatsapp para contactarnos directamente.</p>
             </div>
-            <div>
-                <a href="">
-                        <img src="" alt="">                
-                </a>
+            <div class="cont_whatsapp">
+                <div class="btn_whatsapp">
+                    <a href="">
+                            <img src="img/Whatsapp.png" alt="">                
+                    </a>
+                </div>
             </div>
         </div>
     </section>
