@@ -55,6 +55,63 @@
                         ?>
                 </div>
             </div>
+
+            <div class="agen-form">
+                <div class="for">
+                    <h3>¿Necesitas una cita? Nosotros te llamamos</h3>
+
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Tipo De Documento</option>
+                        <option value="1">CC - Cedula de Ciudadanía</option>
+                        <option value="2">CE - Cédula de Extranjería</option>
+                        <option value="3">IE - ID Extranjero</option>
+                        <option value="4">NIT</option>
+                        <option value="5">PA - Pasaporte</option>
+                        <option value="6">RC - Registro Civil</option>
+                        <option value="7">TI - Tarjeta de Identidad</option>
+                    </select>
+
+                    <input class="form-control" type="text" placeholder="Número de Identificación"
+                        aria-label="default input example">
+                    <input class="form-control" type="text" placeholder="Nombre" aria-label="default input example">
+                    <input class="form-control" type="text" placeholder="Apellidos" aria-label="default input example">
+                    <input class="form-control" type="text" placeholder="Número" aria-label="default input example">
+                    <input class="form-control" type="text" placeholder="Correo Eléctronico"
+                        aria-label="default input example">
+                    <input class="form-control" type="text" placeholder="Cuéntanos en qué podemos ayudarte"
+                        aria-label="default input example">
+
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Elige tu tratamiento</option>
+                        <option value="1">Diseño de Sonrisa</option>
+                        <option value="2">Endodoncia</option>
+                        <option value="3">Periodoncia</option>
+                        <option value="4">Cirugia Oral</option>
+                        <option value="5">Coronas y Prótesis</option>
+                        <option value="6">Calzas Blancas (Resinas)</option>
+                        <option value="7">Ortodoncia</option>
+                        <option value="8">Certificados Odontológicos</option>
+                        <option value="9">Higiene Oral</option>
+                    </select>
+
+                    <p>¿Cuándo deberíamos llamarte?</p>
+                    <select class="form-select" aria-label="Default select example">
+                        <option value="1">Tan pronto como sea posible</option>
+                        <option value="2">Elige fecha y hora</option>
+                    </select>
+
+                    <a href="">
+                        <span>He leído y acepto el tratamiento de mis datos personales</span>
+                    </a>
+                </div>
+
+                <div class="btn-conf">
+                    <button>Confirmar</button>
+                </div>
+                
+            </div>
+
+
         </div>
     </section>
 @endsection
