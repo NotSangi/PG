@@ -259,6 +259,15 @@
 }
 
 /*-----------------------------------Formulario Citas-----------------------------------*/
+.form_cita {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0px 0px 50px 0px hsl(233, 33%, 51%);
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 100%); 
+}
 
 /*-----------------------------------Mapa-----------------------------------*/
 .mapa{
@@ -309,6 +318,56 @@
     font-weight: bold;
     border: none;
     color:  white;
+
+}
+
+.agen-form {
+    margin: 40px 40px 40px 40px;
+    padding: 40px 40px 40px 40px;
+}
+
+.form {
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    color: #003366;
+    margin: 0px 100px 0px 100px;
+}
+
+.form-control {
+    margin-top: 2%;
+}
+
+.form-select {
+    width: 100%;
+    text-align: justify;
+    font-family: "Quicksand", sans-serif;
+    color: #003366;
+    border-radius: 2px;
+    margin: 3% 0px 2% 0px;
+}
+
+.form h3{
+margin: 0px 0px 20px 0px;
+}
+
+.form p {
+    text-align: justify;
+    margin: 2% 0px 0px 0px;
+}
+
+.form-check {
+    margin-top: 10px;
+}
+
+.btn-conf {
+    margin: 50px 0px 0px 0px;
+    border-radius: 30px;
+    background-color: #5355ef;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 80px;
+    color: white;
     box-shadow: 0px 0px 20px 1px rgb(0, 19, 127);
     font-family: "Quicksand", sans-serif;
     transition: 0.5s;
@@ -317,6 +376,11 @@
 .red_maps:hover{
     box-shadow: 0px 0px 20px 1px rgb(3, 170, 67);
     background-color: #08ec4d;
+}
+
+.btn-conf:hover {
+    box-shadow: 0px 0px 20px 1px rgb(3, 170, 67);
+    background-color: rgb(71, 218, 71);
     transform: scale(1.05);
     color: #ffffff;
     transition: 0.5s;
