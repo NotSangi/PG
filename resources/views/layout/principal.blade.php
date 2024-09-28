@@ -18,6 +18,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/styles-general.css" rel="stylesheet">
+    <link href="css/vista-mobil.css" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">

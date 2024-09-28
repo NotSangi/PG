@@ -46,7 +46,7 @@
             </div>
             <div class="cont_whatsapp">
                 <div class="btn_whatsapp">
-                    <a href="">
+                    <a href="https://wa.link/u5lqml">
                             <img src="img/Whatsapp.png" alt="">                
                     </a>
                 </div>
