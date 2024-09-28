@@ -55,8 +55,11 @@
                         ?>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="agen-form">
+    <section class="form_cita">
+    <div class="agen-form">
                 <div class="for">
                     <h3>¿Necesitas una cita? Nosotros te llamamos</h3>
 
@@ -110,8 +113,5 @@
                 </div>
                 
             </div>
-
-
-        </div>
     </section>
 @endsection
