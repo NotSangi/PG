@@ -51,7 +51,7 @@
                                 $last_name = Auth::user()->last_name;
                                 $mensaje = "https://api.whatsapp.com/send?phone=573162380774&text=Hola!,%20mi%20nombre%20es%20$name%20$last_name,%20me%20gustaría%20agendar%20una%20cita";
                                 
-                                echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
+                                echo '<a href="' . $mensaje . '" target="_blank"><img src="img/Whatsapp.png" alt=""></a>';
                         ?>
                 </div>
             </div>
@@ -113,5 +113,24 @@
                 </div>
                 
             </div>
+    </section>
+
+    <section class="mapa">
+        <div class="cont_mapa">
+            <div class="cont_img_mapa">
+                <img src="" alt="">
+            </div>
+            <div class="info_sede">
+                <h2>¡Nuestra Sede!</h2>
+                <p>Mi Nueva Sonrisa</p>
+                <p>Cra 12 Bis 65</p>
+                <a href="https://www.google.com/maps/place/Cra.+12+Bis,+Comuna+8,+Cali,+Valle+del+Cauca/@3.4467954,-76.4911792,20.75z/data=!4m6!3m5!1s0x8e30a7a8a065fd8f:0x570fef5cbcf9023f!8m2!3d3.4468127!4d-76.491066!16s%2Fg%2F11byl6wf2k?entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                    <div class="red_maps">
+                        Ir a maps
+                    </div>
+                </a>
+
+            </div>
+        </div>
     </section>
 @endsection
