@@ -57,18 +57,29 @@ class LoginController extends Controller
  
         if (Auth::attempt($credentials)) {
 
-            if(Auth::user()->hasRole('admin')){
-                return Redirect::to('adminR');
-            } else if (Auth::user()->hasRole('paciente')){
-                return Redirect::to('pacienteR');
-            } else if (Auth::user()->hasRole('doctor')){
-                return Redirect::to('doctorR');
-            } else if (Auth::user()->hasRole('secretaria')){
-                return Redirect::to('secretariaR');
-            }
+            $referer = $request->headers->get('referer');
 
+            if(Auth::user()->hasRole('admin')){
+                if ($referer && str_contains($referer, 'formulario')) {
+                    return Redirect::to('form');
+                } else {
+                    return Redirect::to('adminR');
+                }
+            } else if (Auth::user()->hasRole('paciente')){
+                if ($referer && str_contains($referer, 'formulario')) {
+                    return Redirect::to('form');
+                } else {
+                    return Redirect::to('pacienteR');
+                }
+            } else if (Auth::user()->hasRole('doctor')){
+                if ($referer && str_contains($referer, 'formulario')) {
+                    return Redirect::to('form');
+                } else {
+                    return Redirect::to('doctorR');
+                }   
+            } 
         } else {
-            return Redirect::to('login');
+            return back()->withErrors(['error' => 'Credenciales invalidas']);
         }
 
     }

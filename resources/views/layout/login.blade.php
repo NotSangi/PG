@@ -23,7 +23,7 @@
 </head>
 
 <body class="bg-gradient-primary">
-    {!!Form::open(array('url'=>'login','method'=>'POST','autocomplete'=>'off'))!!}
+    {!!Form::open(array('url' => 'login', 'method' => 'POST', 'autocomplete' => 'off'))!!}
     {{Form::token()}}
     <div class="container">
 
@@ -44,20 +44,20 @@
                                     </div>
                                     <form class="user">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                id="document" name="document"
-                                                placeholder="Ingresa tu documento">
+                                            <input type="text" class="form-control form-control-user" id="document"
+                                                name="document" placeholder="Ingresa tu documento">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="password" name="password" placeholder="Contraseña">
-
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
+                                            <input type="password" class="form-control form-control-user" id="password"
+                                                name="password" placeholder="Contraseña"> 
                                         </div>
+
+                                        @if ($errors->has('error'))
+                                                <div class="alert alert-danger">
+                                                    {{ $errors->first('error') }}
+                                                </div>
+                                        @endif
+
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
@@ -66,7 +66,7 @@
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block" type="submit">
                                             <span class="glyphicon glyphicon-ok"></span> INGRESAR
-                                        </button>     
+                                        </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
