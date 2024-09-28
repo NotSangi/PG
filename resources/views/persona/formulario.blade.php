@@ -46,9 +46,13 @@
             </div>
             <div class="cont_whatsapp">
                 <div class="btn_whatsapp">
-                    <a href="https://wa.link/u5lqml">
-                            <img src="img/Whatsapp.png" alt="">                
-                    </a>
+                        <?php
+                                $name = Auth::user()->name;
+                                $last_name = Auth::user()->last_name;
+                                $mensaje = "https://api.whatsapp.com/send?phone=573162380774&text=Hola!,%20mi%20nombre%20es%20$name%20$last_name,%20me%20gustaría%20agendar%20una%20cita";
+                                
+                                echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
+                        ?>
                 </div>
             </div>
         </div>
