@@ -121,7 +121,7 @@
     <section class="mapa">
         <div class="cont_mapa">
             <div class="cont_img_mapa">
-                <img src="" alt="">
+                <img src="img/mapa.png" alt="">
             </div>
             <div class="info_sede">
                 <h2>¡Nuestra Sede!</h2>
