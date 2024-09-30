@@ -60,12 +60,6 @@
                                 <div class="form-group">
                                     <input type="email" name="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="email"
                                         placeholder="Ingresa tu correo">
-
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="tel" class="form-control form-control-user" id="tel"
@@ -77,13 +71,36 @@
                                             id="password" placeholder="Contraseña">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Confirmar Contraseña">
+                                        <input type="password" name="password_confirm" class="form-control form-control-user"
+                                            id="password_confirm" placeholder="Confirmar Contraseña">
                                     </div>
+                                    
+                                </div>
+
+                                @if ($errors->has('password'))
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('password') }}
+                                    </div>
+                                @endif
+
+                                @if ($errors->has('tratamiento_datos'))
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('tratamiento_datos') }}
+                                    </div>
+                                @endif
+
+                                <div class="trat_datos">
+                                    <input class="" type="checkbox" value="" id="tratamiento_datos" name="tratamiento_datos">
+                                    <a href="{{url('derechos')}}" class="form-check-label" for="tratamiento_datos">
+                                        He leído y acepto el tratamiento de mis datos personales
+                                    </a>
+
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block" type="submit">
                                     <span class="glyphicon glyphicon-ok"></span> REGISTRATE
                                 </button>
+
+                                
                             </form>
                             <hr>
                             <div class="text-center">

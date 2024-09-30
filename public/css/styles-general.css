@@ -603,6 +603,18 @@ margin: 0px 0px 20px 0px;
     width: 100%;
 }
 
+.trat_datos{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trat_datos input{
+    margin: 10px;
+}
+
+
 /*FIN CSS AGREGADO*/
 
 html {

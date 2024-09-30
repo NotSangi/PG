@@ -104,14 +104,6 @@
                     <option value="2">Elige fecha y hora</option>
                 </select>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <a href="{{url('derechos')}}" class="form-check-label" for="flexCheckDefault">
-                        He leído y acepto el tratamiento de mis datos personales
-                    </a>
-                </div>
-
-
                 <button class="btn-conf">Confirmar</button>
 
             </div>
