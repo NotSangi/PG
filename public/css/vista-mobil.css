@@ -1,0 +1,178 @@
+body {
+    font-size: 14px;
+}
+
+header {
+    background-color: darkgreen;
+    padding: 15px;
+}
+
+main {
+    padding: 10px;
+}
+
+footer {
+    font-size: 0.8em;
+}
+
+.nomlogo {
+    height: 100%;
+    width: 100px;
+}
+
+.nomlogo p {
+   width: 100px;
+   height: 100%;
+   font-size: 14px;
+   margin: 3px;
+}
+
+.seccion-1 {
+    width: 130%;
+    max-width: 130%;
+    margin: 0px 0px 30px -42px;
+    padding: 0;
+}
+
+.seccion-2 {
+    width: 130%;
+    max-width: 130%;
+    margin: 0px 0px 30px -42px;
+    padding: 0;
+}
+
+.seccion-3 {
+    width: 130%;
+    max-width: 130%;
+    margin: 0px 0px 30px -42px;
+    padding: 0;
+}
+
+.tt-btn {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.tt h1{
+    font-size: 24px;  
+}
+
+.textt p{
+    font-size: 16px;
+    text-align: center;
+    padding: 0;
+    margin: 15px;
+    padding: 25px;
+}
+
+.btn-cita {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.btnagn {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0;
+}
+
+.row {
+    flex-direction: column;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+}
+
+.col {
+    margin: 0;
+    padding: 0;
+}
+
+.quienes-somos h2 {
+    font-size: 24px;
+}
+
+.quienes-somos {
+    padding: 25px;
+}
+
+.quienes-somos p {
+    font-size: 16px;
+}
+
+.quienes-img {
+    display: flex;
+    width: 100%;
+}
+
+.col-mivi {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.mision {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.vision {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.tt-misvis h3 {
+    font-size: 24px;
+    text-align: center;
+    margin: 0px 0px 0px -20px;
+}
+
+.misvis-txt {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0px -15px 0px -15px;
+}
+
+.seccion-4 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+    width: 130%;
+    max-width: 130%;
+    margin: 0px 0px 30px -42px;
+    padding: 0;
+
+}
+
+.col-contacdent {
+    width: 100%;
+    margin: 0px 0px 30px 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+    border-radius: 20px;
+}
+
+.tt-conden h3 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.p{
+    font-size: 16px;
+    width: 100%;
+    padding: 0px 10px 0px 10px;
+}
+
+.p-conden {
+    margin: 0;
+}
+
+
+

@@ -18,12 +18,11 @@
 
     <!-- Custom styles for this template-->
     <link href="css/styles-general.css" rel="stylesheet">
-    <link href="css/vista-mobil.css" rel="stylesheet"> 
+    <link href="css/vista-mobil.css" rel="stylesheet" media="(max-width: 600px)"> <!-- Estilos para pantallas pequeñas -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -48,7 +47,7 @@
                     <div class="logo">
                         <img src="img/Logo.png" alt="">
                     </div>
-
+                    
                     <div class="nomlogo">
                         <b>
                             <p>MI NUEVA SONRISA</p>

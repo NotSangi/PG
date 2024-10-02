@@ -48,7 +48,7 @@
                 <button class="btnagn">
                     Agendar
                 </button>
-                <a />
+                <a/>
         </div>
 
     </div>
@@ -171,6 +171,7 @@
             <div class="p"><b>Cel: 300 2804691</b></div>
         </div>
     </div>
+    
     <div class="col-contacdent">
         <div class="tt-conden">
             <h3>
