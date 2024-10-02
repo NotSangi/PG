@@ -112,15 +112,7 @@
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Mi Nueva Sonrisa 2024</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+           
 
         </div>
         <!-- End of Content Wrapper -->
@@ -171,5 +163,14 @@
     <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
+ <!-- Footer -->
+ <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Mi Nueva Sonrisa 2024</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
 </html>

@@ -1,0 +1,278 @@
+[33mcommit 5ba4ddccb0ccd7005ed3591161dc6e98320ac212[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: a039669 3232c21
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Tue Oct 1 21:56:26 2024 -0500
+
+    prueba2
+
+[33mcommit a039669da88bbd55af7f766cef035c45ffb34e76[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Tue Oct 1 21:54:17 2024 -0500
+
+    prueba
+
+[33mcommit 3232c2133435f24506380b23ad66a4003122beae[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Tue Oct 1 21:28:50 2024 -0500
+
+    formulario y base de datos
+
+[33mcommit d62dff973ff577d6ab506bb4835fc48f7ba8aed1[m
+Merge: cac58b5 5774254
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Tue Oct 1 19:30:56 2024 -0500
+
+    pull2
+
+[33mcommit cac58b5ce049f5634996034964ed97f77ed31a22[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Tue Oct 1 19:29:57 2024 -0500
+
+    pull
+
+[33mcommit 5774254e1bb0859ce1f3f7cc89dd6184277a2c83[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 29 20:25:17 2024 -0500
+
+    actualización registro
+
+[33mcommit fd1a6398dcdbfd52bf474f7e90a18b6bcef712f2[m
+Merge: 23cc5ff 3043d88
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 29 14:36:11 2024 -0500
+
+    Merge branch 'master' of https://github.com/EstebanG0C/Proyecto_Grado
+
+[33mcommit 23cc5ffecb5d6e6f8d4d649d0f947d2047bbac08[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 29 14:36:01 2024 -0500
+
+    css
+
+[33mcommit 3043d88e95b4c7576b84afaa691eaa69ed351723[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sat Sep 28 19:44:32 2024 -0500
+
+    cambios mapa
+
+[33mcommit aa822f1d6b46be253c358c0fa205495acb42a869[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sat Sep 28 19:32:36 2024 -0500
+
+    mapa con img
+
+[33mcommit c4ca8806a2e7e1daed4591eabef3878dd6985d2d[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sat Sep 28 18:57:19 2024 -0500
+
+    cambios
+
+[33mcommit b24a5d5d83174b0becfd024dd38ab14451f64ebb[m
+Merge: 0ebe83d 93089f3
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sat Sep 28 18:51:29 2024 -0500
+
+    mapa
+
+[33mcommit 0ebe83da801b7dafbad15139d7dae2debf0028b1[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sat Sep 28 18:47:35 2024 -0500
+
+    mapa
+
+[33mcommit 93089f36443594084f96b84a849c27df33e754f9[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sat Sep 28 18:43:45 2024 -0500
+
+    Style Form
+
+[33mcommit 23ebd153f6f4cc6a437d0057155fb46decda9b96[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sat Sep 28 17:35:24 2024 -0500
+
+    seccion form
+
+[33mcommit 51578a9afcc63c3465af51c4c57b550022c8888d[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sat Sep 28 17:31:11 2024 -0500
+
+    Formulario
+
+[33mcommit 5683af2410df56647c316b3007fc179bc9efc473[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sat Sep 28 17:26:39 2024 -0500
+
+    archivo form
+
+[33mcommit e56251cdef639d4a3f3740e5e9f6b6d223020ae5[m
+Merge: 7f4cfbd 4829f3e
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sat Sep 28 17:24:55 2024 -0500
+
+    Form2
+
+[33mcommit 7f4cfbddbf9f0ab8fb836783fd25c66b33e2642b[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sat Sep 28 17:20:25 2024 -0500
+
+    Form
+
+[33mcommit 4829f3ec45d00ef2f006f8aff7be7962548ac5ab[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sat Sep 28 17:17:45 2024 -0500
+
+    Mensaje whatsapp personalizado
+
+[33mcommit 5b06c004995892d1d2718e0d0711a9202b6e7c92[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sat Sep 28 16:10:01 2024 -0500
+
+    Redireccion a form
+
+[33mcommit 5459a157a254f0b79c40fd1cafe61b91257f7f84[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sat Sep 28 16:09:08 2024 -0500
+
+    Link wsp
+
+[33mcommit d5a43c7c216052dbcaf76afb792dd76b5a8bf17d[m
+Merge: f3a67e7 c80f34d
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 22 17:52:30 2024 -0500
+
+    Merge branch 'master' of https://github.com/EstebanG0C/Proyecto_Grado
+
+[33mcommit f3a67e7c3870dc8a3a47e9609289f8702950feb4[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 22 17:52:00 2024 -0500
+
+    logo
+
+[33mcommit c80f34d6ba1d2c58fa65b248cd75787098b914a6[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 22 17:48:35 2024 -0500
+
+    Formulario
+
+[33mcommit 6a112a22353f4a946a39b73bae9331bf38c57d8c[m
+Merge: 249c227 ae7080c
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 22 16:18:43 2024 -0500
+
+    Merge branch 'master' of https://github.com/EstebanG0C/Proyecto_Grado
+
+[33mcommit 249c2274ceb27ed31a722f9e43e04aa189a69097[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 22 16:18:35 2024 -0500
+
+    cambios
+
+[33mcommit ae7080c9cd1e595a28db5d9a25b22923cc91b6be[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 22 16:14:00 2024 -0500
+
+    Cambio-Nom-css
+
+[33mcommit 3c0be6517187ba3b9aa3389bc1e19e9c22bc5ba3[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 22 13:56:57 2024 -0500
+
+    Modificación principal y creación formulario
+
+[33mcommit df3da6090572c26b55185e059ce5da99d80e5b01[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sat Sep 21 17:23:43 2024 -0500
+
+    Estructura-Principal
+
+[33mcommit 52c8072a5184d230bb423669f60e2360ca774d80[m
+Merge: 2c0caff afeda66
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 15 18:16:31 2024 -0500
+
+    Merge branch 'master' of https://github.com/EstebanG0C/Proyecto_Grado
+
+[33mcommit 2c0caff990e8426c0a71c9ca8be3cecdbc479cdb[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 15 18:16:18 2024 -0500
+
+    mision_vision
+
+[33mcommit afeda66c6e4187aca0e71fcc3253b0bcf6684079[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 15 18:13:02 2024 -0500
+
+    Cambios 2
+
+[33mcommit 7b47cc2a4d3e3388622148a832d281b763b52581[m
+Merge: f8e987d ee0c8df
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 15 17:58:10 2024 -0500
+
+    Merge branch 'master' of https://github.com/EstebanG0C/Proyecto_Grado
+
+[33mcommit f8e987d4705a7ccc230bbf267b3215a7bf99a5b5[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 15 17:57:51 2024 -0500
+
+    Cambios Css
+
+[33mcommit ee0c8dfc15520bf5620373c99f041f06ef2b7702[m
+Merge: 1ada04c 2721724
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 15 17:48:32 2024 -0500
+
+    Merge branch 'master' of https://github.com/EstebanG0C/Proyecto_Grado
+
+[33mcommit 1ada04c842f0b0ac0671b6dddb6bbdbb00b83204[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 15 17:48:21 2024 -0500
+
+    Prueba
+
+[33mcommit 2721724cce4f2b09290d4816036e43f98fb97261[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 15 17:45:03 2024 -0500
+
+    Fondo Sección 1
+
+[33mcommit 25b02f17720999d7edda77d88b3aaa891f407c16[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 15 17:20:48 2024 -0500
+
+    Imagen Diente
+
+[33mcommit 0e704f3d0ce91d47baf63e7b0bde2bffe63ba4df[m
+Merge: 4d8fd25 41ff851
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 15 16:55:03 2024 -0500
+
+    Merge branch 'master' of https://github.com/EstebanG0C/Proyecto_Grado
+
+[33mcommit 4d8fd25765b90ef89800b28d935c221f28567d05[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 15 16:53:52 2024 -0500
+
+    Diente
+
+[33mcommit 41ff851e93e90adfcc615c23b0a5fde2bcdbf320[m
+Author: Sangi2003 <gironlozano1975@gmail.com>
+Date:   Sun Sep 15 16:51:25 2024 -0500
+
+    Redirección Botón
+
+[33mcommit 2fc2121328972aa53f269dd8877c576e4e01bf54[m
+Merge: 1b218c0 73a57cd
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 15 15:36:17 2024 -0500
+
+    Merge branch 'master' of https://github.com/EstebanG0C/Proyecto_Grado
+
+[33mcommit 1b218c09b4ab03d5b410f84e519e3847ac22c988[m
+Author: EstebanG0C <estebangonzalesceballos@outlook.com>
+Date:   Sun Sep 15 15:34:01 2024 -0500
+
+    Commit4
+
+[33mcommit 73a57cd50649406b423baf3d1e68dc3797154a88[m
+Author: 
