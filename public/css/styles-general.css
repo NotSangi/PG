@@ -358,6 +358,27 @@ margin: 0px 0px 20px 0px;
     padding: 0px 40px 0px 40px;
 }
 
+.btn-aceptar {
+    margin: 50px 0px 0px 0px;
+    border-radius: 30px;
+    background-color: #5355ef;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 80px;
+    color: white;
+    box-shadow: 0px 0px 20px 1px rgb(0, 19, 127);
+    font-family: "Quicksand", sans-serif;
+    transition: 0.5s;
+}
+
+.btn-aceptar:hover {
+    box-shadow: 0px 0px 20px 1px rgb(3, 170, 67);
+    background-color: rgb(71, 218, 71);
+    transform: scale(1.05);
+    color: #ffffff;
+    transition: 0.5s;
+}
 
 /*FIN CCS AGREGADO POR ESTEBAN*/
 

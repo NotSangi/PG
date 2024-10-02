@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CitaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,7 @@ Route::get('secretarias', 'App\Http\Controllers\Tabla@secretariasView');
 Route::get('citasPacientes', 'App\Http\Controllers\Tabla@citasPacientes');
 Route::get('citasDoctores', 'App\Http\Controllers\Tabla@citasDoctores');
 Route::get('citasAdmin', 'App\Http\Controllers\Tabla@citasAdmin');
+
 
 //agenda
 Route::get('/evento', [EventoController::class, 'index']);

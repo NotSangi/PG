@@ -58,7 +58,6 @@
                     con lo establecido por los artículos 14 y 15 de la Ley 1581 de 2012, 20 a 23 del Decreto 1377 de 2013 y
                     demás normas vigentes.</p>
             </div>
-
             <button class="btn-aceptar">Aceptar</button>
         </div>
     </section>

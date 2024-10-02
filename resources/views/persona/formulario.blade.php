@@ -62,11 +62,11 @@
 
     <section class="form_cita">
         <div class="agen-form">
-            <div class="form">
+            <form class="form" method="POST">
 
                 <h3><b>¿Necesitas una cita? Nosotros te llamamos</b></h3>
 
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="tipo_doc">
                     <option selected>Tipo De Documento</option>
                     <option value="1">CC - Cedula de Ciudadanía</option>
                     <option value="2">CE - Cédula de Extranjería</option>
@@ -78,14 +78,17 @@
                 </select>
 
                 <input class="form-control" type="text" placeholder="Número de Identificación"
-                    aria-label="default input example">
-                <input class="form-control" type="text" placeholder="Nombre" aria-label="default input example">
-                <input class="form-control" type="text" placeholder="Apellidos" aria-label="default input example">
-                <input class="form-control" type="text" placeholder="Número" aria-label="default input example">
+                    aria-label="default input example" name="identifiacion">
+                <input class="form-control" type="text" placeholder="Nombre" aria-label="default input example"
+                    name="nombre">
+                <input class="form-control" type="text" placeholder="Apellidos" aria-label="default input example"
+                    name="apellidos">
+                <input class="form-control" type="text" placeholder="Número" aria-label="default input example"
+                    name="celular">
                 <input class="form-control" type="text" placeholder="Correo Eléctronico"
-                    aria-label="default input example">
+                    aria-label="default input example" name="correo">
 
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="tratamiento">
                     <option selected>Elige tu tratamiento</option>
                     <option value="1">Diseño de Sonrisa</option>
                     <option value="2">Endodoncia</option>
@@ -99,22 +102,21 @@
                 </select>
 
                 <p>¿Cuándo deberíamos llamarte?</p>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="llamar">
                     <option value="1">Tan pronto como sea posible</option>
                     <option value="2">Elige fecha y hora</option>
                 </select>
 
-                <div class="form-check">
+                <div class="form-check" name="der">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <a href="{{url('derechos')}}" class="form-check-label" for="flexCheckDefault">
+                    <a href="{{ url('derechos') }}" class="form-check-label" for="flexCheckDefault">
                         He leído y acepto el tratamiento de mis datos personales
                     </a>
                 </div>
 
+                <button class="btn-conf" type="Submit" name="btn-confirmar" value="ok">Confirmar</button>
 
-                <button class="btn-conf">Confirmar</button>
-
-            </div>
+            </form>
         </div>
     </section>
 
@@ -127,7 +129,8 @@
                 <h2>¡Nuestra Sede!</h2>
                 <p>Mi Nueva Sonrisa</p>
                 <p>Cra 12 Bis 65</p>
-                <a href="https://www.google.com/maps/place/Cra.+12+Bis,+Comuna+8,+Cali,+Valle+del+Cauca/@3.4467954,-76.4911792,20.75z/data=!4m6!3m5!1s0x8e30a7a8a065fd8f:0x570fef5cbcf9023f!8m2!3d3.4468127!4d-76.491066!16s%2Fg%2F11byl6wf2k?entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                <a href="https://www.google.com/maps/place/Cra.+12+Bis,+Comuna+8,+Cali,+Valle+del+Cauca/@3.4467954,-76.4911792,20.75z/data=!4m6!3m5!1s0x8e30a7a8a065fd8f:0x570fef5cbcf9023f!8m2!3d3.4468127!4d-76.491066!16s%2Fg%2F11byl6wf2k?entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank">
                     <div class="red_maps">
                         Ir a maps
                     </div>
@@ -137,4 +140,3 @@
         </div>
     </section>
 @endsection
-
