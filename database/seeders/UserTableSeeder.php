@@ -23,6 +23,7 @@ class UserTableSeeder extends Seeder
         $user->email = "gironlozano1975@gmail.com";
         $user->tel = "3188048049";
         $user->password = "norig2003";
+        $user->tratamiento_datos = "si";
         $user->save();
 
         $user->roles()->attach(Role::where('name', 'paciente')->first());
@@ -35,6 +36,7 @@ class UserTableSeeder extends Seeder
         $user->email = "estebangonzalez@gmail.com";
         $user->tel = "3162380774";
         $user->password = "norig2003";
+        $user->tratamiento_datos = "si";
         $user->save();
 
         $user->roles()->attach(Role::where('name', 'doctor')->first());
@@ -48,6 +50,7 @@ class UserTableSeeder extends Seeder
         $user->email = "cifu@gmail.com";
         $user->tel = "3177100525";
         $user->password = "norig2003";
+        $user->tratamiento_datos = "si";
         $user->save();
 
         $user->roles()->attach(Role::where('name', 'doctor')->first());
@@ -61,6 +64,7 @@ class UserTableSeeder extends Seeder
         $user->email = "alz@gmail.com";
         $user->tel = "3174125345";
         $user->password = "norig2003";
+        $user->tratamiento_datos = "si";
         $user->save();
 
         $user->roles()->attach(Role::where('name', 'doctor')->first());
@@ -74,6 +78,7 @@ class UserTableSeeder extends Seeder
         $user->email = "joarasan@gmail.com";
         $user->tel = "3152341665";
         $user->password = "norig2003";
+        $user->tratamiento_datos = "si";
         $user->save();
 
         $user->roles()->attach(Role::where('name', 'doctor')->first());
@@ -87,6 +92,7 @@ class UserTableSeeder extends Seeder
         $user->email = "camirn@gmail.com";
         $user->tel = "318123991";
         $user->password = "norig2003";
+        $user->tratamiento_datos = "si";
         $user->save();
 
         $user->roles()->attach(Role::where('name', 'doctor')->first());
@@ -100,6 +106,7 @@ class UserTableSeeder extends Seeder
         $user->email = "andrespuyo@gmail.com";
         $user->tel = "3106017492";
         $user->password = "norig2003";
+        $user->tratamiento_datos = "si";
         $user->save();
 
         $user->roles()->attach(Role::where('name', 'admin')->first()); 

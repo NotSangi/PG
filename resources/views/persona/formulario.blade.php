@@ -61,53 +61,54 @@
     </section>
 
     <section class="form_cita">
+        {!!Form::open(array('url'=>'post_formulario','method'=>'POST','autocomplete'=>'off'))!!}
+        {{Form::token()}}
         <div class="agen-form">
             <div class="form">
 
                 <h3><b>¿Necesitas una cita? Nosotros te llamamos</b></h3>
 
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Tipo De Documento</option>
-                    <option value="1">CC - Cedula de Ciudadanía</option>
-                    <option value="2">CE - Cédula de Extranjería</option>
-                    <option value="3">IE - ID Extranjero</option>
-                    <option value="4">NIT</option>
-                    <option value="5">PA - Pasaporte</option>
-                    <option value="6">RC - Registro Civil</option>
-                    <option value="7">TI - Tarjeta de Identidad</option>
+                <select class="form-select" aria-label="Default select example" id="tipo_documento" name="tipo_documento">
+                    <option selected disabled>Tipo De Documento</option>
+                    <option value="CC">CC - Cedula de Ciudadanía</option>
+                    <option value="CE">CE - Cédula de Extranjería</option>
+                    <option value="IE">IE - ID Extranjero</option>
+                    <option value="NIT">NIT</option>
+                    <option value="PA">PA - Pasaporte</option>
+                    <option value="RC">RC - Registro Civil</option>
+                    <option value="TI">TI - Tarjeta de Identidad</option>
                 </select>
 
-                <input class="form-control" type="text" placeholder="Número de Identificación"
-                    aria-label="default input example">
-                <input class="form-control" type="text" placeholder="Nombre" aria-label="default input example">
-                <input class="form-control" type="text" placeholder="Apellidos" aria-label="default input example">
-                <input class="form-control" type="text" placeholder="Número" aria-label="default input example">
-                <input class="form-control" type="text" placeholder="Correo Eléctronico"
-                    aria-label="default input example">
+                <input class="form-control" type="text" placeholder="Número de Identificación" aria-label="default input example" id="document" name="document">
+                <input class="form-control" type="text" placeholder="Nombre" aria-label="default input example" id="name" name="name">
+                <input class="form-control" type="text" placeholder="Apellidos" aria-label="default input example" id="last_name" name="last_name">
+                <input class="form-control" type="text" placeholder="Número" aria-label="default input example" id="tel" name="tel">
+                <input class="form-control" type="text" placeholder="Correo Eléctronico" aria-label="default input example" id="email" name="email">
 
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Elige tu tratamiento</option>
-                    <option value="1">Diseño de Sonrisa</option>
-                    <option value="2">Endodoncia</option>
-                    <option value="3">Periodoncia</option>
-                    <option value="4">Cirugia Oral</option>
-                    <option value="5">Coronas y Prótesis</option>
-                    <option value="6">Calzas Blancas (Resinas)</option>
-                    <option value="7">Ortodoncia</option>
-                    <option value="8">Certificados Odontológicos</option>
-                    <option value="9">Higiene Oral</option>
+                <select class="form-select" aria-label="Default select example" id="tratamiento" name="tratamiento"> 
+                    <option selected disabled>Elige tu tratamiento</option>
+                    <option value="Diseno de Sonrisa">Diseño de Sonrisa</option>
+                    <option value="Endodoncia">Endodoncia</option>
+                    <option value="Periodoncia">Periodoncia</option>
+                    <option value="Cirugia Oral">Cirugia Oral</option>
+                    <option value="Coronas y Protesis">Coronas y Prótesis</option>
+                    <option value="Calzas Blancas">Calzas Blancas (Resinas)</option>
+                    <option value="Ortodoncia">Ortodoncia</option>
+                    <option value="Certificados Odontologicos">Certificados Odontológicos</option>
+                    <option value="Higiene Oral">Higiene Oral</option>
                 </select>
 
                 <p>¿Cuándo deberíamos llamarte?</p>
-                <select class="form-select" aria-label="Default select example">
-                    <option value="1">Tan pronto como sea posible</option>
-                    <option value="2">Elige fecha y hora</option>
+                <select class="form-select" aria-label="Default select example" id="llamada" name="llamada">
+                    <option value="Rapido">Tan pronto como sea posible</option>
+                    <option value="Normal">No hay afán</option>
                 </select>
 
-                <button class="btn-conf">Confirmar</button>
+                <button class="btn-conf" type="submit">Confirmar</button>
 
             </div>
         </div>
+        {{Form::close()}}
     </section>
 
     <section class="mapa">
