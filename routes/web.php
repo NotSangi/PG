@@ -54,6 +54,9 @@ Route::post('/evento/editar/{id}', [EventoController::class, 'edit']);
 Route::post('/evento/actualizar/{evento}', [EventoController::class, 'update']);
 Route::post('/evento/borrar/{id}', [EventoController::class, 'destroy']);
 
+//formulario
+Route::post('post_formulario', 'App\Http\Controllers\FormularioController@create');
+
 //login y registro
 
 Auth::routes();

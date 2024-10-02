@@ -90,7 +90,7 @@
                                 @endif
 
                                 <div class="trat_datos">
-                                    <input class="" type="checkbox" value="" id="tratamiento_datos" name="tratamiento_datos">
+                                    <input class="" type="checkbox" value="si" id="tratamiento_datos" name="tratamiento_datos">
                                     <a href="{{url('derechos')}}" class="form-check-label" for="tratamiento_datos">
                                         He leído y acepto el tratamiento de mis datos personales
                                     </a>
