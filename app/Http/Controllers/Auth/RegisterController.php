@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'tel' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'tratamiento_datos' => ['required', 'int', 'min:1', 'confirmed'],
         ]);
     }
 
@@ -61,22 +62,38 @@ class RegisterController extends Controller
     {   return view("auth.register"); }
 
     protected function register(Request $request)
-    {
-        $user = User::create([
-            'name' => $request->get('name'),
-            'last_name' => $request->get('last_name'),
-            'document' => $request->get('document'),
-            'adress' =>$request->get('adress'),
-            'email' => $request->get('email'),
-            'tel' =>$request->get('tel'),
-            'password' => bcrypt($request->get('password')),
-        ]); 
+    {   
+        if (isset($_POST['tratamiento_datos'])){
+            if($request->get('password') == $request->get('password_confirm')){
+                $user = User::create(attributes: [
+                    'name' => $request->get('name'),
+                    'last_name' => $request->get('last_name'),
+                    'document' => $request->get('document'),
+                    'adress' =>$request->get('adress'),
+                    'email' => $request->get('email'),
+                    'tel' =>$request->get('tel'),
+                    'password' => bcrypt($request->get('password')),
+                    'tratamiento_datos' =>$request->get('tratamiento_datos'),   
+                ]); 
+    
+                $user->roles()->attach(Role::where('name', 'paciente')->first()); 
+    
+                return Redirect::to('login');
+            } else {
+                return back()->withErrors(provider: ['password' => 'Contraseñas diferentes']);
+            }
+            
 
-        $user->roles()->attach(Role::where('name', 'paciente')->first()); 
+        } else {
+            return back()->withErrors(['tratamiento_datos' => 'Debes aceptar el tratamiento de datos para registrarte']);
+        }
+
+        
 
        // Auth::login($user);
 
-        return Redirect::to('login');
+        
+        
            
     }
 }

@@ -107,6 +107,7 @@
                     <option value="2">Elige fecha y hora</option>
                 </select>
 
+<<<<<<< HEAD
                 <div class="form-check" name="der">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <a href="{{ url('derechos') }}" class="form-check-label" for="flexCheckDefault">
@@ -117,6 +118,11 @@
                 <button class="btn-conf" type="Submit" name="btn-confirmar" value="ok">Confirmar</button>
 
             </form>
+=======
+                <button class="btn-conf">Confirmar</button>
+
+            </div>
+>>>>>>> 5774254e1bb0859ce1f3f7cc89dd6184277a2c83
         </div>
     </section>
 
