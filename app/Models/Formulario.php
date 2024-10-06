@@ -22,4 +22,10 @@ class Formulario extends Model
         'estado',
         'fecha',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
+

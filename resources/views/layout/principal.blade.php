@@ -46,7 +46,9 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
                     <div class="logo">
-                        <img src="img/Logo.png" alt="">
+                        <a href='{{url('minuevasonrisa')}}'>
+                            <img src="img/Logo.png" alt="">
+                        </a>
                     </div>
                     
                     <div class="nomlogo">
@@ -89,6 +91,7 @@
                         </li>
 
                         <!-- Nav Item - Alerts -->
+                        @yield('componentes')
 
 
                         <div class="topbar-divider d-none d-sm-block"></div>

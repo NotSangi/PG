@@ -3,17 +3,64 @@
 @section('user')
 <li class="nav-item dropdown no-arrow">
 
-    <a class="nav-i-r" href="{{url(path: 'login')}}" id="userDropdown" role="button" aria-haspopup="true"
-        aria-expanded="false">
-        <span class="d-none d-lg-inline text-gray-600 small" style="font-size: 15px">INICIO SESION</span>
+    <?php
+if (Auth::user()) {
+        
+    ?>
+<li class="nav-item dropdown no-arrow">
+
+    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+
+        <?php
+    if (Auth::user()->hasRole('admin')) {
+        echo '<img class="img-profile rounded-circle" src="img/ADMIN.png">';
+
+    } elseif (Auth::user()->hasRole('paciente')) {
+        echo '<img class="img-profile rounded-circle" src="img/PACIENTE.png">';
+    } elseif (Auth::user()->hasRole('doctor')) {
+        echo ' <img class="img-profile rounded-circle" src="img/DOCTOR.png">';
+    }
+        ?>
+
     </a>
-    <a class="nav-i-r" href="{{url('register')}}" id="userDropdown" role="button" aria-haspopup="true"
-        aria-expanded="false">
-        <span class="d-none d-lg-inline text-gray-600 small"
-            style="font-size: 15px; margin: 0 40px 0 20px">REGISTRO</span>
-    </a>
+    <!-- Dropdown - User Information -->
+    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+        <a class="dropdown-item" href="{{ url('perfil') }}">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Perfil
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+        <form id="logout-form" action="{{ url('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </div>
+</li>
+<?php
+} else {
+?>
+
+
+<a class="nav-i-r" href="{{url(path: 'login')}}" id="userDropdown" role="button" aria-haspopup="true"
+    aria-expanded="false">
+    <span class="d-none d-lg-inline text-gray-600 small" style="font-size: 15px">INICIO SESION</span>
+</a>
+<a class="nav-i-r" href="{{url('register')}}" id="userDropdown" role="button" aria-haspopup="true"
+    aria-expanded="false">
+    <span class="d-none d-lg-inline text-gray-600 small" style="font-size: 15px; margin: 0 40px 0 20px">REGISTRO</span>
+</a>
 
 </li>
+
+<?php
+}
+?>
+
 @endSection
 
 @section('info')
@@ -48,7 +95,7 @@
                 <button class="btnagn">
                     Agendar
                 </button>
-                <a/>
+                <a />
         </div>
 
     </div>
@@ -57,7 +104,7 @@
 
 <!-- QUIENES SOMOS -->
 
-<section class="seccion-2">
+<section class="seccion-2" id="quienesSomos">
     <div class="container px-4 text-center">
         <div class="row gx-5">
             <div class="col">
@@ -91,7 +138,7 @@
 
 </section>
 
-<section class="seccion-3">
+<section class="seccion-3" id="mision_vision">
     <div class="col-mivi">
         <div class="mision">
             <div class="tt-misvis">
@@ -137,7 +184,7 @@
     </div>
 </section>
 
-<section class="seccion-4">
+<section class="seccion-4" id="contacto_cuidados">
     <div class="col-contacdent">
         <div class="tt-conden">
             <h3>
@@ -171,7 +218,7 @@
             <div class="p"><b>Cel: 300 2804691</b></div>
         </div>
     </div>
-    
+
     <div class="col-contacdent">
         <div class="tt-conden">
             <h3>
@@ -212,15 +259,51 @@
 
 @section('componentes')
 
-<a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
-    <span>QUIÉNES SOMOS</span>
-</a>
-<a class="nav-link collapsed" style="text-align: center" href="#nuestroEquipo" aria-expanded="true">
-    <span>NUESTRO EQUIPO</span>
-</a>
-<a class="nav-link collapsed" style="text-align: center" href="#mision-vision" aria-expanded="true">
-    <span>MISION Y VISION</span>
-</a>
+<?php 
+    if(Auth::user()){
+        if (Auth::user()->hasRole('paciente')) { ?>
 
+        <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasPacientes')}}" aria-expanded="true">
+            <span>CITAS</span>
+        </a>
+
+<?php } elseif (Auth::user()->hasRole('doctor')) { ?>
+
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('especialidad')}}" aria-expanded="true">
+        <span>ESPECIALIDAD</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('/evento')}}" aria-expanded="true">
+        <span>AGENDA</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasDoctores')}}" aria-expanded="true">
+        <span>CITAS</span>
+    </a>
+
+<?php } elseif (Auth::user()->hasRole('admin')) { ?>
+
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('pacientes')}}" aria-expanded="true">
+        <span>PACIENTES</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('doctores')}}" aria-expanded="true">
+        <span>DOCTORES</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasAdmin')}}" aria-expanded="true">
+        <span>CITAS</span>
+    </a>
+
+<?php }
+} else { ?>
+
+    <a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
+        <span>QUIÉNES SOMOS</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
+        <span>MISION Y VISION</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
+        <span>CONTACTO Y CUIDADOS</span>
+    </a>
+
+<?php } ?>
 
 @endsection

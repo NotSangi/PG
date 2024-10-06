@@ -220,9 +220,6 @@
 @endsection
 
 @section('componentes')
-<a class="nav-link collapsed" style="text-align: center;" href="{{ url('/evento') }}" aria-expanded="true" >
-    <span>GENERAR CITA</span>
-</a>
 <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasPacientes')}}" aria-expanded="true" >
     <span>CITAS</span>
 </a>

@@ -20,7 +20,7 @@ class PersonaController extends Controller
     {
         return view("layouts.modal");
     }
-    public function vistaCO()
+    /*public function vistaCO()
     {
         if (Auth::check()) {
             if (Auth::user()->hasRole('admin')) {
@@ -32,7 +32,7 @@ class PersonaController extends Controller
             }
         }
         return view("persona.index");
-    }
+    }*/
 
     public function formulario(){
         if (Auth::check()) {
@@ -48,21 +48,6 @@ class PersonaController extends Controller
         }    
     }
 
-    public function adminView()
-    {
-        return view("persona.admin");
-    }
-
-    public function pacienteView()
-    {
-        return view("persona.paciente");
-    }
-
-    public function doctorView()
-    {
-        return view("persona.doctor");
-    }
-
     public function form()
     {
         return view("persona.formulario");    
@@ -72,12 +57,6 @@ class PersonaController extends Controller
     {
         return view("persona.derechos");    
     } 
-
-    public function secretariaView()
-    {
-        return view("persona.secretaria");
-    }
-
 
     public function store(Request $request) {}
 

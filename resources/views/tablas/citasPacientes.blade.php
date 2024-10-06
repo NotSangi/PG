@@ -1,65 +1,51 @@
 @extends('layout.table')
 
-@section('usuario')
-{{ Auth::user()->name }}
-@endSection
-
 @section('titulo')
 CITAS
 @endSection
-
 
 @section('tabla')
 <thead>
     <tr>
         <th>ID CITA</th>
-        <th>TITULO</th>
         <th>PACIENTE</th>
-        <th>CITA REQUERIDA</th>
-        <th>DOCTOR</th>
-        <th>DESCRIPCION</th>
+        <th>NÚMERO CELULAR</th>
+        <th>EMAIL</th>
+        <th>TRATAMIENTO</th>
+        <th>LLAMADA</th>
+        <th>ESTADO</th>
         <th>FECHA</th>
-        <th>HORA</th>
     </tr>
 </thead>
 <tfoot>
     <tr>
         <th>ID CITA</th>
-        <th>TITULO</th>
         <th>PACIENTE</th>
-        <th>CITA REQUERIDA</th>
-        <th>DOCTOR</th>
-        <th>DESCRIPCION</th>
+        <th>NÚMERO CELULAR</th>
+        <th>EMAIL</th>
+        <th>TRATAMIENTO</th>
+        <th>LLAMADA</th>
+        <th>ESTADO</th>
         <th>FECHA</th>
-        <th>HORA</th>
     </tr>
 </tfoot>
 <tbody>
     @foreach($users as $user)
     <tr>
         <td>{{ $user->id}}</td>
-        <td>{{ $user->title }}</td>
-        <td>{{ $user->user->name }}</td>
-        <?php
-            $tipo_cita = DB::table('especialidads')->where('id', $user->selector)->value('description');
-        ?>
-        <td>{{$tipo_cita}}</td>
-        <?php
-            $doctor = DB::table('users')->where('id', $user->doctor_id)->value('name');
-        ?>  
-        <td>{{$doctor}}</td>
-        <td>{{ $user->descripcion }}</td>
-        <td>{{ $user->start }}</td>
-        <td>{{ $user->hora_cita }}</td>
+        <td>{{ $user->name && $user->last_name}}</td>
+        <td>{{ $user->tel}}</td>
+        <td>{{ $user->email}}</td>
+        <td>{{ $user->tratamiento}}</td>
+        <td>{{ $user->llamada}}</td>
+        <td>{{ $user->estado}}</td>
+        <td>{{ $user->fecha}}</td>
     </tr>
     @endforeach
 </tbody>
 @endSection
 
 @section('componentes')
-<a class="nav-link collapsed" style="text-align: center" href="{{ url('/evento') }}" aria-expanded="true" >
-    <span>GENERAR CITA</span>
-</a>
 <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasPacientes')}}" aria-expanded="true" >
     <span>CITAS</span>
 </a>

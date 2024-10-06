@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evento;
+use App\Models\Formulario;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,7 @@ class Tabla extends Controller
     }  
     public function citasPacientes(){
 
-        $usuario=Evento::whereHas('user', function($query){
+        $usuario=Formulario::whereHas('user', function($query){
             $query->where('user_id', Auth::user()->id);
         })->orderBy('id','DESC')->get();
 

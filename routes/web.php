@@ -20,8 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('persona', 'App\Http\Controllers\PersonaController');
-Route::get('vistaCO', 'App\Http\Controllers\PersonaController@vistaCO');
+
+Route::resource('minuevasonrisa', 'App\Http\Controllers\PersonaController');
+//Route::get('vistaCO', 'App\Http\Controllers\PersonaController@vistaCO');
 Route::get('formulario', 'App\Http\Controllers\PersonaController@formulario');
 Route::get('form', 'App\Http\Controllers\PersonaController@form');
 Route::get('derechos', 'App\Http\Controllers\PersonaController@derechos');
