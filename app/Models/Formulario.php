@@ -10,6 +10,7 @@ class Formulario extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'tipo_documento',
         'document',
         'name',
@@ -17,6 +18,8 @@ class Formulario extends Model
         'tel',
         'email',
         'tratamiento',
-        'llamada'
+        'llamada',
+        'estado',
+        'fecha',
     ];
 }

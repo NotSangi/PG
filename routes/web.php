@@ -26,6 +26,8 @@ Route::get('formulario', 'App\Http\Controllers\PersonaController@formulario');
 Route::get('form', 'App\Http\Controllers\PersonaController@form');
 Route::get('derechos', 'App\Http\Controllers\PersonaController@derechos');
 
+Route::get('modal', 'App\Http\Controllers\PersonaController@modal');
+
 Route::resource('especialidad', 'App\Http\Controllers\EspecialidadController');
 
 //roles

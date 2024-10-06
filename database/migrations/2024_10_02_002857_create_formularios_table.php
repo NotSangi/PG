@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('formularios', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('tipo_documento');
             $table->string('document');
             $table->string('name');
@@ -21,6 +22,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('tratamiento');
             $table->string('llamada');
+            $table->string('estado');
+            $table->dateTime('fecha');
             $table->timestamps();
         });
     }

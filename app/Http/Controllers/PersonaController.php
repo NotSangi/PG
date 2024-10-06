@@ -16,6 +16,10 @@ class PersonaController extends Controller
         return view("persona.index");
     }
 
+    public function modal()
+    {
+        return view("layouts.modal");
+    }
     public function vistaCO()
     {
         if (Auth::check()) {
