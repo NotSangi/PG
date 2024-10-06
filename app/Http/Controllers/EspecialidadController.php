@@ -26,7 +26,7 @@ class EspecialidadController extends Controller
             'especialidad_id' => $request->get('especialidad')
         ]); 
 
-        return Redirect::to('doctorR');
+        return Redirect::to('minuevasonrisa');
     }
 
 

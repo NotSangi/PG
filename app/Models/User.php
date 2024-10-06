@@ -99,5 +99,29 @@ class User extends Authenticatable
         return $this->especialidades()->first();
     } 
 
+    public function hasAnyEspecialty($ids)
+    {
+        if (is_array($ids)) {
+            foreach ($ids as $id) {
+            if ($this->hasEspeciality($id)) {
+                return true;
+            }
+            }
+        } else {
+            if ($this->hasEspeciality($ids)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function hasEspeciality($id)
+    {
+        if ($this->especialidades()->where('user_id', $id)->first()) {
+            return true;
+        }
+        return false;
+    }
+
 
 }

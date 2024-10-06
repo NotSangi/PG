@@ -41,24 +41,25 @@
 
 @section('info')
 
+<section class="tabla_citas">
+    <div class="container-fluid">
 
-<div class="container-fluid">
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">@yield('titulo')</h1>
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">@yield('titulo')</h1>
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
 
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    @yield('tabla')
-                </table>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        @yield('tabla')
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
+</section>
 @endsection
 <!-- /.container-fluid -->

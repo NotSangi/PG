@@ -47,15 +47,8 @@ class FormularioController extends Controller
             ]);
 
             
-
             if (Auth::check()) {
-                if (Auth::user()->hasRole('admin')) {
-                    return Redirect::to('adminR');
-                } else if (Auth::user()->hasRole('paciente')) {
-                    return Redirect::to('pacienteR');
-                } else if (Auth::user()->hasRole('doctor')) {
-                    return Redirect::to('doctorR');
-                }
+                return Redirect::to('minuevasonrisa');
             }
         }
     }

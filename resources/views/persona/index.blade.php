@@ -269,6 +269,12 @@ if (Auth::user()) {
 
 <?php } elseif (Auth::user()->hasRole('doctor')) { ?>
 
+    @if (Auth::user()->getEspeciality())
+        <b><p style="margin:0; padding-right: 40px;">Especialidad: {{ Auth::user()->getEspeciality()->description}}</p></b>
+        @else
+        <b><p style="margin:0; padding-right: 40px;">No tiene una especialidad asignada.</p></b>
+    @endif
+
     <a class="nav-link collapsed" style="text-align: center" href="{{url('especialidad')}}" aria-expanded="true">
         <span>ESPECIALIDAD</span>
     </a>

@@ -285,26 +285,21 @@
     margin: 0px 100px 0px 100px;
 }
 
-.form-control {
-    margin-top: 2%;
-}
+.form-inputs {
+    margin: 1% 0px 0px 0px;
+    display: block;
+    width: 50%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;  
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6e707e;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.5px solid #d1d3e2;
+    border-radius: 0.5rem;
 
-.form-select {
-    width: 100%;
-    text-align: justify;
-    font-family: "Quicksand", sans-serif;
-    color: #003366;
-    border-radius: 2px;
-    margin: 3% 0px 2% 0px;
-}
-
-.form h3{
-margin: 0px 0px 20px 0px;
-}
-
-.form p {
-    text-align: justify;
-    margin: 2% 0px 0px 0px;
 }
 
 .form-check {
@@ -517,7 +512,7 @@ margin: 0px 0px 20px 0px;
 
 .solicitar_cita {
     margin: 50px 0px 50px 0px;
-    height: 400px;
+    height: 300px;
     background-color: #ffffff;
     box-shadow: 0px 0px 50px 0px hsl(233, 33%, 51%);
     border-radius: 1rem;
@@ -531,6 +526,7 @@ margin: 0px 0px 20px 0px;
 .cont_titulo{
     font-size: 60px;
     color: #003366;
+    padding: 0;
 }
 
 .cont_texto{
@@ -543,7 +539,7 @@ margin: 0px 0px 20px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .btn_whatsapp{
@@ -552,12 +548,11 @@ margin: 0px 0px 20px 0px;
     background-color: rgb(71, 218, 71);
     padding: 10px;
     border-radius: 1rem;
-    box-shadow: 0px 0px 20px 1px rgb(1, 176, 36);
     transition: 0.5s;
 }
 
 .btn_whatsapp:hover {
-    box-shadow: 0px 0px 20px 1px rgb(0, 19, 127);
+    box-shadow: 0px 0px 10px 1px rgb(0, 19, 127);
     background-color: #5355ef;
     transform: scale(1.05);
     color: #ffffff;
@@ -572,7 +567,7 @@ margin: 0px 0px 20px 0px;
 /*-----------------------------------Mapa-----------------------------------*/
 .mapa{
     margin: 50px 0px 50px 0px;
-    height: 600px;
+    height: 555px;
     background-color: #ffffff;
     box-shadow: 0px 0px 50px 0px hsl(233, 33%, 51%);
     border-radius: 1rem;
@@ -592,25 +587,14 @@ margin: 0px 0px 20px 0px;
 .cont_img_mapa{
     width: 50%;
     height: 100%;
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(
-        180deg,
-        rgba(185, 235, 255, 1) 0%,
-        rgba(92, 199, 252, 1) 11%,
-        rgba(93, 169, 242, 1) 50%,
-        rgba(2, 220, 246, 1) 83%,
-        rgba(196, 249, 255, 1) 100%
-    );
-    border-radius: 3rem;
+    border: 1px solid black;
 }
 
 .cont_img_mapa img{
     width: 100%;
-    border-radius: 3rem;
-    box-shadow: 0px 0px 20px 1px rgb(2, 41, 71);
 }
 
 .info_sede{
@@ -620,16 +604,20 @@ margin: 0px 0px 20px 0px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: rgb(36, 117, 231);
 }
 
 .info_sede h2{
     font-size: 50px;
-    color: #003366; 
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 2px 3px #000;
 }
 
 .info_sede p{
     font-size: 25px;
-    color: #003366; 
+    text-shadow: 0px 2px 3px #000;
+    color: white;
 }
 
 .red_maps{
@@ -637,20 +625,20 @@ margin: 0px 0px 20px 0px;
     margin: 20px 0px 20px 0px;
     padding: 10px 0px 10px 0px;
     border-radius: 30px;
-    background-color: #5355ef;
-    box-shadow: 0px 0px 20px 1px rgb(0, 19, 127);
+    background-color: #0407a2;
     font-size: 20px;
     font-weight: bold;
     border: none;
     color:  white;
+    transition: 0.5s;
 
 }
 
 .red_maps:hover{
-    box-shadow: 0px 0px 20px 1px rgb(3, 170, 67);
-    background-color: #08ec4d;
+    box-shadow: 0px 0px 20px 1px rgb(2, 14, 102);
+    background-color: #ffffff;
     transform: scale(1.05);
-    color: #ffffff;
+    color: #010db1;
     transition: 0.5s;
 }
 
@@ -668,6 +656,18 @@ margin: 0px 0px 20px 0px;
 
 .trat_datos input{
     margin: 10px;
+}
+
+.tabla_citas{
+    padding: 0px 60px 0px 60px;
+    margin: 80px 0px 50px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 600px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 50px 0px hsl(233, 33%, 51%);
+    border-radius: 20px;
 }
 
 

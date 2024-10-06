@@ -20,19 +20,7 @@ class PersonaController extends Controller
     {
         return view("layouts.modal");
     }
-    /*public function vistaCO()
-    {
-        if (Auth::check()) {
-            if (Auth::user()->hasRole('admin')) {
-                return Redirect::to('adminR');
-            } else if (Auth::user()->hasRole('paciente')) {
-                return Redirect::to('pacienteR');
-            } else if (Auth::user()->hasRole('doctor')) {
-                return Redirect::to('doctorR');
-            }
-        }
-        return view("persona.index");
-    }*/
+
 
     public function formulario(){
         if (Auth::check()) {

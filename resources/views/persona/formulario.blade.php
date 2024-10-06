@@ -71,8 +71,8 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
     <div class="agen-form">
         <form class="form" method="POST" id="form_cita">
 
-            <h3><b>¿Necesitas una cita? Nosotros te llamamos</b></h3>
-            <select class="form-select" aria-label="Default select example" name="tipo_documento" id="tipo_documento">
+            <h2 style="color: #003366; font-size: 40px; margin-bottom: 30px;"><b>¿Necesitas una cita? Nosotros te llamamos</b></h2>
+            <select class="form-inputs" aria-label="Default select example" name="tipo_documento" id="tipo_documento">
                 <option selected disabled value="">Tipo De Documento</option>
                 <option value="CC">CC - Cedula de Ciudadanía</option>
                 <option value="CE">CE - Cédula de Extranjería</option>
@@ -83,18 +83,18 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
                 <option value="TI">TI - Tarjeta de Identidad</option>
             </select>
 
-            <input class="form-control" type="text" placeholder="Número de Identificación"
+            <input class="form-inputs" type="text" placeholder="Número de Identificación"
                 aria-label="default input example" name="document" id="document">
-            <input class="form-control" type="text" placeholder="Nombre" aria-label="default input example" name="name"
+            <input class="form-inputs" type="text" placeholder="Nombre" aria-label="default input example" name="name"
                 id="name">
-            <input class="form-control" type="text" placeholder="Apellidos" aria-label="default input example"
+            <input class="form-inputs" type="text" placeholder="Apellidos" aria-label="default input example"
                 name="last_name" id="last_name">
-            <input class="form-control" type="text" placeholder="Número" aria-label="default input example" name="tel"
+            <input class="form-inputs" type="text" placeholder="Número" aria-label="default input example" name="tel"
                 id="tel">
-            <input class="form-control" type="text" placeholder="Correo Eléctronico" aria-label="default input example"
+            <input class="form-inputs" type="text" placeholder="Correo Eléctronico" aria-label="default input example"
                 name="email" id="email">
 
-            <select class="form-select" aria-label="Default select example" name="tratamiento" id="tratamiento">
+            <select class="form-inputs" aria-label="Default select example" name="tratamiento" id="tratamiento">
                 <option selected disabled value="">Elige tu tratamiento</option>
                 <option value="Diseño de Sonrisa">Diseño de Sonrisa</option>
                 <option value="Endodoncia">Endodoncia</option>
@@ -107,8 +107,8 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
                 <option value="Higiene Oral">Higiene Oral</option>
             </select>
 
-            <p>¿Cuándo deberíamos llamarte?</p>
-            <select class="form-select" aria-label="Default select example" name="llamada" id="llamada">
+            <p style="color: #003366; font-size: 25px; margin: 10px 0 0 0;">¿Cuándo deberíamos llamarte?</p>
+            <select class="form-inputs" aria-label="Default select example" name="llamada" id="llamada">
                 <option selected disabled value="">Elige una opcion</option>
                 <option value="Rapido">Tan pronto como sea posible</option>
                 <option value="Lento">No hay afan</option>
@@ -192,5 +192,56 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
     </div>
 </section>
 
+
+@endsection
+
+@section('componentes')
+
+<?php 
+    if(Auth::user()){
+        if (Auth::user()->hasRole('paciente')) { ?>
+
+        <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasPacientes')}}" aria-expanded="true">
+            <span>CITAS</span>
+        </a>
+
+<?php } elseif (Auth::user()->hasRole('doctor')) { ?>
+
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('especialidad')}}" aria-expanded="true">
+        <span>ESPECIALIDAD</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('/evento')}}" aria-expanded="true">
+        <span>AGENDA</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasDoctores')}}" aria-expanded="true">
+        <span>CITAS</span>
+    </a>
+
+<?php } elseif (Auth::user()->hasRole('admin')) { ?>
+
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('pacientes')}}" aria-expanded="true">
+        <span>PACIENTES</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('doctores')}}" aria-expanded="true">
+        <span>DOCTORES</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasAdmin')}}" aria-expanded="true">
+        <span>CITAS</span>
+    </a>
+
+<?php }
+} else { ?>
+
+    <a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
+        <span>QUIÉNES SOMOS</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
+        <span>MISION Y VISION</span>
+    </a>
+    <a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
+        <span>CONTACTO Y CUIDADOS</span>
+    </a>
+
+<?php } ?>
 
 @endsection

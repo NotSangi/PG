@@ -91,7 +91,9 @@
                         </li>
 
                         <!-- Nav Item - Alerts -->
-                        @yield('componentes')
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            @yield('componentes')
+                        </div>
 
 
                         <div class="topbar-divider d-none d-sm-block"></div>
