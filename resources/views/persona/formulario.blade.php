@@ -201,7 +201,7 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
     if(Auth::user()){
         if (Auth::user()->hasRole('paciente')) { ?>
 
-        <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasPacientes')}}" aria-expanded="true">
+        <a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
             <span>CITAS</span>
         </a>
 
@@ -213,7 +213,7 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
     <a class="nav-link collapsed" style="text-align: center" href="{{url('/evento')}}" aria-expanded="true">
         <span>AGENDA</span>
     </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasDoctores')}}" aria-expanded="true">
+    <a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
         <span>CITAS</span>
     </a>
 

@@ -10,52 +10,68 @@ CITAS
 @endSection
 
 @section('tabla')
+
+
+
 <thead>
-    <tr>
+    <tr style="text-align: center;">
         <th>ID CITA</th>
-        <th>TITULO</th>
         <th>PACIENTE</th>
-        <th>CITA REQUERIDA</th>
-        <th>DOCTOR</th>
-        <th>DESCRIPCION</th>
+        <th>NÚMERO CELULAR</th>
+        <th>EMAIL</th>
+        <th>TRATAMIENTO</th>
+        <th>DOCTOR ASIGNADO</th>
+        <th>LLAMADA</th>
+        <th>ESTADO</th>
         <th>FECHA</th>
-        <th>HORA</th>
     </tr>
 </thead>
 <tfoot>
-    <tr>
+    <tr style="text-align: center;">
         <th>ID CITA</th>
-        <th>TITULO</th>
         <th>PACIENTE</th>
-        <th>CITA REQUERIDA</th>
-        <th>DOCTOR</th>
-        <th>DESCRIPCION</th>
+        <th>NÚMERO CELULAR</th>
+        <th>EMAIL</th>
+        <th>TRATAMIENTO</th>
+        <th>DOCTOR ASIGNADO</th>
+        <th>LLAMADA</th>
+        <th>ESTADO</th>
         <th>FECHA</th>
-        <th>HORA</th>
     </tr>
 </tfoot>
 <tbody>
+    <?php if(is_null($citas)){ ?>
+        No tienes citas
+    <?php } else { ?>
     @foreach($citas as $cita)
-    <tr>
+    <tr style="text-align: center;">
         <td>{{ $cita->id}}</td>
-        <td>{{ $cita->title }}</td>
-        <?php
-            $paciente = DB::table('users')->where('id', $cita->user_id)->value('name');
-        ?>
-        <td>{{$paciente}}</td>
-        <?php
-            $tipo_cita = DB::table('especialidads')->where('id', $cita->selector)->value('description');
-        ?>
-        <td>{{$tipo_cita}}</td>
-        <?php
-            $doctor = DB::table('users')->where('id', $cita->doctor_id)->value('name');
-        ?>
-        <td>{{$doctor}}</td>
-        <td>{{ $cita->descripcion }}</td>
-        <td>{{ $cita->start }}</td>
-        <td>{{ $cita->hora_cita }}</td>
+        <td>{{ $cita->name}} {{$cita->last_name}}</td>
+        <td>{{ $cita->tel}}</td>
+        <td>{{ $cita->email}}</td>
+        <td>{{ $cita->tratamiento}}</td>
+        <td>
+            <select name="doctor" style="width: 100%; border: 0.5px solid grey; border-radius: 0.5rem; color: grey;">
+                @foreach($doctores as $doctor)
+                    <option value="{{ $doctor->id }}" {{ $cita->doctor_id == $doctor->id}}>{{ $doctor->name }} {{$doctor->last_name}}</option>
+                @endforeach
+            </select>
+        </td>
+        <td>{{ $cita->llamada}}</td>
+        <td>
+            <select name="estado" style="width: 100%; border: 0.5px solid grey; border-radius: 0.5rem; color: grey;">
+                <option value="{{$cita->estado}}" disabled selected>{{ $cita->estado}}</option>
+                <option value="PENDIENTE" {{ $cita->estado == 'PENDIENTE'}}>PENDIENTE</option>
+                <option value="ASIGNADA" {{ $cita->estado == 'ASIGNADA'}}>ASIGNADA</option>
+            </select>
+        </td>
+        <td>
+            <input type="dateTime-local" value="{{$cita->fecha}}">
+        </td>
     </tr>
     @endforeach
+        
+    <?php } ?>
 </tbody>
 @endSection
 

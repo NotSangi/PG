@@ -22,7 +22,6 @@ Route::get('/', function () {
 
 
 Route::resource('minuevasonrisa', 'App\Http\Controllers\PersonaController');
-//Route::get('vistaCO', 'App\Http\Controllers\PersonaController@vistaCO');
 Route::get('formulario', 'App\Http\Controllers\PersonaController@formulario');
 Route::get('form', 'App\Http\Controllers\PersonaController@form');
 Route::get('derechos', 'App\Http\Controllers\PersonaController@derechos');
@@ -44,8 +43,7 @@ Route::get('pacientes', 'App\Http\Controllers\Tabla@pacientesView');
 Route::get('doctores', 'App\Http\Controllers\Tabla@doctoresView');
 Route::get('secretarias', 'App\Http\Controllers\Tabla@secretariasView');
 
-Route::get('citasPacientes', 'App\Http\Controllers\Tabla@citasPacientes');
-Route::get('citasDoctores', 'App\Http\Controllers\Tabla@citasDoctores');
+Route::get('citas', 'App\Http\Controllers\Tabla@citas');
 Route::get('citasAdmin', 'App\Http\Controllers\Tabla@citasAdmin');
 
 

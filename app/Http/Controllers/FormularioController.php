@@ -43,7 +43,6 @@ class FormularioController extends Controller
                 'tratamiento' => $request->get('tratamiento'),
                 'llamada' => $request->get('llamada'),
                 'estado' => 'PENDIENTE',
-                'fecha' => $fecha_actual,
             ]);
 
             

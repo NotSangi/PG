@@ -21,9 +21,10 @@ return new class extends Migration
             $table->string('tel');
             $table->string('email');
             $table->string('tratamiento');
+            $table->integer('doctor_id')->nullable();
             $table->string('llamada');
             $table->string('estado');
-            $table->dateTime('fecha');
+            $table->dateTime('fecha')->nullable();
             $table->timestamps();
         });
     }

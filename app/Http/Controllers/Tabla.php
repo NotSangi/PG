@@ -25,27 +25,22 @@ class Tabla extends Controller
         
         return view('tablas.doctores')->with('users', $usuario); 
     }  
-    public function citasPacientes(){
+    public function citas(){
 
-        $usuario=Formulario::whereHas('user', function($query){
+        $citas=Formulario::whereHas('user', function($query){
             $query->where('user_id', Auth::user()->id);
         })->orderBy('id','DESC')->get();
 
-        return view('tablas.citasPacientes')->with('users', $usuario); 
-    }
-
-    public function citasDoctores(){
-
-        $usuario=Evento::whereHas('user', function($query){
-            $query->where('doctor_id', Auth::user()->id);
-        })->orderBy('id','DESC')->get();
-
-        return view('tablas.citasDoctores')->with('users', $usuario); 
+        return view('tablas.citas')->with('citas', $citas); 
     }
 
     public function citasAdmin(){
-        $cita = Evento::all();
+        $cita = Formulario::all();
 
-        return view('tablas.citasAdmin')->with('citas', $cita);
+        $usuario=User::whereHas('roles', function($query){
+            $query->where('name','doctor');
+        })->orderBy('id','DESC')->get();
+
+        return view('tablas.citasAdmin')->with('citas', $cita)->with('doctores', $usuario);
     }
 }

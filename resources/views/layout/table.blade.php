@@ -41,6 +41,12 @@
 
 @section('info')
 
+<style>
+    .cont-gen{
+        margin: 0px 15px 0px 15px;
+    }
+</style>
+
 <section class="tabla_citas">
     <div class="container-fluid">
 
