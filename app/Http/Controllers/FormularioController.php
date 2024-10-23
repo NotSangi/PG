@@ -19,14 +19,16 @@ class FormularioController extends Controller
     {
         $objeto = (object) $_POST;
 
-        if(empty($objeto->tipo_documento) 
-        || empty($objeto->document) 
-        || empty($objeto->name) 
-        || empty($objeto->last_name) 
-        || empty($objeto->tel)
-        || empty($objeto->email)
-        || empty($objeto->tratamiento)
-        || empty($objeto->llamada)){
+        if (
+            empty($objeto->tipo_documento)
+            || empty($objeto->document)
+            || empty($objeto->name)
+            || empty($objeto->last_name)
+            || empty($objeto->tel)
+            || empty($objeto->email)
+            || empty($objeto->tratamiento)
+            || empty($objeto->llamada)
+        ) {
             return back()->withErrors(['completar_formulario' => 'Debes llenar todo el formulario']);
         } else {
 
@@ -45,7 +47,7 @@ class FormularioController extends Controller
                 'estado' => 'PENDIENTE',
             ]);
 
-            
+
             if (Auth::check()) {
                 return Redirect::to('minuevasonrisa');
             }
@@ -54,7 +56,7 @@ class FormularioController extends Controller
 
     public function store(Request $request)
     {
- 
+
     }
 
     public function show(string $id)
@@ -67,9 +69,28 @@ class FormularioController extends Controller
         //
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $doctores = $request->input('doctor');
+        $estados = $request->input('estado');
+        $fechas = $request->input('fecha');
+
+        foreach ($doctores as $cita_id => $doctor_id) {
+            if (!empty($doctor_id) || !empty($estados[$cita_id])) {
+                // Encontrar la cita
+                $cita = Formulario::find($cita_id);
+
+                // Actualizar solo si el doctor o el estado fueron modificados
+                if ($cita) {
+                    $cita->doctor_id = $doctor_id ?? $cita->doctor_id;
+                    $cita->estado = $estados[$cita_id] ?? $cita->estado;
+                    $cita->fecha = $fechas[$cita_id] ?? $cita->fecha;
+                    $cita->save(); // Guardar los cambios
+                }
+            }
+        }
+
+        return Redirect::to('minuevasonrisa');
     }
 
     public function destroy(string $id)

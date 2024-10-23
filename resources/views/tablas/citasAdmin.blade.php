@@ -39,6 +39,10 @@ CITAS
         <th>FECHA</th>
     </tr>
 </tfoot>
+
+{!!Form::open(array('url' => 'citas_update', 'method' => 'POST', 'autocomplete' => 'off'))!!}
+{{Form::token()}}
+
 <tbody>
     <?php if(is_null($citas)){ ?>
         No tienes citas
@@ -51,28 +55,37 @@ CITAS
         <td>{{ $cita->email}}</td>
         <td>{{ $cita->tratamiento}}</td>
         <td>
-            <select name="doctor" style="width: 100%; border: 0.5px solid grey; border-radius: 0.5rem; color: grey;">
+            <select name="doctor[{{ $cita->id }}]" style="width: 100%; border: 0.5px solid grey; border-radius: 0.5rem; color: grey;">
+                    <option value="" disabled {{ is_null($cita->doctor_id) ? 'selected' : '' }}>Selecciona un doctor</option>
                 @foreach($doctores as $doctor)
-                    <option value="{{ $doctor->id }}" {{ $cita->doctor_id == $doctor->id}}>{{ $doctor->name }} {{$doctor->last_name}}</option>
+                    <option value="{{ $doctor->id }}" {{ $cita->doctor_id == $doctor->id ? 'selected' : '' }}>{{ $doctor->name }} {{$doctor->last_name}}</option>
                 @endforeach
             </select>
         </td>
         <td>{{ $cita->llamada}}</td>
         <td>
-            <select name="estado" style="width: 100%; border: 0.5px solid grey; border-radius: 0.5rem; color: grey;">
-                <option value="{{$cita->estado}}" disabled selected>{{ $cita->estado}}</option>
+            <select name="estado[{{ $cita->id }}]" style="width: 100%; border: 0.5px solid grey; border-radius: 0.5rem; color: grey;">
+                <?php if (!empty($cita->estado))  { ?> 
+                    <option value="{{$cita->estado}}">{{ $cita->estado}}</option> 
+                <?php } else { ?> 
+                    <option value="" disabled selected></option> 
+                <?php } ?>
                 <option value="PENDIENTE" {{ $cita->estado == 'PENDIENTE'}}>PENDIENTE</option>
                 <option value="ASIGNADA" {{ $cita->estado == 'ASIGNADA'}}>ASIGNADA</option>
             </select>
         </td>
         <td>
-            <input type="dateTime-local" value="{{$cita->fecha}}">
+            <input type="dateTime-local" name="fecha[{{ $cita->id }}]" value="{{$cita->fecha}}">
         </td>
     </tr>
     @endforeach
         
     <?php } ?>
 </tbody>
+<button type="submit">Actualizar</buttontype>
+{{Form::close()}}
+
+
 @endSection
 
 @section('componentes')

@@ -57,6 +57,7 @@ Route::post('/evento/borrar/{id}', [EventoController::class, 'destroy']);
 
 //formulario
 Route::post('post_formulario', 'App\Http\Controllers\FormularioController@create');
+Route::post('citas_update', 'App\Http\Controllers\FormularioController@update');
 
 //login y registro
 

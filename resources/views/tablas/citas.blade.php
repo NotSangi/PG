@@ -38,7 +38,7 @@ CITAS
     @foreach($citas as $cita)
     <tr style="text-align: center;">
         <td>{{ $cita->id}}</td>
-        <td>{{ $cita->name && $cita->last_name}}</td>
+        <td>{{ $cita->name}} {{$cita->last_name}}</td>
         <td>{{ $cita->tel}}</td>
         <td>{{ $cita->email}}</td>
         <td>{{ $cita->tratamiento}}</td>

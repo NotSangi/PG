@@ -18,6 +18,7 @@ class Formulario extends Model
         'tel',
         'email',
         'tratamiento',
+        'doctor_id',
         'llamada',
         'estado',
         'fecha',
