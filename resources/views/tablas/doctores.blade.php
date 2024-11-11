@@ -48,6 +48,15 @@ DOCTORES
 @endSection
 
 @section('componentes')
+<a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
+    <span>QUIÉNES SOMOS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
+    <span>MISION Y VISION</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
+    <span>CONTACTO Y CUIDADOS</span>
+</a>
 <a class="nav-link collapsed" style="text-align: center" href="{{url('pacientes')}}" aria-expanded="true" >
     <span>PACIENTES</span>
 </a>
@@ -56,6 +65,9 @@ DOCTORES
 </a>
 <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasAdmin')}}" aria-expanded="true" >
     <span>CITAS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true" >
+    <span>AGENDA</span>
 </a>
 
 @endsection

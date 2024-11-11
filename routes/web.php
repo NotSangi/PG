@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CitaController;
+use App\Http\Controllers\FormularioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
 use Illuminate\Support\Facades\Auth;
@@ -48,16 +49,19 @@ Route::get('citasAdmin', 'App\Http\Controllers\Tabla@citasAdmin');
 
 
 //agenda
-Route::get('/evento', [EventoController::class, 'index']);
+/*Route::get('/evento', [EventoController::class, 'index']);
 Route::get('/evento/mostrar', [EventoController::class, 'show']);
 Route::post('/evento/agregar', [EventoController::class, 'store']);
 Route::post('/evento/editar/{id}', [EventoController::class, 'edit']);
 Route::post('/evento/actualizar/{evento}', [EventoController::class, 'update']);
-Route::post('/evento/borrar/{id}', [EventoController::class, 'destroy']);
+Route::post('/evento/borrar/{id}', [EventoController::class, 'destroy']); */
 
 //formulario
 Route::post('post_formulario', 'App\Http\Controllers\FormularioController@create');
 Route::post('citas_update', 'App\Http\Controllers\FormularioController@update');
+Route::get('/appointments/events', [FormularioController::class, 'eventos'])->name('archivo_json');
+Route::get('agenda', 'App\Http\Controllers\FormularioController@show');
+
 
 //login y registro
 

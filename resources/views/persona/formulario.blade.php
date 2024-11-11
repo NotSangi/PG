@@ -111,7 +111,7 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
             <select class="form-inputs" aria-label="Default select example" name="llamada" id="llamada">
                 <option selected disabled value="">Elige una opcion</option>
                 <option value="Rapido">Tan pronto como sea posible</option>
-                <option value="Lento">No hay afan</option>
+                <option value="Lento">Cuando haya disponibilidad</option>
             </select>
 
             @if ($errors->has('completar_formulario'))
@@ -122,23 +122,7 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
 
             <button class="btn-conf" type="Submit" name="btn-confirmar">Confirmar</button>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                        </div>
-                        <div class="modal-body">
-                            Hola hola hola
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <script>
                 $(document).ready(function () {
                     $('#form_cita').submit(function (event) {

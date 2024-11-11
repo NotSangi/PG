@@ -27,11 +27,21 @@ class Tabla extends Controller
     }  
     public function citas(){
 
-        $citas=Formulario::whereHas('user', function($query){
-            $query->where('user_id', Auth::user()->id);
-        })->orderBy('id','DESC')->get();
+        if(Auth::user()->hasRole('paciente')){
+            
+            $citas=Formulario::whereHas('user', function($query){
+                $query->where('user_id', Auth::user()->id);
+            })->orderBy('id','DESC')->get();
 
-        return view('tablas.citas')->with('citas', $citas); 
+            return view('tablas.citas')->with('citas', $citas); 
+        } else if (Auth::user()->hasRole('doctor')){
+
+            $citas=Formulario::whereHas('user', function($query){
+                $query->where('doctor_id', Auth::user()->id);
+            })->orderBy('id','DESC')->get();
+
+            return view('tablas.citas')->with('citas', $citas);
+        }
     }
 
     public function citasAdmin(){
