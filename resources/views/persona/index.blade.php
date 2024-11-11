@@ -262,7 +262,6 @@ if (Auth::user()) {
 <?php 
     if(Auth::user()){
         if (Auth::user()->hasRole('paciente')) { ?>
-
         <a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
             <span>QUIÉNES SOMOS</span>
         </a>
@@ -272,7 +271,6 @@ if (Auth::user()) {
         <a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
             <span>CONTACTO Y CUIDADOS</span>
         </a>
-
         <a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
             <span>CITAS</span>
         </a>

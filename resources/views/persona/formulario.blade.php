@@ -194,9 +194,6 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
     <a class="nav-link collapsed" style="text-align: center" href="{{url('especialidad')}}" aria-expanded="true">
         <span>ESPECIALIDAD</span>
     </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{url('/evento')}}" aria-expanded="true">
-        <span>AGENDA</span>
-    </a>
     <a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
         <span>CITAS</span>
     </a>
