@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Str;
 use App\Models\User;        
 
 class LoginController extends Controller
@@ -55,7 +55,7 @@ class LoginController extends Controller
             "password" => $request->get('password'),
         ];
  
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->has('remember'))) {
 
             $referer = $request->headers->get('referer');
 
@@ -66,6 +66,19 @@ class LoginController extends Controller
                     return Redirect::to('minuevasonrisa');
                 }
             }
+
+            if ($request->has('remember')) {
+                // Generate a unique remember token
+                $rememberToken = Str::random(60);
+                Auth::user()->update(['remember_token' => $rememberToken]);
+    
+                // Create a cookie for the remember token (optional)
+                $request->session()->put('remember_token', $rememberToken);
+                $cookie = cookie('laravel_remember', $rememberToken, 1440 * 30) // Expires in 30 days
+                    ->withSameSite('strict'); // Enhanced security
+                $request->stack()->push($cookie);
+            }
+
         } else {
             return back()->withErrors(['error' => 'Credenciales invalidas']);
         }

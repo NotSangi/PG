@@ -60,7 +60,7 @@
 
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
                                                 <label class="custom-control-label" for="customCheck">Recuerdame</label>
                                             </div>
                                         </div>
@@ -69,8 +69,9 @@
                                         </button>
                                     </form>
                                     <hr>
-                                    <div class="text-center">
+                                    <div class="text-center btn-log">
                                         <a class="small" href="{{route('register')}}">Registrate</a>
+                                        <a class="small" href="{{url('minuevasonrisa')}}">Volver</a>
                                     </div>
                                 </div>
                             </div>

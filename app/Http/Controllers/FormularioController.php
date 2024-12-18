@@ -14,7 +14,6 @@ class FormularioController extends Controller
 
     public function index()
     {
-        //
     }
     public function create(Request $request)
     {
@@ -55,11 +54,6 @@ class FormularioController extends Controller
         }
     }
 
-    public function store(Request $request)
-    {
-        
-    }
-
     public function eventos(Request $request)
     {
         $user = Auth::user();
@@ -79,7 +73,7 @@ class FormularioController extends Controller
         $events = $citas->map(function ($cita) {
 
             $color = "";
-            if ($cita->estado == "ASIGNADA"){
+            if ($cita->estado == "ASIGNADA") {
                 $color = "#00ff6a";
             } else if ($cita->estado == "CANCELADA") {
                 $color = "#f93f3f";
@@ -88,6 +82,7 @@ class FormularioController extends Controller
             $doctor = DB::table('users')->where('id', $cita->doctor_id)->first(['name', 'last_name']);
 
             return [
+                'id' => $cita->id,
                 'title' => $cita->name . ' ' . $cita->last_name,
                 'start' => $cita->fecha,
                 'extendedProps' => [
@@ -96,25 +91,22 @@ class FormularioController extends Controller
                     'tratamiento' => $cita->tratamiento,
                     'user_id' => $cita->user_id,
                 ],
-                
+
                 'backgroundColor' => $color,
                 'borderColor' => $color,
             ];
         });
 
-        return response()->json($events); 
+        return response()->json($events);
     }
-    public function show(){
+    public function show()
+    {
         return view("persona.agenda");
     }
 
-    public function edit(string $id)
+    public function updateEstado(Request $request)
     {
-        //
-    }
 
-    public function updateEstado(Request $request){
-        
     }
     public function update(Request $request)
     {
@@ -140,8 +132,24 @@ class FormularioController extends Controller
         return Redirect::to('minuevasonrisa');
     }
 
-    public function destroy(string $id)
+    public function cancel(Request $request)
     {
-        //
+        $citaId = $request->input('citaId');
+
+        if (empty($citaId)) {
+            return response()->json(['error' => 'Cita no encontrada'], 404);
+        }
+
+        $cita = Formulario::find($citaId);
+
+        if (!$cita) {
+            return response()->json(['error' => 'Cita no encontrada'], 404);
+        }
+
+        $cita->estado = 'CANCELADA';
+        $cita->save();
+
+        return response()->json(['success' => 'Cita cancelada correctamente']);
     }
+
 }

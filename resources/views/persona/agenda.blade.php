@@ -1,6 +1,6 @@
 @extends('layout.principal')
 
-
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -17,7 +17,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><span id="botonFooter"></button>  
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><span id="botonFooter"></button>
             </div>
         </div>
     </div>
@@ -26,59 +26,83 @@
 @section('scripts')
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
 <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        locale: 'es',
-        headerToolbar: {
-            left: 'prev,next,today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,listWeek'
-        },
-        events: '/appointments/events',
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'es',
+            headerToolbar: {
+                left: 'prev,next,today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,listWeek'
+            },
+            events: '/appointments/events',
 
-        eventClick: function(info) {
-                // Evita el redireccionamiento predeterminado
-            info.jsEvent.preventDefault();
+            eventClick: function (info) {
+                info.jsEvent.preventDefault();
 
-                // Llama al modal y pasa la información de la cita
-            let modalTitle = info.event.title;
-            let modalStart = info.event.start.toLocaleString();
-            let modalDoctor = info.event.extendedProps.doctor.toLocaleString();
-            let modalTratamiento = info.event.extendedProps.tratamiento.toLocaleString();
-            let modalEstado = info.event.extendedProps.estado.toLocaleString();
-            let modalEnd = info.event.end ? info.event.end.toLocaleString() : 'No especificado';
+                let modalTitle = info.event.title;
+                let modalStart = info.event.start.toLocaleString();
+                let modalDoctor = info.event.extendedProps.doctor.toLocaleString();
+                let modalTratamiento = info.event.extendedProps.tratamiento.toLocaleString();
+                let modalEstado = info.event.extendedProps.estado.toLocaleString();
+                let modalEnd = info.event.end ? info.event.end.toLocaleString() : 'No especificado';
 
-            // Actualiza el contenido del modal
-            document.getElementById('modalTitle').innerText = modalTitle;
-            document.getElementById('modalStart').innerText = modalStart;
-            document.getElementById('modalDoctor').innerText = modalDoctor;
-            document.getElementById('modalTratamiento').innerText = modalTratamiento;
-            document.getElementById('modalEstado').innerText = modalEstado;
+                document.getElementById('modalTitle').innerText = modalTitle;
+                document.getElementById('modalStart').innerText = modalStart;
+                document.getElementById('modalDoctor').innerText = modalDoctor;
+                document.getElementById('modalTratamiento').innerText = modalTratamiento;
+                document.getElementById('modalEstado').innerText = modalEstado;
 
-            if(modalEstado == "ASIGNADA"){
-                boton = "CANCELAR CITA"
-            } else {
-                boton = "CERRAR"
+                if (modalEstado == "ASIGNADA") {
+                    boton = "CANCELAR CITA"
+                } else {
+                    boton = "CERRAR"
+                }
+
+                document.getElementById('botonFooter').innerText = boton;
+
+                // Muestra el modal
+                var modal = new bootstrap.Modal(document.getElementById('eventModal'));
+                modal.show();
+
+                document.getElementById('cerrar').addEventListener('click', function () {
+                    modal.hide();
+                });
+
+                document.getElementById('botonFooter').addEventListener('click', function () {
+                    if (boton == "CANCELAR CITA") {
+                        let citaId = info.event.id;
+
+                        fetch('/cancel', {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ citaId: citaId })
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    modal.hide();
+                                } else if (data.error) {
+                                }
+                            })
+                            .catch(error => {
+
+                            });
+                    } else {
+                        modal.hide();
+                    }
+                });
             }
-
-            document.getElementById('botonFooter').innerText = boton;
-
-            // Muestra el modal
-            var modal = new bootstrap.Modal(document.getElementById('eventModal'));
-            modal.show();
-
-            document.getElementById('cerrar').addEventListener('click', function() {
-                modal.hide();
-            });
-        }
-    });
+        });
         calendar.render();
     });
 
@@ -96,85 +120,81 @@
 @section('componentes')
 
 <?php 
-    if(Auth::user()){
-        if (Auth::user()->hasRole('paciente')) { ?>
-        <a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
-            <span>QUIÉNES SOMOS</span>
-        </a>
-        <a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
-            <span>MISION Y VISION</span>
-        </a>
-        <a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
-            <span>CONTACTO Y CUIDADOS</span>
-        </a>
-        <a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
-            <span>CITAS</span>
-        </a>
-        <a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true" >
-            <span>AGENDA</span>
-        </a>
+    if (Auth::user()) {
+    if (Auth::user()->hasRole('paciente')) { ?>
 
-<?php } elseif (Auth::user()->hasRole('doctor')) { ?>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
+    <span>CITAS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true">
+    <span>AGENDA</span>
+</a>
 
-    @if (Auth::user()->getEspeciality())
-        <b><p style="margin:0; padding-right: 40px;">Especialidad: {{ Auth::user()->getEspeciality()->description}}</p></b>
-        @else
-        <b><p style="margin:0; padding-right: 40px;">No tiene una especialidad asignada.</p></b>
-    @endif
-    <a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
-        <span>QUIÉNES SOMOS</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
-        <span>MISION Y VISION</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
-        <span>CONTACTO Y CUIDADOS</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{url('especialidad')}}" aria-expanded="true">
-        <span>ESPECIALIDAD</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
-        <span>CITAS</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true" >
-        <span>AGENDA</span>
-    </a>
+<?php    } elseif (Auth::user()->hasRole('doctor')) { ?>
 
-<?php } elseif (Auth::user()->hasRole('admin')) { ?>
-    <a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
-        <span>QUIÉNES SOMOS</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
-        <span>MISION Y VISION</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
-        <span>CONTACTO Y CUIDADOS</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{url('pacientes')}}" aria-expanded="true">
-        <span>PACIENTES</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{url('doctores')}}" aria-expanded="true">
-        <span>DOCTORES</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasAdmin')}}" aria-expanded="true">
-        <span>CITAS</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true" >
-        <span>AGENDA</span>
-    </a>
+@if (Auth::user()->getEspeciality())
+    <b>
+        <p style="margin:0; padding-right: 40px;">Especialidad: {{ Auth::user()->getEspeciality()->description}}</p>
+    </b>
+@else
+    <b>
+        <p style="margin:0; padding-right: 40px;">No tiene una especialidad asignada.</p>
+    </b>
+@endif
+<a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
+    <span>QUIÉNES SOMOS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
+    <span>MISION Y VISION</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
+    <span>CONTACTO Y CUIDADOS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{url('especialidad')}}" aria-expanded="true">
+    <span>ESPECIALIDAD</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
+    <span>CITAS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true">
+    <span>AGENDA</span>
+</a>
 
-<?php }
+<?php    } elseif (Auth::user()->hasRole('admin')) { ?>
+<a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
+    <span>QUIÉNES SOMOS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
+    <span>MISION Y VISION</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
+    <span>CONTACTO Y CUIDADOS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{url('pacientes')}}" aria-expanded="true">
+    <span>PACIENTES</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{url('doctores')}}" aria-expanded="true">
+    <span>DOCTORES</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('citasAdmin')}}" aria-expanded="true">
+    <span>CITAS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true">
+    <span>AGENDA</span>
+</a>
+
+<?php    }
 } else { ?>
 
-    <a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
-        <span>QUIÉNES SOMOS</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
-        <span>MISION Y VISION</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
-        <span>CONTACTO Y CUIDADOS</span>
-    </a>
+<a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
+    <span>QUIÉNES SOMOS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
+    <span>MISION Y VISION</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
+    <span>CONTACTO Y CUIDADOS</span>
+</a>
 
 <?php } ?>
 

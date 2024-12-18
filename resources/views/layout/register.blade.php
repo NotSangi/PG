@@ -26,7 +26,7 @@
     {{Form::token()}}
     <div class="container">
 
-        <div class="card o-hidden border-0 shadow-lg my-5" style="margin-top: 100px">
+        <div class="card o-hidden border-0 shadow-lg my-5" style="margin-top: 70px">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
@@ -103,8 +103,9 @@
                                 
                             </form>
                             <hr>
-                            <div class="text-center">
+                            <div class="text-center btn-log">
                                 <a class="small" href="{{route('login')}}">¿Ya tienes una cuenta? Ingresa aquí</a>
+                                <a class="small" href="{{url('minuevasonrisa')}}">Volver</a>
                             </div>
                         </div>
                     </div>
