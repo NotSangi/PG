@@ -88,12 +88,6 @@ class RegisterController extends Controller
 
                 $idDocumento = DB::table('documentos')->where('name', $request->get('tipo_documento'))->value('id');
 
-                var_dump($userId);   
-                var_dump($idDocumento); 
-
-                print_r($userId);   
-                print_r($idDocumento); 
-
                 Documentos_user::create([
                     'user_id' => $userId,
                     'documentos_id' => $idDocumento,

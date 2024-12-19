@@ -8,12 +8,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
+use App\Models\Documentos;
 
 class FormularioController extends Controller
 {
 
     public function index()
-    {
+    {   
+        $document = Documentos::all();
+        return view("persona.formulario")->with('documentos', $document);    
     }
     public function create(Request $request)
     {

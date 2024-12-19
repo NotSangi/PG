@@ -36,11 +36,6 @@ class PersonaController extends Controller
         }    
     }
 
-    public function form()
-    {
-        return view("persona.formulario");    
-    } 
-
     public function derechos()
     {
         return view("persona.derechos");    

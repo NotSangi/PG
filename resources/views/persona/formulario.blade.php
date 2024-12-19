@@ -73,28 +73,23 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
 
             <h2 style="color: #003366; font-size: 40px; margin-bottom: 30px;"><b>¿Necesitas una cita? Nosotros te
                     llamamos</b></h2>
-            
+
             <select class="form-inputs" aria-label="Default select example" name="tipo_documento" id="tipo_documento">
-                <option selected value="CC">CC - Cedula de Ciudadanía</option>
-                <option value="CC">CC - Cedula de Ciudadanía</option>
-                <option value="CE">CE - Cédula de Extranjería</option>
-                <option value="IE">IE - ID Extranjero</option>
-                <option value="NIT">NIT</option>  
-                <option value="PA">PA - Pasaporte</option>
-                <option value="RC">RC - Registro Civil</option>
-                <option value="TI">TI - Tarjeta de Identidad</option>
+                @foreach ($documentos as $document)
+                    <option value="{{$document->name}}">{{ $document->description}}</option>
+                @endforeach
             </select>
 
             <input class="form-inputs" type="text" placeholder="Número de Identificación"
-                aria-label="default input example" name="document" id="document">
+                aria-label="default input example" name="document" id="document" value={{Auth::user()->document}}>
             <input class="form-inputs" type="text" placeholder="Nombre" aria-label="default input example" name="name"
-                id="name">
+                id="name" value={{Auth::user()->name}}>
             <input class="form-inputs" type="text" placeholder="Apellidos" aria-label="default input example"
-                name="last_name" id="last_name">
+                name="last_name" id="last_name" value={{Auth::user()->last_name}}>
             <input class="form-inputs" type="text" placeholder="Número" aria-label="default input example" name="tel"
-                id="tel">
+                id="tel" value={{Auth::user()->tel}}>
             <input class="form-inputs" type="text" placeholder="Correo Eléctronico" aria-label="default input example"
-                name="email" id="email">
+                name="email" id="email" value={{Auth::user()->email}}>
 
             <select class="form-inputs" aria-label="Default select example" name="tratamiento" id="tratamiento">
                 <option selected disabled value="">Elige tu tratamiento</option>

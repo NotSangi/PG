@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::resource('minuevasonrisa', 'App\Http\Controllers\PersonaController');
 Route::get('formulario', 'App\Http\Controllers\PersonaController@formulario');
-Route::get('form', 'App\Http\Controllers\PersonaController@form');
+Route::get('form', 'App\Http\Controllers\FormularioController@index');
 Route::get('derechos', 'App\Http\Controllers\PersonaController@derechos');
 
 Route::get('modal', 'App\Http\Controllers\PersonaController@modal');
