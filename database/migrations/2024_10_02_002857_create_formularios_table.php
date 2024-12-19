@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('formularios', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('tipo_documento');
             $table->string('document');
             $table->string('name');
@@ -21,11 +21,14 @@ return new class extends Migration
             $table->string('tel');
             $table->string('email');
             $table->string('tratamiento');
-            $table->integer('doctor_id')->nullable();
+            $table->bigInteger('doctor_id')->unsigned();
             $table->string('llamada');
             $table->string('estado');
             $table->dateTime('fecha')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('doctor_id')->references('id')->on('users');
         });
     }
 

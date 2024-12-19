@@ -93,7 +93,12 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
 
             <select class="form-inputs" aria-label="Default select example" name="tratamiento" id="tratamiento">
                 <option selected disabled value="">Elige tu tratamiento</option>
-                <option value="Diseño de Sonrisa">Diseño de Sonrisa</option>
+
+                @foreach ($tratamientos as $tratamiento)
+                    <option value="{{$tratamiento->name}}">{{ $tratamiento->description}}</option>
+                @endforeach
+
+                <!-- <option value="Diseño de Sonrisa">Diseño de Sonrisa</option>
                 <option value="Endodoncia">Endodoncia</option>
                 <option value="Periodoncia">Periodoncia</option>
                 <option value="Cirugia Oral">Cirugia Oral</option>
@@ -101,7 +106,7 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
                 <option value="Calzas Blancas">Calzas Blancas (Resinas)</option>
                 <option value="Ortodoncia">Ortodoncia</option>
                 <option value="Certificados Odontologicos">Certificados Odontológicos</option>
-                <option value="Higiene Oral">Higiene Oral</option>
+                <option value="Higiene Oral">Higiene Oral</option> -->
             </select>
 
             <p style="color: #003366; font-size: 25px; margin: 10px 0 0 0;">¿Cuándo deberíamos llamarte?</p>

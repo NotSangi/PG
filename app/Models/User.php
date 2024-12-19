@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Role', 'role_user')->withTimestamps();
     }
 
+    public function citas()
+    {   
+        return $this->belongsToMany('App\Models\Formluario')->withTimestamps();
+    }
+
     public function eventos()
     {   
         return $this->belongsToMany('App\Models\Evento')->withTimestamps();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tratamientos;
 use Illuminate\Http\Request;
 use App\Models\Formulario;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +16,11 @@ class FormularioController extends Controller
 
     public function index()
     {   
+
+        $tratamiento = Tratamientos::all();
         $document = Documentos::all();
-        return view("persona.formulario")->with('documentos', $document);    
+
+        return view("persona.formulario")->with('documentos', $document)->with('tratamientos', $tratamiento);    
     }
     public function create(Request $request)
     {

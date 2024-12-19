@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
 
         // La creación de datos de roles debe ejecutarse primero
     $this->call(Document::class);
+    $this->call(Tratamiento::class);
     $this->call(Especialidades::class);
     $this->call(RoleTableSeeder::class); 
     $this->call(UserTableSeeder::class);
