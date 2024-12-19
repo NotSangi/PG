@@ -14,15 +14,16 @@
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/styles-general.css" rel="stylesheet">
-    
+
 </head>
 
 <body class="bg-gradient-primary">
-    {!!Form::open(array('url'=>'register','method'=>'POST','autocomplete'=>'off'))!!}
+    {!!Form::open(array('url' => 'register', 'method' => 'POST', 'autocomplete' => 'off'))!!}
     {{Form::token()}}
     <div class="container">
 
@@ -43,27 +44,38 @@
                                             placeholder="Nombres">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" name="last_name" class="form-control form-control-user" id="last_name"
-                                            placeholder="Apellidos">
+                                        <input type="text" name="last_name" class="form-control form-control-user"
+                                            id="last_name" placeholder="Apellidos">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" name="document" class="form-control form-control-user" id="document"
-                                                placeholder="Numero documento de identidad">
+                                        <select class="form-control form-control-user" aria-label="Default select example" name="tipo_documento" id="tipo_documento">
+                                            <option selected disabled>Tipo de Documento</option>
+                                            @foreach ($documentos as $document)
+                                                <option value="{{$document->name}}">{{ $document->description}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" name="adress" class="form-control form-control-user" id="adress"
-                                                placeholder="Dirección">
+                                        <input type="text" name="document" class="form-control form-control-user"
+                                            id="document" placeholder="Numero de documento">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="email"
-                                        placeholder="Ingresa tu correo">
+                                    <input type="email" name="email"
+                                        class="form-control form-control-user @error('email') is-invalid @enderror"
+                                        id="email" placeholder="Ingresa tu correo">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="tel" class="form-control form-control-user" id="tel"
-                                        placeholder="Ingresa tu número telefonico">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" name="tel" class="form-control form-control-user" id="tel"
+                                            placeholder="Ingresa tu número telefonico">
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" name="adress" class="form-control form-control-user"
+                                            id="adress" placeholder="Dirección">
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -71,10 +83,11 @@
                                             id="password" placeholder="Contraseña">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" name="password_confirm" class="form-control form-control-user"
-                                            id="password_confirm" placeholder="Confirmar Contraseña">
+                                        <input type="password" name="password_confirm"
+                                            class="form-control form-control-user" id="password_confirm"
+                                            placeholder="Confirmar Contraseña">
                                     </div>
-                                    
+
                                 </div>
 
                                 @if ($errors->has('password'))
@@ -90,7 +103,8 @@
                                 @endif
 
                                 <div class="trat_datos">
-                                    <input class="" type="checkbox" value="si" id="tratamiento_datos" name="tratamiento_datos">
+                                    <input class="" type="checkbox" value="si" id="tratamiento_datos"
+                                        name="tratamiento_datos">
                                     <a href="{{url('derechos')}}" class="form-check-label" for="tratamiento_datos">
                                         He leído y acepto el tratamiento de mis datos personales
                                     </a>
@@ -100,7 +114,7 @@
                                     <span class="glyphicon glyphicon-ok"></span> REGISTRATE
                                 </button>
 
-                                
+
                             </form>
                             <hr>
                             <div class="text-center btn-log">

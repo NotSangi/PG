@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function roles()
     {   
-        return $this->belongsToMany('App\Models\Role')->withTimestamps();
+        return $this->belongsToMany('App\Models\Role', 'role_user')->withTimestamps();
     }
 
     public function eventos()
@@ -64,6 +64,12 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Especialidad', 'especialidad_users')->withTimestamps();
     }
 
+    public function documentos()
+    {   
+        return $this->belongsToMany('App\Models\Documentos', 'documentos_users')->withTimestamps();
+    }
+
+    //ROLES
     public function authorizeRoles($roles)
     {
         if ($this->hasAnyRole($roles)) {
@@ -95,6 +101,7 @@ class User extends Authenticatable
         return false;
     }
 
+    //ESPECIALIDADES
     public function getEspeciality(){
         return $this->especialidades()->first();
     } 
@@ -123,5 +130,33 @@ class User extends Authenticatable
         return false;
     }
 
+    //DOCUMENTOS
 
+    public function getDocument(){
+        return $this->documentos()->first();
+    } 
+
+    public function hasAnyDocument($ids)
+    {
+        if (is_array($ids)) {
+            foreach ($ids as $id) {
+            if ($this->hasDocument($id)) {
+                return true;
+            }
+            }
+        } else {
+            if ($this->hasDocument($ids)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function hasDocument($id)
+    {
+        if ($this->documentos()->where('user_id', $id)->first()) {
+            return true;
+        }
+        return false;
+    }
 }

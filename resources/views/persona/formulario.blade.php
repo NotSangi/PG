@@ -71,13 +71,15 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
     <div class="agen-form">
         <form class="form" method="POST" id="form_cita">
 
-            <h2 style="color: #003366; font-size: 40px; margin-bottom: 30px;"><b>¿Necesitas una cita? Nosotros te llamamos</b></h2>
+            <h2 style="color: #003366; font-size: 40px; margin-bottom: 30px;"><b>¿Necesitas una cita? Nosotros te
+                    llamamos</b></h2>
+            
             <select class="form-inputs" aria-label="Default select example" name="tipo_documento" id="tipo_documento">
-                <option selected disabled value="">Tipo De Documento</option>
+                <option selected value="CC">CC - Cedula de Ciudadanía</option>
                 <option value="CC">CC - Cedula de Ciudadanía</option>
                 <option value="CE">CE - Cédula de Extranjería</option>
                 <option value="IE">IE - ID Extranjero</option>
-                <option value="NIT">NIT</option>
+                <option value="NIT">NIT</option>  
                 <option value="PA">PA - Pasaporte</option>
                 <option value="RC">RC - Registro Civil</option>
                 <option value="TI">TI - Tarjeta de Identidad</option>
@@ -122,7 +124,7 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
 
             <button class="btn-conf" type="Submit" name="btn-confirmar">Confirmar</button>
 
-            
+
             <script>
                 $(document).ready(function () {
                     $('#form_cita').submit(function (event) {
@@ -182,49 +184,49 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
 @section('componentes')
 
 <?php 
-    if(Auth::user()){
-        if (Auth::user()->hasRole('paciente')) { ?>
+    if (Auth::user()) {
+    if (Auth::user()->hasRole('paciente')) { ?>
 
-        <a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true" >
-            <span>AGENDA</span>
-        </a>
-        <a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
-            <span>CITAS</span>
-        </a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true">
+    <span>AGENDA</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
+    <span>CITAS</span>
+</a>
 
-<?php } elseif (Auth::user()->hasRole('doctor')) { ?>
+<?php    } elseif (Auth::user()->hasRole('doctor')) { ?>
 
-    <a class="nav-link collapsed" style="text-align: center" href="{{url('especialidad')}}" aria-expanded="true">
-        <span>ESPECIALIDAD</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
-        <span>CITAS</span>
-    </a>
+<a class="nav-link collapsed" style="text-align: center" href="{{url('especialidad')}}" aria-expanded="true">
+    <span>ESPECIALIDAD</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
+    <span>CITAS</span>
+</a>
 
-<?php } elseif (Auth::user()->hasRole('admin')) { ?>
+<?php    } elseif (Auth::user()->hasRole('admin')) { ?>
 
-    <a class="nav-link collapsed" style="text-align: center" href="{{url('pacientes')}}" aria-expanded="true">
-        <span>PACIENTES</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{url('doctores')}}" aria-expanded="true">
-        <span>DOCTORES</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="{{ url('citasAdmin')}}" aria-expanded="true">
-        <span>CITAS</span>
-    </a>
+<a class="nav-link collapsed" style="text-align: center" href="{{url('pacientes')}}" aria-expanded="true">
+    <span>PACIENTES</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{url('doctores')}}" aria-expanded="true">
+    <span>DOCTORES</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('citasAdmin')}}" aria-expanded="true">
+    <span>CITAS</span>
+</a>
 
-<?php }
+<?php    }
 } else { ?>
 
-    <a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
-        <span>QUIÉNES SOMOS</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
-        <span>MISION Y VISION</span>
-    </a>
-    <a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
-        <span>CONTACTO Y CUIDADOS</span>
-    </a>
+<a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
+    <span>QUIÉNES SOMOS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
+    <span>MISION Y VISION</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
+    <span>CONTACTO Y CUIDADOS</span>
+</a>
 
 <?php } ?>
 

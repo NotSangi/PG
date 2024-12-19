@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Documentos_user;
+use App\Models\Documentos;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Role;
+use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -59,7 +62,10 @@ class RegisterController extends Controller
     }
 
     public function showRegistrationForm()
-    {   return view("auth.register"); }
+    {   
+        $document = Documentos::all();
+        return view("auth.register")->with('documentos', $document); 
+    }
 
     protected function register(Request $request)
     {   
@@ -77,10 +83,25 @@ class RegisterController extends Controller
                 ]); 
     
                 $user->roles()->attach(Role::where('name', 'paciente')->first()); 
+
+                $userId = $user->id;
+
+                $idDocumento = DB::table('documentos')->where('name', $request->get('tipo_documento'))->value('id');
+
+                var_dump($userId);   
+                var_dump($idDocumento); 
+
+                print_r($userId);   
+                print_r($idDocumento); 
+
+                Documentos_user::create([
+                    'user_id' => $userId,
+                    'documentos_id' => $idDocumento,
+                ]);
     
                 return Redirect::to('login');
             } else {
-                return back()->withErrors(provider: ['password' => 'Contraseñas diferentes']);
+                return back()->withErrors(provider: ['password' => 'Las contraseñas no coinciden']);
             }
             
 
