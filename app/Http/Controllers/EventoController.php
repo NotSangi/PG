@@ -95,20 +95,28 @@ class EventoController extends Controller
 
             $tratamiento = DB::table('tratamientos')->where('name', $cita->tratamiento)->value('description');
 
-            return [
-                'id' => $cita->id,
-                'title' => $cita->name . ' ' . $cita->last_name,
-                'start' => $cita->fecha,
-                'extendedProps' => [
-                    'estado' => $cita->estado,
-                    'doctor' => $doctor->name . ' ' . $doctor->last_name,
-                    'tratamiento' => $tratamiento,
-                    'user_id' => $cita->user_id,
-                ],
+            if(($cita->estado !== 'PENDIENTE')){
+                return [
+                    'id' => $cita->id,
+                    'title' => $cita->name . ' ' . $cita->last_name,
+                    'start' => $cita->fecha,
+                    'extendedProps' => [
+                        'estado' => $cita->estado,
+                        'doctor' => $doctor->name . ' ' . $doctor->last_name,
+                        'tratamiento' => $tratamiento,
+                        'user_id' => $cita->user_id,
+                    ],
 
-                'backgroundColor' => $color,
-                'borderColor' => $color,
-            ];
+                    'backgroundColor' => $color,
+                    'borderColor' => $color,
+                ];
+            } else {
+                
+                return null; 
+                
+            }
+        })->filter(function ($event) {
+            return $event !== null; // Eliminar elementos nulos (citas pendientes)
         });
 
         return response()->json($events);

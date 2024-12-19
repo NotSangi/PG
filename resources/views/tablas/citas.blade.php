@@ -1,7 +1,7 @@
 @extends('layout.table')
 
 @section('titulo')
-CITAS
+CITAS 
 @endSection
 
 @section('tabla')
@@ -18,24 +18,9 @@ CITAS
         <th>FECHA</th>
     </tr>
 </thead>
-<tfoot>
-    <tr style="text-align: center;">
-        <th>ID CITA</th>
-        <th>PACIENTE</th>
-        <th>NÚMERO CELULAR</th>
-        <th>EMAIL</th>
-        <th>TRATAMIENTO</th>
-        <th>DOCTOR ASIGNADO</th>
-        <th>LLAMADA</th>
-        <th>ESTADO</th>
-        <th>FECHA</th>
-    </tr>
-</tfoot>
 <tbody>
-    <?php if(is_null($citas)){ ?>
-        No tienes citas
-    <?php } else { ?>
-    @foreach($citas as $cita)
+    
+    @forelse($citas as $cita)
     <tr style="text-align: center;">
         <td>{{ $cita->id}}</td>
         <td>{{ $cita->name}} {{$cita->last_name}}</td>
@@ -54,10 +39,15 @@ CITAS
         <td>{{ $cita->estado}}</td>
         <td>{{ $cita->fecha}}</td>
     </tr>
-    @endforeach
-        
-    <?php } ?>
+    @empty
+        <tr>
+            <td>No tienes citas</td>
+        </tr>
+    @endforelse
 </tbody>
+
+
+
 @endSection
 
 @section('componentes')

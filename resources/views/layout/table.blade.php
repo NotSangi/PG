@@ -42,7 +42,7 @@
 @section('info')
 
 <style>
-    .cont-gen{
+    .cont-gen {
         margin: 0px 15px 0px 15px;
     }
 </style>
@@ -61,6 +61,32 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         @yield('tabla')
                     </table>
+                    <div style="display:flex; justify-content: right;">
+                        @if ($totalPages > 1)
+                            <div class="pagination">
+
+                                @if ($currentPage > 1)
+                                    <div style="width:auto; margin:10px">
+                                        <a href="?page={{ $currentPage - 1 }}">Anterior</a>
+                                    </div>
+
+                                @endif
+                                @for ($i = 1; $i <= $totalPages; $i++)
+                                    <div class="{{ $i == $currentPage ? 'active' : '' }}" style="width:auto; margin:10px">
+                                        <a href="?page={{ $i }}">{{ $i }}</a>
+                                    </div>
+                                @endfor
+
+                                @if ($currentPage < $totalPages)
+                                    <div style="width:auto; margin:10px">
+                                        <a href="?page={{ $currentPage + 1 }}">Siguiente</a>
+                                    </div>
+                                @endif
+
+                            </div>
+                        @endif
+                    </div>
+
                 </div>
             </div>
         </div>

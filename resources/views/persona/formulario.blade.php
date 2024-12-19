@@ -1,9 +1,7 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+@endsection
 @extends('layout.principal')
 
 @section('user')
@@ -113,36 +111,22 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
                 </div>
             @endif
 
-            <button class="btn-conf" type="Submit" name="btn-confirmar">Confirmar</button>
+            <button class="btn-conf" type="Submit" name="btn-confirmar" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Confirmar</button>
 
-
-            <script>
-                $(document).ready(function () {
-                    $('#form_cita').submit(function (event) {
-                        event.preventDefault(); // Evita el envío del formulario por defecto
-
-                        var form = $(this);
-                        var url = form.attr('action'); // Obtiene la URL del formulario
-
-                        $.ajax({
-                            type: "POST",
-                            url: url,
-                            data: form.serialize(),
-                            success: function (response) {
-                                if (response.success) { // Si la respuesta es exitosa
-                                    $('#exampleModal').modal('show'); // Muestra el modal
-                                } else {
-                                    // Manejar errores de validación o otras respuestas no exitosas
-                                }
-                            },
-                            error: function (jqXHR, textStatus, errorThrown) {
-                                // Manejar errores durante la petición AJAX
-                            }
-                        });
-                    });
-                });
-            </script>
-
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-admin">
+                        <div>
+                            <h5 class="titulo-modal">Cita solicitada correctamente</h5>
+                        </div>
+                        <div>
+                            Puedes ver todas tus citas en la sección "Citas" o en la Agenda al estar asignadas.
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </form>
 
@@ -178,11 +162,11 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
     if (Auth::user()) {
     if (Auth::user()->hasRole('paciente')) { ?>
 
-<a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true">
-    <span>AGENDA</span>
-</a>
 <a class="nav-link collapsed" style="text-align: center" href="{{ url('citas')}}" aria-expanded="true">
     <span>CITAS</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{ url('agenda')}}" aria-expanded="true">
+    <span>AGENDA</span>
 </a>
 
 <?php    } elseif (Auth::user()->hasRole('doctor')) { ?>

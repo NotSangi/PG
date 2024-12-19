@@ -19,18 +19,19 @@
 
     <!-- Custom styles for this template-->
     <link href="css/styles-general.css" rel="stylesheet">
-    <link href="css/vista-mobil.css" rel="stylesheet" media="(max-width: 600px)"> <!-- Estilos para pantallas pequeñas -->
+    <link href="css/vista-mobil.css" rel="stylesheet" media="(max-width: 600px)">
+    <!-- Estilos para pantallas pequeñas -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    
+
 
     @yield('styles')
     @yield('scripts')
-    
-    
+
+
 </head>
 
 <body>
@@ -57,7 +58,7 @@
                             <img src="img/Logo.png" alt="">
                         </a>
                     </div>
-                    
+
                     <div class="nomlogo">
                         <b>
                             <p>MI NUEVA SONRISA</p>
@@ -98,7 +99,7 @@
                         </li>
 
                         <!-- Nav Item - Alerts -->
-                        <div style="display: flex; justify-content: center; align-items: center;">
+                        <div style="display: flex; justify-content: center; align-items: center;" id="page-top">
                             @yield('componentes')
                         </div>
 
@@ -125,7 +126,7 @@
             </div>
             <!-- End of Main Content -->
 
-           
+
 
         </div>
         <!-- End of Content Wrapper -->
@@ -176,14 +177,14 @@
     <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
- <!-- Footer -->
- <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Mi Nueva Sonrisa 2024</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Mi Nueva Sonrisa 2024</span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
 
 </html>

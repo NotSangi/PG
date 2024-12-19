@@ -699,6 +699,47 @@
     padding: 0px 60px 0px 60px;
 }
 
+.btn-actualizar{
+    margin: 10px;
+    border-radius: 30px;
+    background-color: #5355ef;
+    font-size: 15px;
+    width: 100px;
+    font-weight: bold;
+    border: none;
+    padding: 5px 0 5px 0;
+    color: white;
+    box-shadow: 0px 0px 5px 1px rgb(0, 19, 127);
+    font-family: "Quicksand", sans-serif;
+    transition: 0.5s;
+}
+
+.btn-actualizar:hover {
+    box-shadow: 0px 0px 5px 1px rgb(3, 170, 67);
+    background-color: rgb(71, 218, 71);
+    transform: scale(1.05);
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.modal-admin{ 
+    padding: 10px;
+    border-radius: 35px;
+    background-color: #5355ef;
+    box-shadow: 0px 0px 20px 1px rgb(0, 19, 127);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: bold;
+}
+
+.modal-admin h5{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+
 /*FIN CSS AGREGADO*/
 
 html {

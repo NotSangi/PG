@@ -19,9 +19,10 @@ DOCTORES
         <th>Direccion</th>
         <th>Correo</th>
         <th>Telefono</th>
+        <th>Especialidad</th>
     </tr>
 </thead>
-<tfoot>
+<!-- <tfoot>
     <tr>
         <th>Id</th>
         <th>Nombre</th>
@@ -31,7 +32,7 @@ DOCTORES
         <th>Correo</th>
         <th>Telefono</th>
     </tr>
-</tfoot>
+</tfoot> -->
 <tbody>
     @foreach($users as $user)
     <tr>
@@ -42,6 +43,12 @@ DOCTORES
         <td>{{ $user->adress }}</td>
         <td>{{ $user->email }}</td>
         <td>{{ $user->tel }}</td>
+
+        <?php
+        $idEspecialidad = DB::table('especialidad_users')->where('user_id', $user->id)->value('especialidad_id');
+        $especialidad = DB::table('especialidads')->where('id', $idEspecialidad)->value('description');
+        ?>
+        <td>{{$especialidad}}</td>
     </tr>
     @endforeach
 </tbody>

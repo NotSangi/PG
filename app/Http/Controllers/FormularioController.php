@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Models\Documentos;
+use function Laravel\Prompts\alert;
 
 class FormularioController extends Controller
 {
@@ -57,6 +58,7 @@ class FormularioController extends Controller
 
 
             if (Auth::check()) {
+                sleep(5);
                 return Redirect::to('minuevasonrisa');
             }
         }
@@ -79,20 +81,22 @@ class FormularioController extends Controller
 
         foreach ($doctores as $cita_id => $doctor_id) {
             if (!empty($doctor_id) || !empty($estados[$cita_id])) {
-                // Encontrar la cita
+
                 $cita = Formulario::find($cita_id);
 
-                // Actualizar solo si el doctor o el estado fueron modificados
                 if ($cita) {
                     $cita->doctor_id = $doctor_id ?? $cita->doctor_id;
                     $cita->estado = $estados[$cita_id] ?? $cita->estado;
                     $cita->fecha = $fechas[$cita_id] ?? $cita->fecha;
-                    $cita->save(); // Guardar los cambios
+                    $cita->save(); 
+
                 }
             }
         }
 
-        return Redirect::to('minuevasonrisa');
+        sleep(2);
+        return Redirect::to('citasAdmin');
+
     }
 
     public function cancel(Request $request)
