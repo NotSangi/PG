@@ -53,7 +53,12 @@ CITAS
         <td>{{ $cita->name}} {{$cita->last_name}}</td>
         <td>{{ $cita->tel}}</td>
         <td>{{ $cita->email}}</td>
-        <td>{{ $cita->tratamiento}}</td>
+        
+        <?php
+        $tratamiento = DB::table('tratamientos')->where('name', $cita->tratamiento)->value('description');
+        ?>
+
+        <td>{{$tratamiento}}</td>
         <td>
             <select name="doctor[{{ $cita->id }}]" style="width: 100%; border: 0.5px solid grey; border-radius: 0.5rem; color: grey;">
                     <option value="" disabled {{ is_null($cita->doctor_id) ? 'selected' : '' }}>Selecciona un doctor</option>

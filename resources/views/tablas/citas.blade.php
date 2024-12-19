@@ -41,7 +41,11 @@ CITAS
         <td>{{ $cita->name}} {{$cita->last_name}}</td>
         <td>{{ $cita->tel}}</td>
         <td>{{ $cita->email}}</td>
-        <td>{{ $cita->tratamiento}}</td>
+        <?php
+        $tratamiento = DB::table('tratamientos')->where('name', $cita->tratamiento)->value('description');
+        ?>
+
+        <td>{{ $tratamiento}}</td>
         <?php
             $doctor = DB::table('users')->where('id', $cita->doctor_id)->value('name');
         ?>

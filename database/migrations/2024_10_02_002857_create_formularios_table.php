@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('tel');
             $table->string('email');
             $table->string('tratamiento');
-            $table->bigInteger('doctor_id')->unsigned();
+            $table->bigInteger('doctor_id')->unsigned()->nullable();
             $table->string('llamada');
             $table->string('estado');
             $table->dateTime('fecha')->nullable();

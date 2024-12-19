@@ -20,7 +20,8 @@ class FormularioController extends Controller
         $tratamiento = Tratamientos::all();
         $document = Documentos::all();
 
-        return view("persona.formulario")->with('documentos', $document)->with('tratamientos', $tratamiento);    
+        return view("persona.formulario")->with('documentos', $document)
+        ->with('tratamientos', $tratamiento);    
     }
     public function create(Request $request)
     {
@@ -61,51 +62,6 @@ class FormularioController extends Controller
         }
     }
 
-    public function eventos(Request $request)
-    {
-        $user = Auth::user();
-
-        $query = Formulario::query()->with(['user']);
-
-        if ($user->hasRole('doctor')) {
-            $query->where('doctor_id', $user->id);
-        } elseif ($user->hasRole('paciente')) {
-            $query->where('user_id', $user->id);
-        } elseif ($user->hasRole('admin') && $request->has('doctor_id')) {
-            $query->where('doctor_id', $request->doctor_id);
-        }
-
-        $citas = $query->get();
-
-        $events = $citas->map(function ($cita) {
-
-            $color = "";
-            if ($cita->estado == "ASIGNADA") {
-                $color = "#00ff6a";
-            } else if ($cita->estado == "CANCELADA") {
-                $color = "#f93f3f";
-            }
-
-            $doctor = DB::table('users')->where('id', $cita->doctor_id)->first(['name', 'last_name']);
-
-            return [
-                'id' => $cita->id,
-                'title' => $cita->name . ' ' . $cita->last_name,
-                'start' => $cita->fecha,
-                'extendedProps' => [
-                    'estado' => $cita->estado,
-                    'doctor' => $doctor->name . ' ' . $doctor->last_name,
-                    'tratamiento' => $cita->tratamiento,
-                    'user_id' => $cita->user_id,
-                ],
-
-                'backgroundColor' => $color,
-                'borderColor' => $color,
-            ];
-        });
-
-        return response()->json($events);
-    }
     public function show()
     {
         return view("persona.agenda");

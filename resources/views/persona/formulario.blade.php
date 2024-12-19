@@ -98,15 +98,6 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
                     <option value="{{$tratamiento->name}}">{{ $tratamiento->description}}</option>
                 @endforeach
 
-                <!-- <option value="Diseño de Sonrisa">Diseño de Sonrisa</option>
-                <option value="Endodoncia">Endodoncia</option>
-                <option value="Periodoncia">Periodoncia</option>
-                <option value="Cirugia Oral">Cirugia Oral</option>
-                <option value="Coronas y Protesis">Coronas y Prótesis</option>
-                <option value="Calzas Blancas">Calzas Blancas (Resinas)</option>
-                <option value="Ortodoncia">Ortodoncia</option>
-                <option value="Certificados Odontologicos">Certificados Odontológicos</option>
-                <option value="Higiene Oral">Higiene Oral</option> -->
             </select>
 
             <p style="color: #003366; font-size: 25px; margin: 10px 0 0 0;">¿Cuándo deberíamos llamarte?</p>

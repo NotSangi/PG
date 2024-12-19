@@ -59,7 +59,7 @@ Route::post('/evento/borrar/{id}', [EventoController::class, 'destroy']); */
 //formulario
 Route::post('post_formulario', 'App\Http\Controllers\FormularioController@create');
 Route::post('citas_update', 'App\Http\Controllers\FormularioController@update');
-Route::get('/appointments/events', [FormularioController::class, 'eventos']);
+Route::get('/appointments/events', [EventoController::class, 'eventos']);
 Route::get('agenda', 'App\Http\Controllers\FormularioController@show');
 Route::post('/cancel', 'App\Http\Controllers\FormularioController@cancel');
 
