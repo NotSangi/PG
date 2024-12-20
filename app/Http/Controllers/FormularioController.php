@@ -80,18 +80,16 @@ class FormularioController extends Controller
         $fechas = $request->input('fecha');
 
         foreach ($doctores as $cita_id => $doctor_id) {
-            if (!empty($doctor_id) || !empty($estados[$cita_id])) {
+            $cita = Formulario::find($cita_id);
 
-                $cita = Formulario::find($cita_id);
+            if ($cita) {
+                $cita->doctor_id = $doctor_id ?? $cita->doctor_id;
+                $cita->estado = $estados[$cita_id] ?? $cita->estado;
+                $cita->fecha = $fechas[$cita_id] ?? $cita->fecha;
+                $cita->save(); 
 
-                if ($cita) {
-                    $cita->doctor_id = $doctor_id ?? $cita->doctor_id;
-                    $cita->estado = $estados[$cita_id] ?? $cita->estado;
-                    $cita->fecha = $fechas[$cita_id] ?? $cita->fecha;
-                    $cita->save(); 
-
-                }
             }
+            
         }
 
         sleep(2);

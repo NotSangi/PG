@@ -17,17 +17,6 @@ PACIENTES
         <th>Telefono</th>
     </tr>
 </thead>
-<tfoot>
-    <tr>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Documento</th>
-        <th>Direccion</th>
-        <th>Correo</th>
-        <th>Telefono</th>
-    </tr>
-</tfoot>
 <tbody>
     @foreach($users as $user)
     <tr>

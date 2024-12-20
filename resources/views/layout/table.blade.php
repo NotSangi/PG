@@ -51,7 +51,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">@yield('titulo')</h1>
+        <div class="titulo-tablas" style="margin: 10px 0px 10px 0px">@yield('titulo')</div>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -66,19 +66,19 @@
                             <div class="pagination">
 
                                 @if ($currentPage > 1)
-                                    <div style="width:auto; margin:10px">
+                                    <div class="paginador">
                                         <a href="?page={{ $currentPage - 1 }}">Anterior</a>
                                     </div>
 
                                 @endif
                                 @for ($i = 1; $i <= $totalPages; $i++)
-                                    <div class="{{ $i == $currentPage ? 'active' : '' }}" style="width:auto; margin:10px">
+                                    <div class="{{ $i == $currentPage ? 'active' : '' }} paginador" >
                                         <a href="?page={{ $i }}">{{ $i }}</a>
                                     </div>
                                 @endfor
 
                                 @if ($currentPage < $totalPages)
-                                    <div style="width:auto; margin:10px">
+                                    <div class="paginador">
                                         <a href="?page={{ $currentPage + 1 }}">Siguiente</a>
                                     </div>
                                 @endif
