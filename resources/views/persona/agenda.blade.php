@@ -14,6 +14,16 @@
                 <p><strong>Tratamiento:</strong> <span id="modalTratamiento"></span></p>
                 <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
 
+                <?php
+                if (Auth::user()->hasRole('doctor')){
+                ?>  
+                    <p><strong>Descripción Cita:</strong> <span id="modalDescripcion"></span></p>
+                    <input class="form-inputs" type="text" placeholder="Descripción" aria-label="default input example"
+                    name="descripcion" id="descripcion">
+                <?php
+                }
+                ?>
+
             </div>
 
             <div class="modal-footer">
@@ -59,11 +69,26 @@
                 document.getElementById('modalTratamiento').innerText = modalTratamiento;
                 document.getElementById('modalEstado').innerText = modalEstado;
 
+                <?php
+                if (Auth::user()->hasRole('paciente')){
+                ?>
+
                 if (modalEstado == "ASIGNADA") {
                     boton = "CANCELAR CITA"
                 } else {
                     boton = "CERRAR"
                 }
+
+                <?php } else if (Auth::user()->hasRole('doctor')){
+                ?>
+
+                if (modalEstado == "ASIGNADA") {
+                    boton = "FINALIZAR CITA"
+                } else {
+                    boton = "CERRAR"
+                }
+
+                <?php }?>
 
                 document.getElementById('botonFooter').innerText = boton;
 
@@ -94,9 +119,30 @@
                                 } else if (data.error) {
                                 }
                             })
-                            .catch(error => {
+                        .catch(error => {
 
-                            });
+                        });
+                    } else if (boton == "FINALIZAR CITA"){
+                        let citaId = info.event.id;
+
+                        fetch('/finalizar', {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ citaId: citaId, descripcion: document.getElementById('descripcion').value})
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    modal.hide();
+                                } else if (data.error) {
+                                }
+                            })
+                        .catch(error => {
+
+                        });
                     } else {
                         modal.hide();
                     }

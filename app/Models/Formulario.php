@@ -21,6 +21,7 @@ class Formulario extends Model
         'doctor_id',
         'llamada',
         'estado',
+        'descripcion',
         'fecha',
     ];
 

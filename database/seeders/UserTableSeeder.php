@@ -78,7 +78,7 @@ class UserTableSeeder extends Seeder
         $user = new User();
         $user->name = "Johns James";
         $user->last_name = "Giron Lozano";
-        $user->document = "94707431";
+        $user->document = "94431707";
         $user->adress = "Cra 74 # 23b - 46";
         $user->email = "joarasan@gmail.com";
         $user->tel = "3152341665";

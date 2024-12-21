@@ -117,4 +117,23 @@ class FormularioController extends Controller
         return response()->json(['success' => 'Cita cancelada correctamente']);
     }
 
+    public function finalizar(Request $request){
+        $citaId = $request->input('citaId');
+
+        if (empty($citaId)) {
+            return response()->json(['error' => 'Cita no encontrada'], 404);
+        }
+
+        $cita = Formulario::find($citaId);
+
+        if (!$cita) {
+            return response()->json(['error' => 'Cita no encontrada'], 404);
+        }
+
+        $cita->estado = 'COMPLETADA';
+        $cita->descripcion = $request->input('descripcion');
+        $cita->save();
+
+        return response()->json(['success' => 'Cita finalizada correctamente']);
+    }
 }

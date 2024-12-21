@@ -62,6 +62,7 @@ Route::post('citas_update', 'App\Http\Controllers\FormularioController@update');
 Route::get('/appointments/events', [EventoController::class, 'eventos']);
 Route::get('agenda', 'App\Http\Controllers\FormularioController@show');
 Route::post('/cancel', 'App\Http\Controllers\FormularioController@cancel');
+Route::post('/finalizar', 'App\Http\Controllers\FormularioController@finalizar');
 
 
 //login y registro

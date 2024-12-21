@@ -43,7 +43,7 @@ CITAS
         <tr>
             <td>No tienes citas</td>
         </tr>
-    @endforelse
+    @endforelse 
 </tbody>
 
 

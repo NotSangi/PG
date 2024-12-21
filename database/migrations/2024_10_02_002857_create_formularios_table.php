@@ -24,6 +24,7 @@ return new class extends Migration
             $table->bigInteger('doctor_id')->unsigned()->nullable();
             $table->string('llamada');
             $table->string('estado');
+            $table->string('descripcion')->nullable();
             $table->dateTime('fecha')->nullable();
             $table->timestamps();
 

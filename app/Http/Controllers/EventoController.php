@@ -85,9 +85,11 @@ class EventoController extends Controller
 
             $color = "";
             if ($cita->estado == "ASIGNADA") {
-                $color = "#00ff6a";
+                $color = "#ffce03";
             } else if ($cita->estado == "CANCELADA") {
                 $color = "#f93f3f";
+            }  else if ($cita->estado == "COMPLETADA") {
+                $color = "#16ec13";
             }
 
             $doctor = DB::table('users')->where('id', $cita->doctor_id)
