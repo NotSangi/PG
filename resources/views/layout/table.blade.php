@@ -50,9 +50,24 @@
 <section class="tabla_citas">
     <div class="container-fluid">
 
-        <!-- Page Heading -->
-        <div class="titulo-tablas" style="margin: 10px 0px 10px 0px">@yield('titulo')</div>
+        <div class="buscador">
+            <div class="titulo-tablas" style="margin: 10px 0px 10px 0px">@yield('titulo')</div>
 
+            <?php 
+
+            if(Auth::user()->hasRole('admin')){ 
+                $url = "/citasAdmin";
+            } else {
+                $url = "/citas"; 
+            }
+            
+            ?>
+
+            <form action="{{ url($url) }}" method="GET" class="buscador-form">
+                <input type="text" name="busqueda" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
 
@@ -64,25 +79,21 @@
                     <div style="display:flex; justify-content: right;">
                         @if ($totalPages > 1)
                             <div class="pagination">
-
                                 @if ($currentPage > 1)
                                     <div class="paginador">
                                         <a href="?page={{ $currentPage - 1 }}">Anterior</a>
                                     </div>
-
                                 @endif
                                 @for ($i = 1; $i <= $totalPages; $i++)
-                                    <div class="{{ $i == $currentPage ? 'active' : '' }} paginador" >
+                                    <div class="{{ $i == $currentPage ? 'active' : '' }} paginador">
                                         <a href="?page={{ $i }}">{{ $i }}</a>
                                     </div>
                                 @endfor
-
                                 @if ($currentPage < $totalPages)
                                     <div class="paginador">
                                         <a href="?page={{ $currentPage + 1 }}">Siguiente</a>
                                     </div>
                                 @endif
-
                             </div>
                         @endif
                     </div>

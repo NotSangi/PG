@@ -7,13 +7,13 @@ use App\Models\Formulario;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\URL;
 class Tabla extends Controller
 {
     public function pacientesView()
     {
 
-        $perPage = 10; // Adjust the number of items per page as needed
+        $perPage = 8; 
         $currentPage = request('page', 1);
         $offset = ($currentPage - 1) * $perPage;
 
@@ -39,7 +39,7 @@ class Tabla extends Controller
     public function doctoresView()
     {
 
-        $perPage = 10; // Adjust the number of items per page as needed
+        $perPage = 8; 
         $currentPage = request('page', 1);
         $offset = ($currentPage - 1) * $perPage;
 
@@ -61,60 +61,62 @@ class Tabla extends Controller
             ->with('currentPage', $currentPage)
             ->with('totalPages', $totalPages);
     }
-    public function citas()
+    public function citas(Request $request)
     {
-
-        $perPage = 8; // Items per page
+        $perPage = 8; 
         $currentPage = request('page', 1);
         $offset = ($currentPage - 1) * $perPage;
 
-        if (Auth::user()->hasRole('paciente')) {
-
+        if (!empty($request->busqueda)) {
+            $citas = Formulario::where('id', 'like', "%{$request->busqueda}%"); 
+        } elseif (Auth::user()->hasRole('paciente')) {
             $citas = Formulario::whereHas('user', function ($query) {
                 $query->where('user_id', Auth::user()->id);
-            })->orderBy('id', 'DESC')->offset($offset)->limit($perPage)->get();
-
-            $totalPages = ceil(Formulario::whereHas('user', function ($query) {
-                $query->where('user_id', Auth::user()->id);
-            })->count() / $perPage);
-
-        } else if (Auth::user()->hasRole('doctor')) {
-
+            });
+        } elseif (Auth::user()->hasRole('doctor')) {
             $citas = Formulario::whereHas('user', function ($query) {
                 $query->where('doctor_id', Auth::user()->id);
-            })->orderBy('id', 'DESC')->offset($offset)->limit($perPage)->get();
-
-            $totalPages = ceil(Formulario::whereHas('user', function ($query) {
-                $query->where('user_id', Auth::user()->id);
-            })->count() / $perPage);
-
+            });
+        } else {
+            return redirect()->route('home')->with('error', 'Usuario no autorizado.'); 
         }
+
+        $totalCitas = $citas->count(); 
+
+        $citas = $citas->orderBy('id', 'DESC')->offset($offset)->limit($perPage)->get(); 
+        $totalPages = ceil($totalCitas / $perPage); 
+
         return view('tablas.citas')
             ->with('citas', $citas)
             ->with('currentPage', $currentPage)
             ->with('totalPages', $totalPages);
     }
-
-    public function citasAdmin()
+    public function citasAdmin(Request $request)
     {
 
         $perPage = 8;
         $currentPage = request('page', 1);
         $offset = ($currentPage - 1) * $perPage;
 
-        $citas = Formulario::offset($offset)->limit($perPage)->get();
-        $totalCitas = Formulario::count();
+        if (!empty($request->busqueda)) {
+            $citas = Formulario::where('id', 'like', "%{$request->busqueda}%");
+        } else {
+            $citas = Formulario::query();
+        }
+        
+        $totalCitas = $citas->count(); 
+
+        $citas = $citas->orderBy('id', 'DESC')->offset($offset)->limit($perPage)->get(); 
         $totalPages = ceil($totalCitas / $perPage);
 
-
-        $usuario = User::whereHas('roles', function ($query) {
+        $doctores = User::whereHas('roles', function ($query) {
             $query->where('name', 'doctor');
-        })->orderBy('id', 'DESC')->offset($offset)->limit($perPage)->get();
-
+        })->orderBy('id', 'DESC')->get();
+       
 
         return view('tablas.citasAdmin')
             ->with('citas', $citas)
-            ->with('doctores', $usuario)
+            ->with('doctores', $doctores)
             ->with('currentPage', $currentPage)
             ->with('totalPages', $totalPages);
     }

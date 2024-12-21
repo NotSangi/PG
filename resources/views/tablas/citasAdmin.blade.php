@@ -30,19 +30,6 @@ CITAS
         <th>FECHA</th>
     </tr>
 </thead>
-<!-- <tfoot>
-    <tr style="text-align: center;">
-        <th>ID CITA</th>
-        <th>PACIENTE</th>
-        <th>NÚMERO CELULAR</th>
-        <th>EMAIL</th>
-        <th>TRATAMIENTO</th>
-        <th>DOCTOR ASIGNADO</th>
-        <th>LLAMADA</th>
-        <th>ESTADO</th>
-        <th>FECHA</th>
-    </tr>
-</tfoot> -->
 
 {!!Form::open(array('url' => 'citas_update', 'method' => 'POST', 'autocomplete' => 'off'))!!}
 {{Form::token()}}

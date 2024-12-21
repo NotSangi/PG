@@ -750,6 +750,55 @@
     font-size: 20px;
 }
 
+.buscador{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buscador-form{
+    margin:0;
+    padding-right: 30px;
+}
+
+.buscador-form input{
+    width: 250px;
+    height: 35px;
+    padding: 0px 30px 0px 10px;  
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6e707e;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.5px solid #d1d3e2;
+    border-radius: 0.5rem;
+}
+
+.buscador-form button{
+    border-radius: 0.5rem;
+    background-color: #5355ef;
+    font-size: 15px;
+    height: 30px;
+    width: 80px;
+    font-weight: bold;
+    border: none;
+    color: white;
+    box-shadow: 0px 0px 5px 1px rgb(0, 19, 127);
+    font-family: "Quicksand", sans-serif;
+    transition: 0.5s;
+    margin-left: 10px;
+}
+
+.buscador-form button:hover {
+    box-shadow: 0px 0px 5px 1px rgb(3, 170, 67);
+    background-color: rgb(71, 218, 71);
+    transform: scale(1.05);
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+
 /*FIN CSS AGREGADO*/
 
 html {

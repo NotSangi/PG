@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CitaController;
 use App\Http\Controllers\FormularioController;
+use App\Models\Formulario;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
 use Illuminate\Support\Facades\Auth;
@@ -42,7 +43,6 @@ Route::match(['put','patch'], 'perfil', 'App\Http\Controllers\PersonaController@
 //tablas
 Route::get('pacientes', 'App\Http\Controllers\Tabla@pacientesView');
 Route::get('doctores', 'App\Http\Controllers\Tabla@doctoresView');
-Route::get('secretarias', 'App\Http\Controllers\Tabla@secretariasView');
 
 Route::get('citas', 'App\Http\Controllers\Tabla@citas');
 Route::get('citasAdmin', 'App\Http\Controllers\Tabla@citasAdmin');
