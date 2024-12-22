@@ -36,7 +36,7 @@ class FormularioController extends Controller
             || empty($objeto->tel)
             || empty($objeto->email)
             || empty($objeto->tratamiento)
-            || empty($objeto->llamada)
+            || empty($objeto->prioridad)
         ) {
             return back()->withErrors(['completar_formulario' => 'Debes llenar todo el formulario']);
         } else {
@@ -52,7 +52,7 @@ class FormularioController extends Controller
                 'tel' => $request->get('tel'),
                 'email' => $request->get('email'),
                 'tratamiento' => $request->get('tratamiento'),
-                'llamada' => $request->get('llamada'),
+                'prioridad' => $request->get('prioridad'),
                 'estado' => 'PENDIENTE',
             ]);
 

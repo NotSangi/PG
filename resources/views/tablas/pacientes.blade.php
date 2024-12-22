@@ -8,13 +8,13 @@ PACIENTES
 @section('tabla')
 <thead>
     <tr>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Documento</th>
-        <th>Direccion</th>
-        <th>Correo</th>
-        <th>Telefono</th>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>APELLIDOS</th>
+        <th>DOCUMENTO</th>
+        <th>DIRECCION</th>
+        <th>CORREO</th>
+        <th>TELEFONO</th>
     </tr>
 </thead>
 <tbody>

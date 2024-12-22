@@ -106,6 +106,7 @@ class EventoController extends Controller
                         'estado' => $cita->estado,
                         'doctor' => $doctor->name . ' ' . $doctor->last_name,
                         'tratamiento' => $tratamiento,
+                        'descripcion' => $cita->descripcion,
                         'user_id' => $cita->user_id,
                     ],
 

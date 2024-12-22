@@ -17,9 +17,9 @@
                 <?php
                 if (Auth::user()->hasRole('doctor')){
                 ?>  
-                    <p><strong>Descripción Cita:</strong> <span id="modalDescripcion"></span></p>
-                    <input class="form-inputs" type="text" placeholder="Descripción" aria-label="default input example"
-                    name="descripcion" id="descripcion">
+                    <p><strong>Descripción Cita:</strong></span></p>
+                    <textarea class="input-cita" placeholder="Descripción" aria-label="default input example"
+                    name="descripcion" id="modalDescripcion"></textarea>
                 <?php
                 }
                 ?>
@@ -61,6 +61,7 @@
                 let modalDoctor = info.event.extendedProps.doctor.toLocaleString();
                 let modalTratamiento = info.event.extendedProps.tratamiento.toLocaleString();
                 let modalEstado = info.event.extendedProps.estado.toLocaleString();
+                let modalDescripcion = info.event.extendedProps.descripcion.toLocaleString()
                 let modalEnd = info.event.end ? info.event.end.toLocaleString() : 'No especificado';
 
                 document.getElementById('modalTitle').innerText = modalTitle;
@@ -86,6 +87,11 @@
                     boton = "FINALIZAR CITA"
                 } else {
                     boton = "CERRAR"
+                }
+
+                if (modalEstado == "COMPLETADA"){
+                    document.getElementById('modalDescripcion').innerText = modalDescripcion;
+                    document.getElementById('modalDescripcion').readOnly = true;
                 }
 
                 <?php }?>
@@ -116,6 +122,7 @@
                             .then(data => {
                                 if (data.success) {
                                     modal.hide();
+                                    window.location.reload();
                                 } else if (data.error) {
                                 }
                             })
@@ -137,6 +144,7 @@
                             .then(data => {
                                 if (data.success) {
                                     modal.hide();
+                                    window.location.reload();
                                 } else if (data.error) {
                                 }
                             })

@@ -19,7 +19,7 @@ class Formulario extends Model
         'email',
         'tratamiento',
         'doctor_id',
-        'llamada',
+        'prioridad',
         'estado',
         'descripcion',
         'fecha',

@@ -99,10 +99,10 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
             </select>
 
             <p style="color: #003366; font-size: 25px; margin: 10px 0 0 0;">¿Cuándo deberíamos llamarte?</p>
-            <select class="form-inputs" aria-label="Default select example" name="llamada" id="llamada">
+            <select class="form-inputs" aria-label="Default select example" name="prioridad" id="prioridad">
                 <option selected disabled value="">Elige una opcion</option>
-                <option value="Rapido">Tan pronto como sea posible</option>
-                <option value="Lento">Cuando haya disponibilidad</option>
+                <option value="Alta">Tan pronto como sea posible</option>
+                <option value="Baja">Cuando haya disponibilidad</option>
             </select>
 
             @if ($errors->has('completar_formulario'))

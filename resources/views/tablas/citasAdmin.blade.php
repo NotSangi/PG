@@ -25,7 +25,7 @@ CITAS
         <th>EMAIL</th>
         <th>TRATAMIENTO</th>
         <th>DOCTOR ASIGNADO</th>
-        <th>LLAMADA</th>
+        <th>PRIORIDAD</th>
         <th>ESTADO</th>
         <th>FECHA</th>
     </tr>
@@ -69,7 +69,7 @@ CITAS
                     @endforeach
                 </select>
             </td>
-            <td>{{ $cita->llamada}}</td>
+            <td>{{ $cita->prioridad}}</td>
             <td>
                 <select name="estado[{{ $cita->id }}]"
                     style="width: 100%; border: 0.5px solid grey; border-radius: 0.5rem; color: grey;">
@@ -80,7 +80,6 @@ CITAS
                     <?php        } ?>
                     <option value="PENDIENTE" {{ $cita->estado == 'PENDIENTE'}}>PENDIENTE</option>
                     <option value="ASIGNADA" {{ $cita->estado == 'ASIGNADA'}}>ASIGNADA</option>
-                    <option value="CANCELADA" {{ $cita->estado == 'CANCELADA'}}>CANCELADA</option>
                 </select>
             </td>
             <td>

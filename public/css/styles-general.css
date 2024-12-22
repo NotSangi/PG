@@ -54,15 +54,21 @@
 /*CCS AGREGADO POR ESTEBAN*/
 
 .content {
-    background: rgb(185, 235, 255);
-    background: linear-gradient(
-        180deg,
-        rgba(185, 235, 255, 1) 0%,
-        rgba(92, 199, 252, 1) 11%,
-        rgba(93, 169, 242, 1) 50%,
-        rgba(2, 220, 246, 1) 83%,
-        rgba(196, 249, 255, 1) 100%
-    );
+    background: rgb(37,151,255);
+background: linear-gradient(0deg, rgba(37,151,255,1) 0%, rgba(60,255,249,1) 100%);
+    animation: gradientAnimation 2s infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
 .cont-gen {
@@ -83,17 +89,7 @@
     border-radius: 20px;
 }
 
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
-}
+
 
 .tt-btn {
     text-align: center;
@@ -796,6 +792,21 @@
     transform: scale(1.05);
     color: #ffffff;
     transition: 0.5s;
+}
+
+.input-cita{
+    margin: 1% 0px 0px 0px;
+    width: 100%;
+    padding: 10px 0px 200px 10px;
+    resize: none;  
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6e707e;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.5px solid #d1d3e2;
+    border-radius: 0.5rem;
 }
 
 

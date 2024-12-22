@@ -13,7 +13,7 @@ CITAS
         <th>EMAIL</th>
         <th>TRATAMIENTO</th>
         <th>DOCTOR ASIGNADO</th>
-        <th>LLAMADA</th>
+        <th>PRIORIDAD</th>
         <th>ESTADO</th>
         <th>FECHA</th>
     </tr>
@@ -35,7 +35,7 @@ CITAS
             $doctor = DB::table('users')->where('id', $cita->doctor_id)->value('name');
         ?>
         <td>{{ $doctor }}</td>
-        <td>{{ $cita->llamada}}</td>
+        <td>{{ $cita->prioridad}}</td>
         <td>{{ $cita->estado}}</td>
         <td>{{ $cita->fecha}}</td>
     </tr>

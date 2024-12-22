@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('tratamiento');
             $table->bigInteger('doctor_id')->unsigned()->nullable();
-            $table->string('llamada');
+            $table->string('prioridad');
             $table->string('estado');
             $table->string('descripcion')->nullable();
             $table->dateTime('fecha')->nullable();

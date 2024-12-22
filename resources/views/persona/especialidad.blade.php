@@ -45,11 +45,23 @@
                                     <form class="user">
                                         <div class="form-group">
                                             <select name="especialidad" id="especialidad" class="form-control form-control-user">
-                                                <option value="" disabled selected>Selecciona una opción</option>
-                                                @foreach ($especialidad as $espe)
-                                                    <option value="{{$espe->id}}">{{ $espe->description }}</option>
-                                                @endforeach
+                                                <?php
+                                                if(Auth::user()->hasAnyEspecialty(Auth::user()->id)){
+                                                    $idEspecialidad = DB::table('especialidad_users')->where('user_id', Auth::user()->id)->value('especialidad_id');
+                                                    $especialidadDescripcion = DB::table('especialidads')->where('id', $idEspecialidad)->value('description');
+                                                ?>
+                                                    <option value="{{$idEspecialidad}}" selected>{{$especialidadDescripcion}}</option>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <option value="" disabled selected>Selecciona una opción</option>
 
+                                                    @foreach ($especialidad as $espe)
+                                                        <option value="{{$espe->id}}">{{ $espe->description }}</option>
+                                                    @endforeach
+                                                <?php
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                 
