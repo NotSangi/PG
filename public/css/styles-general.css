@@ -54,8 +54,8 @@
 /*CCS AGREGADO POR ESTEBAN*/
 
 .content {
-    background: rgb(37,151,255);
-background: linear-gradient(0deg, rgba(37,151,255,1) 0%, rgba(60,255,249,1) 100%);
+    background: rgb(35,88,255);
+background: linear-gradient(180deg, rgba(35,88,255,1) 0%, rgba(97,254,255,1) 50%, rgba(35,88,255,1) 100%);
     animation: gradientAnimation 2s infinite;
 }
 
@@ -188,14 +188,16 @@ background: linear-gradient(0deg, rgba(37,151,255,1) 0%, rgba(60,255,249,1) 100%
 }
 
 .mision {
-    background-color: #e7f1f7;
+    background: rgb(37,118,255);
+background: linear-gradient(0deg, rgba(37,118,255,1) 0%, rgba(77,195,251,1) 100%);
     border-radius: 20px;
     padding: 40px 20px 40px 20px;
     margin: 20px 0px 0px 0px;
 }
 
 .vision {
-    background-color: #e7f1f7;
+    background: rgb(37,118,255);
+background: linear-gradient(180deg, rgba(37,118,255,1) 0%, rgba(77,195,251,1) 100%);
     border-radius: 20px;
     padding: 40px 20px 40px 20px;
     margin: 20px 0px 0px 0px;
@@ -203,14 +205,14 @@ background: linear-gradient(0deg, rgba(37,151,255,1) 0%, rgba(60,255,249,1) 100%
 
 .tt-misvis h3 {
     font-family: "Quicksand", sans-serif;
-    color: #003366;
+    color: #ffffff;
     font-size: 50px;
     margin: 0px 0px 0px 30px;
 }
 
 .misvis-txt {
     font-family: "Quicksand", sans-serif;
-    color: #003366;
+    color: #ffffff;
     margin: 0px 20px 0px 20px;
     padding: 20px 20px 0px 15px;
     text-align: justify;

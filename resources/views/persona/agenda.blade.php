@@ -61,7 +61,6 @@
                 let modalDoctor = info.event.extendedProps.doctor.toLocaleString();
                 let modalTratamiento = info.event.extendedProps.tratamiento.toLocaleString();
                 let modalEstado = info.event.extendedProps.estado.toLocaleString();
-                let modalDescripcion = info.event.extendedProps.descripcion.toLocaleString()
                 let modalEnd = info.event.end ? info.event.end.toLocaleString() : 'No especificado';
 
                 document.getElementById('modalTitle').innerText = modalTitle;
@@ -90,6 +89,7 @@
                 }
 
                 if (modalEstado == "COMPLETADA"){
+                    let modalDescripcion = info.event.extendedProps.descripcion.toLocaleString();
                     document.getElementById('modalDescripcion').innerText = modalDescripcion;
                     document.getElementById('modalDescripcion').readOnly = true;
                 }
@@ -138,7 +138,7 @@
                                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
                                 'Content-Type': 'application/json'
                             },
-                            body: JSON.stringify({ citaId: citaId, descripcion: document.getElementById('descripcion').value})
+                            body: JSON.stringify({ citaId: citaId, descripcion: document.getElementById('modalDescripcion').value})
                         })
                             .then(response => response.json())
                             .then(data => {

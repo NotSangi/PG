@@ -114,7 +114,6 @@ class EventoController extends Controller
                     'borderColor' => $color,
                 ];
             } else {
-                
                 return null; 
                 
             }
