@@ -15,13 +15,6 @@ class EventoController extends Controller
     
     public function index()
     {
-        $usuario=User::whereHas('roles', function($query){
-            $query->where('name', 'doctor');
-        })->get();
-
-        $especialidad=Especialidad::all();
-
-        return view('evento.index', compact('usuario', 'especialidad'));  
     }
 
     
@@ -75,7 +68,7 @@ class EventoController extends Controller
             $query->where('doctor_id', $user->id);
         } elseif ($user->hasRole('paciente')) {
             $query->where('user_id', $user->id);
-        } elseif ($user->hasRole('admin') && $request->has('doctor_id')) {
+        } elseif ($user->hasRole('admin')) {
             $query->where('doctor_id', $request->doctor_id);
         }
 

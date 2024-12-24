@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Models\Documentos;
+use App\Models\User;
 use function Laravel\Prompts\alert;
 
 class FormularioController extends Controller
@@ -65,8 +66,12 @@ class FormularioController extends Controller
     }
 
     public function show()
-    {
-        return view("persona.agenda");
+    {   
+        $doctores = User::whereHas('roles', function ($query) {
+            $query->where('name', 'doctor');
+        })->get(['id', 'name', 'last_name']);
+
+        return view("persona.agenda")->with('doctores', $doctores);
     }
 
     public function updateEstado(Request $request)
