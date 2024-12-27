@@ -22,18 +22,18 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary" style="overflow: hidden">
     {!!Form::open(array('url' => 'register', 'method' => 'POST', 'autocomplete' => 'off'))!!}
     {{Form::token()}}
     <div class="container">
 
-        <div class="card o-hidden border-0 shadow-lg my-5" style="margin-top: 70px">
+        <div class="card o-hidden border-0 shadow-lg" style="margin-top: 5%;">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                     <div class="col-lg-7">
-                        <div class="p-5">
+                        <div style="padding: 3rem 2rem 3rem 2rem;">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">CREA TU CUENTA</h1>
                             </div>
@@ -41,11 +41,11 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" name="name" class="form-control form-control-user" id="name"
-                                            placeholder="Nombres">
+                                            placeholder="Nombres" value="{{old(key: 'name')}}">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" name="last_name" class="form-control form-control-user"
-                                            id="last_name" placeholder="Apellidos">
+                                            id="last_name" placeholder="Apellidos" value="{{old('last_name')}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -59,22 +59,22 @@
                                     </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" name="document" class="form-control form-control-user"
-                                            id="document" placeholder="Numero de documento">
+                                            id="document" placeholder="Numero de documento" value="{{old('document')}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" name="email"
-                                        class="form-control form-control-user @error('email') is-invalid @enderror"
-                                        id="email" placeholder="Ingresa tu correo">
+                                        class="form-control form-control-user"
+                                        id="email" placeholder="Ingresa tu correo" value="{{old('email')}}">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" name="tel" class="form-control form-control-user" id="tel"
-                                            placeholder="Ingresa tu número telefonico">
+                                            placeholder="Ingresa tu número telefonico" value="{{old('tel')}}">
                                     </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" name="adress" class="form-control form-control-user"
-                                            id="adress" placeholder="Dirección">
+                                            id="adress" placeholder="Dirección" value="{{old('adress')}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -90,24 +90,30 @@
 
                                 </div>
 
-                                @if ($errors->has('password'))
-                                    <div class="alert alert-danger">
-                                        {{ $errors->first('password') }}
-                                    </div>
-                                @endif
-
-                                @if ($errors->has('tratamiento_datos'))
-                                    <div class="alert alert-danger">
-                                        {{ $errors->first('tratamiento_datos') }}
-                                    </div>
-                                @endif
-
                                 <div class="trat_datos">
-                                    <input class="" type="checkbox" value="si" id="tratamiento_datos"
-                                        name="tratamiento_datos">
-                                    <a href="{{url('derechos')}}" class="form-check-label" for="tratamiento_datos">
-                                        He leído y acepto el tratamiento de mis datos personales
-                                    </a>
+                                    @if ($errors->has('password'))
+                                        <div class="alert alert-danger" style="position: absolute; margin-bottom: 60px;">                     
+                                            {{ $errors->first('password') }}
+                                        </div>
+                                    @endif
+
+                                    @if ($errors->has('tratamiento_datos'))
+                                        <div class="alert alert-danger" style="position: absolute; margin-bottom: 60px;">
+                                            {{ $errors->first('tratamiento_datos') }}
+                                        </div>
+                                    @endif
+                                    @if ($errors->has('completar_formulario'))
+                                        <div class="alert alert-danger" style="position: absolute; margin-bottom: 60px;">
+                                            {{ $errors->first('completar_formulario') }}
+                                        </div>
+                                    @endif
+                                    <div>
+                                        <input class="" type="checkbox" value="si" id="tratamiento_datos"
+                                            name="tratamiento_datos">
+                                        <a href="{{url('derechos')}}" class="form-check-label" for="tratamiento_datos">
+                                            He leído y acepto el tratamiento de mis datos personales
+                                        </a>
+                                    </div>
 
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block" type="submit">

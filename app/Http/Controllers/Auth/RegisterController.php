@@ -69,7 +69,20 @@ class RegisterController extends Controller
 
     protected function register(Request $request)
     {   
-        if (isset($_POST['tratamiento_datos'])){
+        $objeto = (object) $_POST;
+
+        if (
+            empty($objeto->name)
+            || empty($objeto->last_name)
+            || empty($objeto->tipo_documento)
+            || empty($objeto->document)
+            || empty($objeto->adress)
+            || empty($objeto->email)
+            || empty($objeto->tel)
+        ) {
+            return back()->withErrors(['completar_formulario' => 'Debes llenar todo el formulario'])
+            ->withInput($request->only('name', 'last_name', 'document', 'adress', 'email', 'tel'));
+        }    else if (isset($_POST['tratamiento_datos'])){
             if($request->get('password') == $request->get('password_confirm')){
                 $user = User::create(attributes: [
                     'name' => $request->get('name'),
@@ -95,12 +108,14 @@ class RegisterController extends Controller
     
                 return Redirect::to('login');
             } else {
-                return back()->withErrors(provider: ['password' => 'Las contraseñas no coinciden']);
+                return back()->withErrors(provider: ['password' => 'Las contraseñas no coinciden'])
+                ->withInput($request->only('name', 'last_name', 'document', 'adress', 'email', 'tel'));
             }
             
 
         } else {
-            return back()->withErrors(['tratamiento_datos' => 'Debes aceptar el tratamiento de datos para registrarte']);
+            return back()->withErrors(['tratamiento_datos' => 'Debes aceptar el tratamiento de datos para registrarte'])
+            ->withInput($request->only('name', 'last_name', 'document', 'adress', 'email', 'tel'));
         }
 
         

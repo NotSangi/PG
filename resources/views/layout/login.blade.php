@@ -45,24 +45,26 @@
                                     <form class="user">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" id="document"
-                                                name="document" placeholder="Ingresa tu documento">
+                                                name="document" placeholder="Ingresa tu documento" value="{{old('document')}}">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" id="password"
                                                 name="password" placeholder="Contraseña"> 
                                         </div>
 
-                                        @if ($errors->has('error'))
-                                                <div class="alert alert-danger">
-                                                    {{ $errors->first('error') }}
-                                                </div>
-                                        @endif
+                                       
 
-                                        <div class="form-group">
+                                        <div class="form-group recuerdame-error">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
                                                 <label class="custom-control-label" for="customCheck">Recuerdame</label>
                                             </div>
+
+                                            @if ($errors->has('error'))
+                                                <div class="alert alert-danger">
+                                                    {{ $errors->first('error') }}
+                                                </div>
+                                            @endif
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block" type="submit">
                                             <span class="glyphicon glyphicon-ok"></span> INGRESAR

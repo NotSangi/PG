@@ -130,7 +130,7 @@ if (Auth::user()) {
             </div>
             <div class="col cont-img-quienes-somos">
                 <div class="quienes-img">
-                    <img src="img/Diente.png" alt="">
+                    <img src="img/sonrisa.jpg" alt="">
                 </div>
             </div>
         </div>

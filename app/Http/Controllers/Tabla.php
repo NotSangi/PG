@@ -10,19 +10,32 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
 class Tabla extends Controller
 {
-    public function pacientesView()
+    public function pacientesView(Request $request)
     {
 
-        $perPage = 8; 
+        $perPage = 8;
         $currentPage = request('page', 1);
         $offset = ($currentPage - 1) * $perPage;
+        $busqueda = $request->input('busqueda', '');
 
-        $usuario = User::whereHas('roles', function ($query) {
-            $query->where('name', 'paciente');
-        })->orderBy('id', 'DESC')
-            ->offset($offset)
-            ->limit($perPage)
-            ->get();
+        if (!empty($busqueda)) {
+            $usuario = User::where('id', 'like', "%{$busqueda}%")
+                ->whereHas('roles', function ($query) {
+                    $query->where('name', 'paciente');
+                })
+                ->orderBy('id', 'DESC')
+                ->offset($offset)
+                ->limit($perPage)
+                ->get();
+        } else {
+            $usuario = User::whereHas('roles', function ($query) {
+                $query->where('name', 'paciente');
+            })
+                ->orderBy('id', 'DESC')
+                ->offset($offset)
+                ->limit($perPage)
+                ->get();
+        }
 
         $totalUsuarios = User::whereHas('roles', function ($query) {
             $query->where('name', 'paciente');
@@ -36,19 +49,32 @@ class Tabla extends Controller
             ->with('totalPages', $totalPages);
 
     }
-    public function doctoresView()
-    {
 
-        $perPage = 8; 
+    public function doctoresView(Request $request)
+    {
+        $perPage = 8;
         $currentPage = request('page', 1);
         $offset = ($currentPage - 1) * $perPage;
+        $busqueda = $request->input('busqueda', '');
 
-        $usuario = User::whereHas('roles', function ($query) {
-            $query->where('name', 'doctor');
-        })->orderBy('id', 'DESC')
-            ->offset($offset)
-            ->limit($perPage)
-            ->get();
+        if (!empty($busqueda)) {
+            $usuario = User::where('id', 'like', "%{$busqueda}%")
+                ->whereHas('roles', function ($query) {
+                    $query->where('name', 'doctor');
+                })
+                ->orderBy('id', 'DESC')
+                ->offset($offset)
+                ->limit($perPage)
+                ->get();
+        } else {
+            $usuario = User::whereHas('roles', function ($query) {
+                $query->where('name', 'doctor');
+            })
+                ->orderBy('id', 'DESC')
+                ->offset($offset)
+                ->limit($perPage)
+                ->get();
+        }
 
         $totalUsuarios = User::whereHas('roles', function ($query) {
             $query->where('name', 'doctor');
@@ -61,14 +87,15 @@ class Tabla extends Controller
             ->with('currentPage', $currentPage)
             ->with('totalPages', $totalPages);
     }
+
     public function citas(Request $request)
     {
-        $perPage = 8; 
+        $perPage = 8;
         $currentPage = request('page', 1);
         $offset = ($currentPage - 1) * $perPage;
 
         if (!empty($request->busqueda)) {
-            $citas = Formulario::where('id', 'like', "%{$request->busqueda}%"); 
+            $citas = Formulario::where('id', 'like', "%{$request->busqueda}%");
         } elseif (Auth::user()->hasRole('paciente')) {
             $citas = Formulario::whereHas('user', function ($query) {
                 $query->where('user_id', Auth::user()->id);
@@ -78,19 +105,20 @@ class Tabla extends Controller
                 $query->where('doctor_id', Auth::user()->id);
             });
         } else {
-            return redirect()->route('home')->with('error', 'Usuario no autorizado.'); 
+            return redirect()->route('home')->with('error', 'Usuario no autorizado.');
         }
 
-        $totalCitas = $citas->count(); 
+        $totalCitas = $citas->count();
 
-        $citas = $citas->orderBy('id', 'DESC')->offset($offset)->limit($perPage)->get(); 
-        $totalPages = ceil($totalCitas / $perPage); 
+        $citas = $citas->orderBy('id', 'DESC')->offset($offset)->limit($perPage)->get();
+        $totalPages = ceil($totalCitas / $perPage);
 
         return view('tablas.citas')
             ->with('citas', $citas)
             ->with('currentPage', $currentPage)
             ->with('totalPages', $totalPages);
     }
+
     public function citasAdmin(Request $request)
     {
 
@@ -103,16 +131,16 @@ class Tabla extends Controller
         } else {
             $citas = Formulario::query();
         }
-        
-        $totalCitas = $citas->count(); 
 
-        $citas = $citas->orderBy('id', 'DESC')->offset($offset)->limit($perPage)->get(); 
+        $totalCitas = $citas->count();
+
+        $citas = $citas->orderBy('id', 'DESC')->offset($offset)->limit($perPage)->get();
         $totalPages = ceil($totalCitas / $perPage);
 
         $doctores = User::whereHas('roles', function ($query) {
             $query->where('name', 'doctor');
         })->orderBy('id', 'DESC')->get();
-       
+
 
         return view('tablas.citasAdmin')
             ->with('citas', $citas)

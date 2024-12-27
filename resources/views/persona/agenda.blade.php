@@ -178,8 +178,7 @@
                 var doctorId = this.value;
                 var url = doctorId ? '/appointments/events?doctor_id=' + doctorId : '/appointments/events';
 
-                // Re-render the calendar with filtered events
-                calendar.destroy(); // Destroy the existing calendar instance
+                calendar.destroy(); 
                 calendar = new FullCalendar.Calendar(calendarEl, {
                     initialView: 'dayGridMonth',
                     locale: 'es',

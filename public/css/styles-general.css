@@ -54,13 +54,13 @@
 /*CCS AGREGADO POR ESTEBAN*/
 
 .content {
-    background: linear-gradient(318deg, #6adfc7, #059be1);
+    background: linear-gradient(318deg, #806fff, #68f0ff, #158aff);
     background-size: 1000% 1000%;
       
-    -webkit-animation: Coolgradient 41s linear infinite;
-    -moz-animation: Coolgradient 41s linear infinite;
-    -o-animation: Coolgradient 41s linear infinite;
-    animation: Coolgradient 41s linear infinite;
+    -webkit-animation: Coolgradient 20s linear infinite;
+    -moz-animation: Coolgradient 20s linear infinite;
+    -o-animation: Coolgradient 20s linear infinite;
+    animation: Coolgradient 20s linear infinite;
 } 
 
 @-webkit-keyframes Coolgradient {
@@ -184,20 +184,20 @@
 }
 
 .quienes-img {
-    justify-content: center;
     align-items: center;
     display: flex;
-    width: 80%;
-    height: 70%;
-    padding: 10%;
+    width: 90%;
+    height: 65%;
+    padding: 7%;
     background: rgb(37,118,255);
-    box-shadow: 0px 0px 20px 10px hsl(204, 81%, 48%);
-    background: linear-gradient(0deg, rgb(16, 100, 244) 0%, rgba(77,195,251,1) 100%);
-    border-radius: 20px;
+    background: linear-gradient(0deg, rgba(37,118,255,1) 0%, rgba(77,195,251,1) 100%);
+    box-shadow: 0px 0px 50px 5px hsl(219, 85%, 69%);
+    border-radius: 30px;
 }
 
 .quienes-img img {
-    width: 80%;
+    width: 100%;
+    border-radius: 20px;
 }
 
 /*-----------------------------------Seccion 3-----------------------------------*/
@@ -213,7 +213,6 @@
 .mision {
     background: rgb(37,118,255);
     background: linear-gradient(0deg, rgba(37,118,255,1) 0%, rgba(77,195,251,1) 100%);
-    box-shadow: 0px 0px 20px 10px hsl(204, 81%, 48%);
     border-radius: 20px;
     padding: 40px 20px 40px 20px;
     margin: 30px;
@@ -222,7 +221,6 @@
 .vision {
     background: rgb(37,118,255);    
     background: linear-gradient(180deg, rgba(37,118,255,1) 0%, rgba(77,195,251,1) 100%);
-    box-shadow: 0px 0px 20px 10px hsl(204, 81%, 48%);
     border-radius: 20px;
     padding: 40px 20px 40px 20px;
     margin: 30px;
@@ -275,7 +273,6 @@
 .tt-conden h3{
     background: rgb(37,118,255);
     background: linear-gradient(180deg, rgba(37,118,255,1) 0%, rgba(77,195,251,1) 100%);
-    box-shadow: 0px 0px 15px 5px hsl(204, 81%, 48%);
     border-radius: 10px;
     padding: 5px;
     text-shadow: 0px 1px 2px #000;
@@ -353,18 +350,25 @@
     border: none;
     padding: 10px 0 10px 0;
     color: white;
-    box-shadow: 0px 0px 20px 1px rgb(0, 19, 127);
+    box-shadow: 0px 0px 10px 1px rgb(0, 19, 127);
     font-family: "Quicksand", sans-serif;
     transition: 0.5s;
 }
 
 .btn-conf:hover {
-    box-shadow: 0px 0px 20px 1px rgb(3, 170, 67);
+    box-shadow: 0px 0px 10px 1px rgb(3, 170, 67);
     background-color: rgb(71, 218, 71);
     transform: scale(1.05);
     color: #ffffff;
     transition: 0.5s;
 }
+
+.btn-conf:disabled {
+    box-shadow: 0px 0px 10px 1px rgb(0, 0, 0);
+    background-color: #565656; 
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 
 .trat-datos {
     margin: 50px 0px 50px 0px;
@@ -582,6 +586,7 @@
 .btn_whatsapp{
     height: 60px;
     width: 60px;
+    box-shadow: 0px 0px 10px 1px rgb(46, 152, 7);
     background-color: rgb(71, 218, 71);
     padding: 10px;
     border-radius: 1rem;
@@ -627,11 +632,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid rgb(0, 115, 255);
+
 }
 
 .cont_img_mapa img{
     width: 100%;
+    height: 100%;
 }
 
 .info_sede{
@@ -641,7 +648,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: rgb(36, 117, 231);
+    border-radius: 0px 40px 40px 0px;
+    background: rgb(37,118,255);
+    background: linear-gradient(0deg, rgba(37,118,255,1) 0%, rgba(77,195,251,1) 100%);
 }
 
 .info_sede h2{
@@ -662,7 +671,8 @@
     margin: 20px 0px 20px 0px;
     padding: 10px 0px 10px 0px;
     border-radius: 30px;
-    background-color: #0407a2;
+    box-shadow: 0px 0px 20px 1px rgb(0, 22, 118);
+    background-color: #033572;
     font-size: 20px;
     font-weight: bold;
     border: none;
@@ -685,8 +695,9 @@
 }
 
 .trat_datos{
-    margin-bottom: 20px;
+    margin: 40px 0px 20px 0px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -860,6 +871,12 @@
     box-shadow: 0px 0px 5px 1px rgb(0, 19, 127);
     font-weight: bold;
     color: white;
+}
+
+.recuerdame-error{
+    display: flex; 
+    justify-content: space-between; 
+    height: 34px;
 }
 
 
@@ -6220,10 +6237,10 @@ a.badge-dark.focus {
 
 .alert {
     position: relative;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1rem;
+    padding: 0.25rem 0.25rem;
     border: 1px solid transparent;
     border-radius: 0.35rem;
+    text-align: center;
 }
 
 .alert-heading {
@@ -12175,13 +12192,13 @@ a:focus {
 }
 
 .bg-login-image {
-    background: url("https://img.freepik.com/vector-premium/caricatura-enfermera-ayudar-nino-paciente_184560-112.jpg");
+    background: url("/img/inicio.jpg");
     background-position: center;
     background-size: cover;
 }
 
 .bg-register-image {
-    background: url("https://img.freepik.com/vector-gratis/paciente-dibujado-mano-plana-tomando-examen-medico_52683-57830.jpg");
+    background: url("/img/registro.png");
     background-position: center;
     background-size: cover;
 }

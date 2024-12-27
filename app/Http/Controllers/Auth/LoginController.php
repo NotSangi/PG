@@ -74,13 +74,14 @@ class LoginController extends Controller
     
                 // Create a cookie for the remember token (optional)
                 $request->session()->put('remember_token', $rememberToken);
-                $cookie = cookie('laravel_remember', $rememberToken, 1440 * 30) // Expires in 30 days
-                    ->withSameSite('strict'); // Enhanced security
+                $cookie = cookie('laravel_remember', $rememberToken, 1440 * 30) 
+                    ->withSameSite('strict');
                 $request->stack()->push($cookie);
             }
 
         } else {
-            return back()->withErrors(['error' => 'Credenciales invalidas']);
+            return back()->withErrors(['error' => 'Credenciales invalidas'])
+            ->withInput($request->only('document'));
         }
 
     }

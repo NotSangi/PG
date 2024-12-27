@@ -86,8 +86,11 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
                 name="last_name" id="last_name" value={{Auth::user()->last_name}}>
             <input class="form-inputs" type="text" placeholder="Número" aria-label="default input example" name="tel"
                 id="tel" value={{Auth::user()->tel}}>
-            <input class="form-inputs" type="text" placeholder="Correo Eléctronico" aria-label="default input example"
-                name="email" id="email" value={{Auth::user()->email}}>
+            <input class="form-inputs @error('email') is-invalid @enderror" type="email"
+                placeholder="Correo Eléctronico" aria-label="default input example" name="email" id="email"
+                value={{Auth::user()->email}}>
+            <p id="error-email" style="color: red; display: none;">Por favor, ingresa una dirección de correo
+                electrónico válida.</p>
 
             <select class="form-inputs" aria-label="Default select example" name="tratamiento" id="tratamiento">
                 <option selected disabled value="">Elige tu tratamiento</option>
@@ -104,15 +107,9 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
                 <option value="Alta">Tan pronto como sea posible</option>
                 <option value="Baja">Cuando haya disponibilidad</option>
             </select>
-
-            @if ($errors->has('completar_formulario'))
-                <div class="alert alert-danger">
-                    {{ $errors->first('completar_formulario') }}
-                </div>
-            @endif
-
             <button class="btn-conf" type="Submit" name="btn-confirmar" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Confirmar</button>
+                data-bs-target="#exampleModal" id="submitBtn">Confirmar</button>
+
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -127,12 +124,57 @@ echo '<a href="' . $mensaje . '"><img src="img/Whatsapp.png" alt=""></a>';
                     </div>
                 </div>
             </div>
-
         </form>
 
     </div>
     {{Form::close()}}
 </section>
+
+<script>
+    const formInputs = document.querySelectorAll('.form-inputs');
+    const emailInput = document.getElementById('email');
+    const submitBtn = document.getElementById('submitBtn');
+    const errorEmail = document.getElementById('error-email');
+
+    function validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+
+    function checkFormValidity() {
+        let isFormComplete = true;
+
+        formInputs.forEach(input => {
+            if (input.type === 'select-one') {
+                if (input.value === '' || input.value === null) {
+                    isFormComplete = false;
+                }
+            } else {
+                if (input.value.trim() === '') {
+                    isFormComplete = false;
+                }
+            }
+        });
+
+        const emailIsValid = validateEmail(emailInput.value);
+
+        submitBtn.disabled = !isFormComplete || !emailIsValid;
+
+        if (!emailIsValid) {
+            errorEmail.style.display = 'block';
+        } else {
+            errorEmail.style.display = 'none';
+        }
+    }
+
+    // Add event listeners
+    emailInput.addEventListener('input', checkFormValidity);
+    formInputs.forEach(input => {
+        input.addEventListener('change', checkFormValidity);
+    });
+
+    checkFormValidity();
+</script>
 
 <section class="mapa">
     <div class="cont_mapa">

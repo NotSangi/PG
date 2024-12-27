@@ -55,8 +55,16 @@
 
             <?php 
 
+            $currentUrl = request()->url();
+
             if(Auth::user()->hasRole('admin')){ 
-                $url = "/citasAdmin";
+                if (strpos($currentUrl, 'doctores') !== false) {
+                    $url = "/doctores";
+                } elseif (strpos($currentUrl, 'pacientes') !== false) {
+                    $url = "/pacientes";
+                } else {
+                    $url = "/citasAdmin"; // URL por defecto para admins
+                }
             } else {
                 $url = "/citas"; 
             }

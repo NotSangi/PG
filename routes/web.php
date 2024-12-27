@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::resource('minuevasonrisa', 'App\Http\Controllers\PersonaController');
 Route::get('formulario', 'App\Http\Controllers\PersonaController@formulario');
 Route::get('form', 'App\Http\Controllers\FormularioController@index');
+
 Route::get('derechos', 'App\Http\Controllers\PersonaController@derechos');
 
 Route::get('modal', 'App\Http\Controllers\PersonaController@modal');
@@ -46,15 +47,6 @@ Route::get('doctores', 'App\Http\Controllers\Tabla@doctoresView');
 
 Route::get('citas', 'App\Http\Controllers\Tabla@citas');
 Route::get('citasAdmin', 'App\Http\Controllers\Tabla@citasAdmin');
-
-
-//agenda
-/*Route::get('/evento', [EventoController::class, 'index']);
-Route::get('/evento/mostrar', [EventoController::class, 'show']);
-Route::post('/evento/agregar', [EventoController::class, 'store']);
-Route::post('/evento/editar/{id}', [EventoController::class, 'edit']);
-Route::post('/evento/actualizar/{evento}', [EventoController::class, 'update']);
-Route::post('/evento/borrar/{id}', [EventoController::class, 'destroy']); */
 
 //formulario
 Route::post('post_formulario', 'App\Http\Controllers\FormularioController@create');
