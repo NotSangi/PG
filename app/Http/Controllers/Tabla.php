@@ -148,4 +148,8 @@ class Tabla extends Controller
             ->with('currentPage', $currentPage)
             ->with('totalPages', $totalPages);
     }
+
+    public function show(){
+        return view('mail.confirmacion');
+    }
 }

@@ -90,7 +90,7 @@ class FormularioController extends Controller
             $cita = Formulario::find($cita_id);
 
             if ($cita) {
-                $originalEstado = $cita->estado; // Almacenar el estado original
+                $originalEstado = $cita->estado;
 
                 $cita->doctor_id = $doctor_id ?? $cita->doctor_id;
                 $cita->estado = $estados[$cita_id] ?? $cita->estado;
@@ -98,9 +98,10 @@ class FormularioController extends Controller
                 $cita->save(); 
 
                 $doc = User::find($cita->doctor_id);
-                // Enviar correo solo si el estado ha cambiado a "ASIGNADA"
+                $tratamiento = Tratamientos::where('name', $cita->tratamiento)->value('description');
+                
                 if ($cita->estado === 'ASIGNADA' && $originalEstado !== 'ASIGNADA') {
-                    Mail::to($cita->email)->send(new ContactEmail($cita, $doc));
+                    Mail::to($cita->email)->send(new ContactEmail($cita, $doc, $tratamiento));
                 }
             }
             

@@ -15,11 +15,13 @@ class ContactEmail extends Mailable
     
     public $cita;
     public $doc;
+    public $tratamiento;
  
-    public function __construct($cita, $doc)
+    public function __construct($cita, $doc, $tratamiento)
     {
         $this->cita = $cita;
         $this->doc = $doc;
+        $this->tratamiento = $tratamiento;
     }
 
     public function build()

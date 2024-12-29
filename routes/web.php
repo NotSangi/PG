@@ -56,6 +56,8 @@ Route::get('agenda', 'App\Http\Controllers\FormularioController@show');
 Route::post('/cancel', 'App\Http\Controllers\FormularioController@cancel');
 Route::post('/finalizar', 'App\Http\Controllers\FormularioController@finalizar');
 
+Route::get('/mail', 'App\Http\Controllers\Tabla@show');
+
 
 //login y registro
 
