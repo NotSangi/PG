@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactEmail;
 use App\Models\Tratamientos;
 use Illuminate\Http\Request;
 use App\Models\Formulario;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Documentos;
 use App\Models\User;
 use function Laravel\Prompts\alert;
+use Illuminate\Support\Facades\Mail;
 
 class FormularioController extends Controller
 {
@@ -88,11 +90,18 @@ class FormularioController extends Controller
             $cita = Formulario::find($cita_id);
 
             if ($cita) {
+                $originalEstado = $cita->estado; // Almacenar el estado original
+
                 $cita->doctor_id = $doctor_id ?? $cita->doctor_id;
                 $cita->estado = $estados[$cita_id] ?? $cita->estado;
                 $cita->fecha = $fechas[$cita_id] ?? $cita->fecha;
                 $cita->save(); 
 
+                $doc = User::find($cita->doctor_id);
+                // Enviar correo solo si el estado ha cambiado a "ASIGNADA"
+                if ($cita->estado === 'ASIGNADA' && $originalEstado !== 'ASIGNADA') {
+                    Mail::to($cita->email)->send(new ContactEmail($cita, $doc));
+                }
             }
             
         }
