@@ -68,11 +68,10 @@ class LoginController extends Controller
             }
 
             if ($request->has('remember')) {
-                // Generate a unique remember token
+
                 $rememberToken = Str::random(60);
                 Auth::user()->update(['remember_token' => $rememberToken]);
     
-                // Create a cookie for the remember token (optional)
                 $request->session()->put('remember_token', $rememberToken);
                 $cookie = cookie('laravel_remember', $rememberToken, 1440 * 30) 
                     ->withSameSite('strict');

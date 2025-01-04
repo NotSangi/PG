@@ -63,4 +63,8 @@ Route::get('/mail', 'App\Http\Controllers\Tabla@show');
 
 Auth::routes();
 
+Route::get('restablecer', 'App\Http\Controllers\Auth\ForgotPasswordController@show');
+Route::post('/password/email', 'App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::post('/password/reset', 'App\Http\Controllers\Auth\ResetPasswordController@reset')->name('password.update');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

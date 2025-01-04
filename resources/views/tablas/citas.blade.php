@@ -31,10 +31,16 @@ CITAS
         ?>
 
         <td>{{ $tratamiento}}</td>
-        <?php
-            $doctor = DB::table('users')->where('id', $cita->doctor_id)->value('name');
-        ?>
-        <td>{{ $doctor }}</td>
+            
+            @if($cita->doctor_id != null)
+            <?php
+                $doctor = DB::table('users')->find($cita->doctor_id); 
+                ?>
+                <td>{{ $doctor->name }} {{$doctor->last_name}}</td> 
+            @else
+                <td> No hay un doctor asignado</td>
+            @endif
+
         <td>{{ $cita->prioridad}}</td>
         <td>{{ $cita->estado}}</td>
         <td>{{ $cita->fecha}}</td>

@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ResetPasswordMail;
+use App\Models\User;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use DB;
 
 class ForgotPasswordController extends Controller
 {
@@ -19,4 +25,30 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
+
+    public function show(){
+        return view('auth.passwords.email');
+    }
+
+    public function sendResetLinkEmail(Request $request)
+    {
+        $this->validate($request, ['document' => 'required|string']);
+
+        $user = User::where('document', $request->document)->first();
+
+        if ($user) {
+            $token = Str::random(60);
+
+            DB::table('password_resets')->updateOrInsert(
+                ['email' => $user->email],
+                ['token' => $token, 'created_at' => now()]
+            );
+
+            Mail::to($user->email)->send(new ResetPasswordMail($user, $token));
+
+            return back()->with('status', 'Se ha enviado un enlace de restablecimiento de contraseña a su correo electrónico.');
+        } else {
+            return back()->withErrors(['document' => 'No se encontró ningún usuario con ese documento de identidad.']);
+        }
+    }
 }

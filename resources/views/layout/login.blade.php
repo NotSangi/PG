@@ -73,6 +73,7 @@
                                     <hr>
                                     <div class="text-center btn-log">
                                         <a class="small" href="{{route('register')}}">Registrate</a>
+                                        <a class="small" href="{{url('restablecer')}}">Restablecer Contraseña</a>
                                         <a class="small" href="{{url('minuevasonrisa')}}">Volver</a>
                                     </div>
                                 </div>

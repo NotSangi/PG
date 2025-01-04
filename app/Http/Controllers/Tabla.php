@@ -20,6 +20,11 @@ class Tabla extends Controller
 
         if (!empty($busqueda)) {
             $usuario = User::where('id', 'like', "%{$busqueda}%")
+                ->orWhere('name', 'like', "%{$busqueda}%")
+                ->orWhere('last_name', 'like', "%{$busqueda}%")
+                ->orWhere('document', 'like', "%{$busqueda}%")
+                ->orWhere('email', 'like', "%{$busqueda}%")
+                ->orWhere('tel', 'like', "%{$busqueda}%")
                 ->whereHas('roles', function ($query) {
                     $query->where('name', 'paciente');
                 })
@@ -59,6 +64,11 @@ class Tabla extends Controller
 
         if (!empty($busqueda)) {
             $usuario = User::where('id', 'like', "%{$busqueda}%")
+                ->orWhere('name', 'like', "%{$busqueda}%")
+                ->orWhere('last_name', 'like', "%{$busqueda}%")
+                ->orWhere('document', 'like', "%{$busqueda}%")
+                ->orWhere('email', 'like', "%{$busqueda}%")
+                ->orWhere('tel', 'like', "%{$busqueda}%")
                 ->whereHas('roles', function ($query) {
                     $query->where('name', 'doctor');
                 })
@@ -95,7 +105,13 @@ class Tabla extends Controller
         $offset = ($currentPage - 1) * $perPage;
 
         if (!empty($request->busqueda)) {
-            $citas = Formulario::where('id', 'like', "%{$request->busqueda}%");
+            $citas = Formulario::where('id', 'like', "%{$request->busqueda}%")
+                ->orWhere('name', 'like', "%{$request->busqueda}%")
+                ->orWhere('last_name', 'like', "%{$request->busqueda}%")
+                ->orWhere('email', 'like', "%{$request->busqueda}%")
+                ->orWhere('tratamiento', 'like', "%{$request->busqueda}%")
+                ->orWhere('prioridad', 'like', "%{$request->busqueda}%")
+                ->orWhere('estado', 'like', "%{$request->busqueda}%");
         } elseif (Auth::user()->hasRole('paciente')) {
             $citas = Formulario::whereHas('user', function ($query) {
                 $query->where('user_id', Auth::user()->id);
@@ -127,7 +143,14 @@ class Tabla extends Controller
         $offset = ($currentPage - 1) * $perPage;
 
         if (!empty($request->busqueda)) {
-            $citas = Formulario::where('id', 'like', "%{$request->busqueda}%");
+            $citas = Formulario::where('id', 'like', "%{$request->busqueda}%")
+                ->orWhere('name', 'like', "%{$request->busqueda}%")
+                ->orWhere('last_name', 'like', "%{$request->busqueda}%")
+                ->orWhere('tel', 'like', "%{$request->busqueda}%")
+                ->orWhere('email', 'like', "%{$request->busqueda}%")
+                ->orWhere('tratamiento', 'like', "%{$request->busqueda}%")
+                ->orWhere('prioridad', 'like', "%{$request->busqueda}%")
+                ->orWhere('estado', 'like', "%{$request->busqueda}%");
         } else {
             $citas = Formulario::query();
         }

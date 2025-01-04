@@ -1,0 +1,1 @@
+{{$user}} tu contraseña ha sido restablecida
