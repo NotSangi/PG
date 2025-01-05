@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Hash;
+use App\Models\User;
+use DB;
 use Password;
 class ResetPasswordController extends Controller
 {
@@ -34,24 +36,17 @@ class ResetPasswordController extends Controller
         'password' => 'required|confirmed|min:8',
     ]);
 
+    $tokenRecord = DB::table('password_resets')->where('token', $validatedData['token'])->value('user_id');
+    $usuario = User::findOrFail($tokenRecord);
     
-    $user = Password::broker()->getUserByToken($validatedData['token']);
-
-    
-    if ($user) {
-        Password::broker()->reset($validatedData, function ($user, $password) {
-            $user->password = Hash::make($password);
-            $user->save();
-
+    $usuario->password = bcrypt($validatedData['password']);
+    $usuario->update();
             
-            Mail::to($user->email)->send(new PasswordResetSuccess($user));
+    Mail::to($usuario->email)->send(new PasswordResetSuccess($usuario));
 
-            return redirect('/login')->with('status', 'Contraseña actualizada correctamente.');
-        });
-    } else {
-        
-        return back()->withErrors(['email' => 'Token inválido o usuario no encontrado']);
-    }
+    sleep(3);
+    return redirect('/login')->with('status', 'Contraseña actualizada correctamente.');
+    
 }
 
     /**

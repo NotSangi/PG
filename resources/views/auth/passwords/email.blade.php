@@ -1,19 +1,18 @@
-@extends('layouts.app')
+@extends('layout.principal')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+@endsection
+
+@section('info')
+<div class="container-restablecimiento">
+    <div class="row justify-content-center" style="width: 1200px;">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Restablecer Contraseña') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
@@ -33,13 +32,23 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     {{ __('Enviar enlace de restablecimiento') }}
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-admin">
+            <div>
+                Se ha enviado un enlace de restablecimiento de contraseña a su correo electrónico.
             </div>
         </div>
     </div>

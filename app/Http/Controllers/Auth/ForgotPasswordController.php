@@ -40,13 +40,14 @@ class ForgotPasswordController extends Controller
             $token = Str::random(60);
 
             DB::table('password_resets')->updateOrInsert(
-                ['email' => $user->email],
+                ['user_id'=> $user->id,'email' => $user->email],
                 ['token' => $token, 'created_at' => now()]
             );
 
             Mail::to($user->email)->send(new ResetPasswordMail($user, $token));
 
-            return back()->with('status', 'Se ha enviado un enlace de restablecimiento de contraseña a su correo electrónico.');
+            sleep(3);
+            return back();
         } else {
             return back()->withErrors(['document' => 'No se encontró ningún usuario con ese documento de identidad.']);
         }

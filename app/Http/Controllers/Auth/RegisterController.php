@@ -79,6 +79,8 @@ class RegisterController extends Controller
             || empty($objeto->adress)
             || empty($objeto->email)
             || empty($objeto->tel)
+            || empty($objeto->password)
+            || empty($objeto->password_confirm)
         ) {
             return back()->withErrors(['completar_formulario' => 'Debes llenar todo el formulario'])
             ->withInput($request->only('name', 'last_name', 'document', 'adress', 'email', 'tel'));

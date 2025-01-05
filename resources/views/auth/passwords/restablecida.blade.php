@@ -1,1 +1,1 @@
-{{$user}} tu contraseña ha sido restablecida
+Usuario {{$user->name}} {{$user->last_name}}, tu contraseña ha sido restablecida
