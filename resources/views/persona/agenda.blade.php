@@ -94,6 +94,7 @@
                 ?>
 
                 if (modalEstado == "ASIGNADA") {
+                    document.getElementById('modalDescripcion').innerText = "...";
                     boton = "FINALIZAR CITA"
                 } else {
                     boton = "CERRAR"
@@ -103,6 +104,10 @@
                     let modalDescripcion = info.event.extendedProps.descripcion.toLocaleString();
                     document.getElementById('modalDescripcion').innerText = modalDescripcion;
                     document.getElementById('modalDescripcion').readOnly = true;
+                }
+
+                if (modalEstado == "CANCELADA"){
+                    document.getElementById('modalDescripcion').innerText = "CITA CANCELADA";
                 }
 
                 <?php } else {

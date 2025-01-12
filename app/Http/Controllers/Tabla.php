@@ -19,19 +19,20 @@ class Tabla extends Controller
         $busqueda = $request->input('busqueda', '');
 
         if (!empty($busqueda)) {
-            $usuario = User::where('id', 'like', "%{$busqueda}%")
-                ->orWhere('name', 'like', "%{$busqueda}%")
-                ->orWhere('last_name', 'like', "%{$busqueda}%")
-                ->orWhere('document', 'like', "%{$busqueda}%")
-                ->orWhere('email', 'like', "%{$busqueda}%")
-                ->orWhere('tel', 'like', "%{$busqueda}%")
-                ->whereHas('roles', function ($query) {
-                    $query->where('name', 'paciente');
-                })
-                ->orderBy('id', 'DESC')
-                ->offset($offset)
-                ->limit($perPage)
-                ->get();
+            $usuario = User::whereHas('roles', function ($query) {
+                $query->where('name', 'paciente');
+            })
+            ->where(function ($query) use ($busqueda) {
+                $query->where('id', 'like', "%{$busqueda}%")
+                      ->orWhere('name', 'like', "%{$busqueda}%")
+                      ->orWhere('last_name', 'like', "%{$busqueda}%")
+                      ->orWhere('document', 'like', "%{$busqueda}%")
+                      ->orWhere('email', 'like', "%{$busqueda}%");                     
+            })
+            ->orderBy('id', 'DESC')
+            ->offset($offset)
+            ->limit($perPage)
+            ->get();
         } else {
             $usuario = User::whereHas('roles', function ($query) {
                 $query->where('name', 'paciente');
@@ -63,19 +64,20 @@ class Tabla extends Controller
         $busqueda = $request->input('busqueda', '');
 
         if (!empty($busqueda)) {
-            $usuario = User::where('id', 'like', "%{$busqueda}%")
-                ->orWhere('name', 'like', "%{$busqueda}%")
-                ->orWhere('last_name', 'like', "%{$busqueda}%")
-                ->orWhere('document', 'like', "%{$busqueda}%")
-                ->orWhere('email', 'like', "%{$busqueda}%")
-                ->orWhere('tel', 'like', "%{$busqueda}%")
-                ->whereHas('roles', function ($query) {
-                    $query->where('name', 'doctor');
-                })
-                ->orderBy('id', 'DESC')
-                ->offset($offset)
-                ->limit($perPage)
-                ->get();
+            $usuario = User::whereHas('roles', function ($query) {
+                $query->where('name', 'doctor');
+            })
+            ->where(function ($query) use ($busqueda) {
+                $query->where('id', 'like', "%{$busqueda}%")
+                      ->orWhere('name', 'like', "%{$busqueda}%")
+                      ->orWhere('last_name', 'like', "%{$busqueda}%")
+                      ->orWhere('document', 'like', "%{$busqueda}%")
+                      ->orWhere('email', 'like', "%{$busqueda}%");                     
+            })
+            ->orderBy('id', 'DESC')
+            ->offset($offset)
+            ->limit($perPage)
+            ->get();
         } else {
             $usuario = User::whereHas('roles', function ($query) {
                 $query->where('name', 'doctor');
@@ -103,15 +105,19 @@ class Tabla extends Controller
         $perPage = 8;
         $currentPage = request('page', 1);
         $offset = ($currentPage - 1) * $perPage;
+        $busqueda = $request->input('busqueda', '');
 
-        if (!empty($request->busqueda)) {
-            $citas = Formulario::where('id', 'like', "%{$request->busqueda}%")
-                ->orWhere('name', 'like', "%{$request->busqueda}%")
-                ->orWhere('last_name', 'like', "%{$request->busqueda}%")
-                ->orWhere('email', 'like', "%{$request->busqueda}%")
-                ->orWhere('tratamiento', 'like', "%{$request->busqueda}%")
-                ->orWhere('prioridad', 'like', "%{$request->busqueda}%")
-                ->orWhere('estado', 'like', "%{$request->busqueda}%");
+        if (!empty($busqueda)) {
+            $citas = Formulario::where('user_id', Auth::user()->id) 
+                ->where(function ($query) use ($busqueda) {
+                $query->where('id', 'like', "%{$busqueda}%")
+                ->orWhere('name', 'like', "%{$busqueda}%")
+                ->orWhere('last_name', 'like', "%{$busqueda}%")
+                ->orWhere('email', 'like', "%{$busqueda}%")
+                ->orWhere('tratamiento', 'like', "%{$busqueda}%")
+                ->orWhere('prioridad', 'like', "%{$busqueda}%")
+                ->orWhere('estado', 'like', "%{$busqueda}%");
+                });
         } elseif (Auth::user()->hasRole('paciente')) {
             $citas = Formulario::whereHas('user', function ($query) {
                 $query->where('user_id', Auth::user()->id);
