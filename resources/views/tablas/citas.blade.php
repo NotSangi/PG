@@ -4,6 +4,11 @@
 CITAS 
 @endSection
 
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+@endsection
+
 @section('tabla')
 <thead>
     <tr style="text-align: center;">
@@ -16,6 +21,7 @@ CITAS
         <th>PRIORIDAD</th>
         <th>ESTADO</th>
         <th>FECHA</th>
+        <th>HISTORIA</th>
     </tr>
 </thead>
 <tbody>
@@ -44,12 +50,31 @@ CITAS
         <td>{{ $cita->prioridad}}</td>
         <td>{{ $cita->estado}}</td>
         <td>{{ $cita->fecha}}</td>
+        <td>
+            @if ($cita->estado == "COMPLETADA")
+                <button data-bs-toggle="modal" data-bs-target="#modal-{{ $cita->id }}" class="boton-historia">Ver</button>
+            @endif  
+        </td>
     </tr>
+
+    <div class="modal fade" id="modal-{{ $cita->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-admin">
+                <div>HISTORIA</div>
+                <hr style="border-top: 2px solid #ffff;">
+                <div>
+                    {{ $cita->descripcion }}
+                </div>
+            </div>
+        </div>
+    </div>
     @empty
         <tr>
             <td>No tienes citas</td>
         </tr>
     @endforelse 
+
+    
 </tbody>
 
 
