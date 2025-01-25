@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('tel');
             $table->string('password');
             $table->string('tratamiento_datos');
+            $table->integer('estado');
             $table->rememberToken();
             $table->timestamps();
         });

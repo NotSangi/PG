@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\User;        
+use DB;
 
 class LoginController extends Controller
 {
@@ -54,33 +55,37 @@ class LoginController extends Controller
             "document" => $request->get('document'),
             "password" => $request->get('password'),
         ];
- 
-        if (Auth::attempt($credentials, $request->has('remember'))) {
+        
+        $estado = DB::table('users')->where('document', $request->get('document'))->value('estado');
 
-            $referer = $request->headers->get('referer');
+        if($estado == 1){
+            if (Auth::attempt($credentials)) {
 
-            if(Auth::user()){
-                if ($referer && str_contains($referer, 'formulario')) {
-                    return Redirect::to('form');
-                } else {
-                    return Redirect::to('minuevasonrisa');
+                $referer = $request->headers->get('referer');
+
+                if(Auth::user()){
+                    if ($referer && str_contains($referer, 'formulario')) {
+                        return Redirect::to('form');
+                    } else {
+                        return Redirect::to('minuevasonrisa');
+                    }
                 }
-            }
 
-            if ($request->has('remember')) {
+                if ($request->has('remember')) {
 
-                $rememberToken = Str::random(60);
-                Auth::user()->update(['remember_token' => $rememberToken]);
-    
-                $request->session()->put('remember_token', $rememberToken);
-                $cookie = cookie('laravel_remember', $rememberToken, 1440 * 30) 
-                    ->withSameSite('strict');
-                $request->stack()->push($cookie);
-            }
+                    $rememberToken = Str::random(60);
+                    Auth::user()->update(['remember_token' => $rememberToken]);
+        
+                    $request->session()->put('remember_token', $rememberToken);
+                    $cookie = cookie('laravel_remember', $rememberToken, 1440 * 30) 
+                        ->withSameSite('strict');
+                    $request->stack()->push($cookie);
+                }
 
-        } else {
+            } 
+        } elseif ($estado == 0){
             return back()->withErrors(['error' => 'Credenciales invalidas'])
-            ->withInput($request->only('document'));
+                ->withInput($request->only('document'));
         }
 
     }
