@@ -30,25 +30,18 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <div class="form-group row mb-0" style="display: flex; flex-direction: column; align-items: center;">
+                            <div class="col-md-6 offset-md-4" style="width: auto; margin: 0;">
+                                <button type="submit" class="btn btn-primary">
                                     {{ __('Enviar enlace de restablecimiento') }}
                                 </button>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <p>Se enviará un enlace de restablecimiento a tu correo</p>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-    <div class="modal-dialog">
-        <div class="modal-admin">
-            <div>
-                Se ha enviado un enlace de restablecimiento de contraseña a su correo electrónico.
             </div>
         </div>
     </div>

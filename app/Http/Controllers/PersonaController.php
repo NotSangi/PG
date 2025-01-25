@@ -50,19 +50,32 @@ class PersonaController extends Controller
     }
 
     public function actualizar(Request $request)
-    {
-        $user = User::findOrFail(Auth::user()->id);
+    {   
+        $objeto = (object) $_POST;
 
-        $user->name = $request->get("name");
-        $user->last_name = $request->get("last_name");
-        $user->document = $request->get("document");
-        $user->adress = $request->get("adress");
-        $user->email = $request->get("email");
-        $user->tel = $request->get("tel");
+        if (
+            empty($objeto->document)
+            || empty($objeto->name)
+            || empty($objeto->last_name)
+            || empty($objeto->tel)
+            || empty($objeto->email)
+            || empty($objeto->adress)
+        ){
+            return back()->withErrors(['completar_formulario' => 'No deben haber campos vacios']);
+        } else {
+            $user = User::findOrFail(Auth::user()->id);
 
-        $user->update();
+            $user->name = $request->get("name");
+            $user->last_name = $request->get("last_name");
+            $user->document = $request->get("document");
+            $user->adress = $request->get("adress");
+            $user->email = $request->get("email");
+            $user->tel = $request->get("tel");
 
-        return Redirect::to('minuevasonrisa');
+            $user->update();
+
+            return Redirect::to('minuevasonrisa');
+        }
     }
     public function show(string $id) {}
     public function edit() {}

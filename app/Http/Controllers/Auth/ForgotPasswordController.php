@@ -46,8 +46,8 @@ class ForgotPasswordController extends Controller
 
             Mail::to($user->email)->send(new ResetPasswordMail($user, $token));
 
-            sleep(3);
-            return back();
+            return back()->with('showModal', true);
+            
         } else {
             return back()->withErrors(['document' => 'No se encontró ningún usuario con ese documento de identidad.']);
         }
