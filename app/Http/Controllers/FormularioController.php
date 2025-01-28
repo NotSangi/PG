@@ -21,7 +21,7 @@ class FormularioController extends Controller
     public function index()
     {   
 
-        $tratamiento = Tratamientos::all();
+        $tratamiento = Tratamientos::where('estado', 1)->get();
         $document = Documentos::all();
 
         return view("persona.formulario")->with('documentos', $document)
@@ -71,7 +71,7 @@ class FormularioController extends Controller
     {   
         $doctores = User::whereHas('roles', function ($query) {
             $query->where('name', 'doctor');
-        })->get(['id', 'name', 'last_name']);
+        })->where('estado', 1)->get(['id', 'name', 'last_name']);
 
         return view("persona.agenda")->with('doctores', $doctores);
     }

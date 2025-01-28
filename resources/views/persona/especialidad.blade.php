@@ -51,6 +51,9 @@
                                                     $especialidadDescripcion = DB::table('especialidads')->where('id', $idEspecialidad)->value('description');
                                                 ?>
                                                     <option value="{{$idEspecialidad}}" selected>{{$especialidadDescripcion}}</option>
+                                                    @foreach ($especialidad as $espe)
+                                                        <option value="{{$espe->id}}">{{ $espe->description }}</option>
+                                                    @endforeach
                                                 <?php
                                                 } else {
                                                 ?>

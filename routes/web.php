@@ -34,6 +34,8 @@ Route::get('modal', 'App\Http\Controllers\PersonaController@modal');
 Route::resource('especialidad', 'App\Http\Controllers\EspecialidadController');
 
 //roles
+Route::post('crearRole', 'App\Http\Controllers\PersonaController@crearRole');
+Route::post('updateEstadoRol', 'App\Http\Controllers\PersonaController@updateEstadoRol');
 Route::get('adminR', 'App\Http\Controllers\PersonaController@adminView');
 Route::get('pacienteR', 'App\Http\Controllers\PersonaController@pacienteView');
 Route::get('doctorR', 'App\Http\Controllers\PersonaController@doctorView');
@@ -44,9 +46,15 @@ Route::match(['put','patch'], 'perfil', 'App\Http\Controllers\PersonaController@
 //tablas
 Route::get('pacientes', 'App\Http\Controllers\Tabla@pacientesView');
 Route::get('doctores', 'App\Http\Controllers\Tabla@doctoresView');
+Route::get('roles', 'App\Http\Controllers\Tabla@rolesView');
+Route::get('especialidades', 'App\Http\Controllers\Tabla@especialidadesView');
+Route::post('crearEspecialidad', 'App\Http\Controllers\EspecialidadController@crearEspecialidad');
+Route::post('updateEstadoEspecialidad', 'App\Http\Controllers\EspecialidadController@updateEstadoEspecialidad');
 
 Route::get('citas', 'App\Http\Controllers\Tabla@citas');
 Route::get('citasAdmin', 'App\Http\Controllers\Tabla@citasAdmin');
+
+Route::post('updateEstado', 'App\Http\Controllers\Tabla@updateEstado');
 
 //formulario
 Route::post('post_formulario', 'App\Http\Controllers\FormularioController@create');
@@ -62,6 +70,11 @@ Route::get('/mail', 'App\Http\Controllers\Tabla@show');
 //login y registro
 
 Auth::routes();
+
+Route::get('showCrearUsuario', 'App\Http\Controllers\PersonaController@showCrearUsuario');
+Route::post('crearUsuario', 'App\Http\Controllers\PersonaController@crearUsuario');
+
+Route::get('preRegister', 'App\Http\Controllers\Auth\RegisterController@preRegister');
 
 Route::get('restablecer', 'App\Http\Controllers\Auth\ForgotPasswordController@show');
 Route::post('/password/email', 'App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');

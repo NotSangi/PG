@@ -27,6 +27,7 @@ class User extends Authenticatable
         'tel',
         'password',
         'tratamiento_datos',
+        'estado'
     ];
 
     /**

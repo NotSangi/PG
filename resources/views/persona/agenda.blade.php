@@ -365,6 +365,15 @@
 </a>
 
 <?php    } elseif (Auth::user()->hasRole('admin')) { ?>
+<a class="nav-link collapsed" style="text-align: center" href="{{url('register')}}" aria-expanded="true">
+    <span>CREAR USUARIO</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{url('especialidades')}}" aria-expanded="true">
+    <span>ESPECIALIDADES</span>
+</a>
+<a class="nav-link collapsed" style="text-align: center" href="{{url('roles')}}" aria-expanded="true">
+    <span>ROLES</span>
+</a>
 <a class="nav-link collapsed" style="text-align: center" href="{{url('pacientes')}}" aria-expanded="true">
     <span>PACIENTES</span>
 </a>

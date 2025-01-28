@@ -50,7 +50,7 @@ if (Auth::user()) {
     aria-expanded="false">
     <span class="d-none d-lg-inline text-gray-600 small" style="font-size: 15px">INICIO SESION</span>
 </a>
-<a class="nav-i-r" href="{{url('register')}}" id="userDropdown" role="button" aria-haspopup="true"
+<a class="nav-i-r" href="{{url('preRegister')}}" id="userDropdown" role="button" aria-haspopup="true"
     aria-expanded="false">
     <span class="d-none d-lg-inline text-gray-600 small" style="font-size: 15px; margin: 0 40px 0 20px">REGISTRO</span>
 </a>
@@ -306,14 +306,14 @@ if (Auth::user()) {
     </a>
 
 <?php } elseif (Auth::user()->hasRole('admin')) { ?>
-    <a class="nav-link collapsed" style="text-align: center" href="#quienesSomos" aria-expanded="true">
-        <span>QUIÉNES SOMOS</span>
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('showCrearUsuario')}}" aria-expanded="true">
+        <span>CREAR USUARIO</span>
     </a>
-    <a class="nav-link collapsed" style="text-align: center" href="#mision_vision" aria-expanded="true">
-        <span>MISION Y VISION</span>
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('especialidades')}}" aria-expanded="true">
+        <span>ESPECIALIDADES</span>
     </a>
-    <a class="nav-link collapsed" style="text-align: center" href="#contacto_cuidados" aria-expanded="true">
-        <span>CONTACTO Y CUIDADOS</span>
+    <a class="nav-link collapsed" style="text-align: center" href="{{url('roles')}}" aria-expanded="true">
+        <span>ROLES</span>
     </a>
     <a class="nav-link collapsed" style="text-align: center" href="{{url('pacientes')}}" aria-expanded="true">
         <span>PACIENTES</span>

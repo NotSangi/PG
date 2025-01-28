@@ -34,7 +34,7 @@
 </head>
 
 <body class="bg-gradient-primary" style="overflow: hidden">
-    {!!Form::open(array('url' => 'register', 'method' => 'POST', 'autocomplete' => 'off'))!!}
+    {!!Form::open(array('url' => 'crearUsuario', 'method' => 'POST', 'autocomplete' => 'off'))!!}
     {{Form::token()}}
     <div class="container">
 
@@ -46,7 +46,7 @@
                     <div class="col-lg-7">
                         <div style="padding: 3rem 2rem 3rem 2rem;">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">CREA TU CUENTA</h1>
+                                <h1 class="h4 text-gray-900 mb-4">CREAR USUARIO</h1>
                             </div>
                             <input type="hidden" id="role" name="role" value="{{ request()->input('role') }}">
                             <form class="user">
@@ -101,11 +101,13 @@
                                             placeholder="Confirmar Contraseña">
                                     </div>
                                 </div>
-                                <div class="row" style="position: absolute; width: 90%;">
-                                    <div class="col-sm-6">
-                                        <input type="text" name="verificacion" class="form-control form-control-user"
-                                            id="verificacion" placeholder="Codigo verificacion" style="height: 25px;">
-                                    </div>
+                                <div class="row" style="position: absolute; width: 50%; padding-left: 10px;">
+                                    <select class="select-rol" aria-label="Default select example" name="rol" id="rol">
+                                            <option selected disabled>Rol</option>
+                                            @foreach ($roles as $rol)
+                                                <option value="{{$rol->name}}">{{ $rol->description}}</option>
+                                            @endforeach
+                                    </select>
                                 </div>
                                 <div class="trat_datos">
                                     @if ($errors->has('password'))
@@ -126,12 +128,6 @@
                                             {{ $errors->first('completar_formulario') }}
                                         </div>
                                     @endif
-                                    @if ($errors->has('codigo_incorrecto'))
-                                        <div class="alert alert-danger"
-                                            style="position: absolute; margin-bottom: 60px; margin-left: 330px;">
-                                            {{ $errors->first('codigo_incorrecto') }}
-                                        </div>
-                                    @endif
                                     <div>
                                         <input class="" type="checkbox" value="si" id="tratamiento_datos"
                                             name="tratamiento_datos">
@@ -142,14 +138,12 @@
 
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block" type="submit">
-                                    <span class="glyphicon glyphicon-ok"></span> REGISTRATE
+                                    <span class="glyphicon glyphicon-ok"></span> REGISTRAR
                                 </button>
-
 
                             </form>
                             <hr>
                             <div class="text-center btn-log">
-                                <a class="small" href="{{route('login')}}">¿Ya tienes una cuenta? Ingresa aquí</a>
                                 <a class="small" href="{{url('minuevasonrisa')}}">Volver</a>
                             </div>
                         </div>

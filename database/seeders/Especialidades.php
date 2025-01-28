@@ -16,41 +16,49 @@ class Especialidades extends Seeder
         $espe = new Especialidad();
         $espe->name = 'diseno_sonrisa';
         $espe->description = 'Diseño Sonrisa';
+        $espe->estado = 1;
         $espe->save(); 
 
         $espe = new Especialidad();
         $espe->name = 'endodoncia';
         $espe->description = 'Endodoncia';
+        $espe->estado = 1;
         $espe->save(); 
 
         $espe = new Especialidad();
         $espe->name = 'periodoncia';
         $espe->description = 'Periodoncia';
+        $espe->estado = 1;
         $espe->save(); 
 
         $espe = new Especialidad();
         $espe->name = 'cirugia_oral';
         $espe->description = 'Cirugía Oral';
+        $espe->estado = 1;
         $espe->save(); 
 
         $espe = new Especialidad();
         $espe->name = 'coronas_protesis';
         $espe->description = 'Coronas y Prótesis';
+        $espe->estado = 1;
         $espe->save(); 
 
         $espe = new Especialidad();
         $espe->name = 'calzas_blancas';
-        $espe->description = 'Clazas Blancas (Resinas)';
+        $espe->description = 'Calzas Blancas (Resinas)';
+        $espe->estado = 1;
         $espe->save(); 
 
         $espe = new Especialidad();
         $espe->name = 'ortodoncia';
         $espe->description = 'Ortodoncia';
+        $espe->estado = 1;
         $espe->save(); 
    
         $espe = new Especialidad();
         $espe->name = 'higiene';
         $espe->description = 'Higiene Oral';
+        $espe->estado = 1;
         $espe->save(); 
     }
 }

@@ -44,9 +44,6 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
 
-    
-     
-
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -65,6 +62,10 @@ class RegisterController extends Controller
     {   
         $document = Documentos::all();
         return view("auth.register")->with('documentos', $document); 
+    }
+
+    public function preRegister(){
+        return view('layout.preregister');
     }
 
     protected function register(Request $request)
@@ -86,18 +87,42 @@ class RegisterController extends Controller
             ->withInput($request->only('name', 'last_name', 'document', 'adress', 'email', 'tel'));
         }    else if (isset($_POST['tratamiento_datos'])){
             if($request->get('password') == $request->get('password_confirm')){
-                $user = User::create(attributes: [
-                    'name' => $request->get('name'),
-                    'last_name' => $request->get('last_name'),
-                    'document' => $request->get('document'),
-                    'adress' =>$request->get('adress'),
-                    'email' => $request->get('email'),
-                    'tel' =>$request->get('tel'),
-                    'password' => bcrypt($request->get('password')),
-                    'tratamiento_datos' =>$request->get('tratamiento_datos'),   
-                ]); 
-    
-                $user->roles()->attach(Role::where('name', 'paciente')->first()); 
+
+                if($request->get('role') == 'empleado'){
+                    if($request->get('verificacion') == "CRFGH17893L"){
+                        $user = User::create(attributes: [
+                            'name' => $request->get('name'),
+                            'last_name' => $request->get('last_name'),
+                            'document' => $request->get('document'),
+                            'adress' =>$request->get('adress'),
+                            'email' => $request->get('email'),
+                            'tel' =>$request->get('tel'),
+                            'password' => bcrypt($request->get('password')),
+                            'tratamiento_datos' =>$request->get('tratamiento_datos'),   
+                            'estado' => 1,
+                        ]);
+
+                        $user->roles()->attach(Role::where('name', 'doctor')->first());
+
+                    } else {
+                        return back()->withErrors(['codigo_incorrecto' => 'Codigo Incorrecto'])
+                        ->withInput($request->only('name', 'last_name', 'document', 'adress', 'email', 'tel'));
+                    }
+                } else if ($request->get('role') == 'afiliado'){
+                    $user = User::create(attributes: [
+                        'name' => $request->get('name'),
+                        'last_name' => $request->get('last_name'),
+                        'document' => $request->get('document'),
+                        'adress' =>$request->get('adress'),
+                        'email' => $request->get('email'),
+                        'tel' =>$request->get('tel'),
+                        'password' => bcrypt($request->get('password')),
+                        'tratamiento_datos' =>$request->get('tratamiento_datos'),   
+                        'estado' => 1,
+                    ]); 
+        
+                    $user->roles()->attach(Role::where('name', 'paciente')->first());
+                }     
 
                 $userId = $user->id;
 
@@ -116,16 +141,13 @@ class RegisterController extends Controller
             
 
         } else {
-            return back()->withErrors(['tratamiento_datos' => 'Debes aceptar el tratamiento de datos para registrarte'])
+            return back()->withErrors(['tratamiento_datos' => 'Debes aceptar el tratamiento de datos'])
             ->withInput($request->only('name', 'last_name', 'document', 'adress', 'email', 'tel'));
         }
 
-        
-
-       // Auth::login($user);
-
-        
-        
            
     }
+
+    
+    
 }
