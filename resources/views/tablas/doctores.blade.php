@@ -78,7 +78,7 @@ DOCTORES
 @endSection
 
 @section('componentes')
-<a class="nav-link collapsed" style="text-align: center" href="{{url('register')}}" aria-expanded="true">
+<a class="nav-link collapsed" style="text-align: center" href="{{url('showCrearUsuario')}}" aria-expanded="true">
     <span>CREAR USUARIO</span>
 </a>
 <a class="nav-link collapsed" style="text-align: center" href="{{url('especialidades')}}" aria-expanded="true">
